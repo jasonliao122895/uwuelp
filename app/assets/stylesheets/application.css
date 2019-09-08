@@ -1,0 +1,248 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /* Login / Signup */
+
+ .session-form header {
+  background-color: #d32323;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Ubuntu', sans-serif;
+ }
+
+ .session-form h1 {
+  font-size: 45px;
+ 
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #FFFFFF;
+ }
+
+ .session-form h3 {
+  font-size: 20px;
+
+  transform: rotate(-45deg);
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #FFFFFF;
+ }
+
+ .session-main-content {
+   display: flex;
+   justify-content: space-around;
+   margin-left: 170px;
+   margin-right: 170px;
+   padding: 15px 15px 36px 15px;
+ }
+
+ .session-main-content a {
+   color: #0073BB;
+   text-decoration: none;
+ }
+
+ #demo {
+   width: 320px;
+   padding: 8px 19px 9px;
+   background-color: #3b5998;
+   border: 1px solid #3b5998;
+   border-radius: 3px;
+   color: #ffff;
+   font-weight: bold;
+   font-size: 13.5px;
+   cursor: pointer;
+ }
+
+ .session-main-content a:hover {
+   text-decoration: underline;
+ }
+
+ .session-inputs {
+   width: 450px;
+   height: 620px;
+   display: flex; 
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 30px;
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ .session-inputs h2 {
+   width: 100%;
+   text-align: center;
+   color: #d32323;
+ }
+ 
+ .session-inputs p {
+   width: 300px;
+   text-align: center;
+   font-size: 13px;
+ }
+
+ #or-field {
+   margin-top: 30px;
+   margin-bottom: 30px;
+   border: none;
+   border-top: 1px solid #ccc;
+   text-align: center;
+   width: 290px;
+ }
+
+ #or-field legend {
+   padding: 0 15px;
+ }
+
+ .session-inputs input, label, select {
+   padding:  5px 9px;
+   margin-bottom: 9px;
+ }
+
+ .session-inputs input {
+   border: 1px solid #999;
+   border-radius: 3px;
+   background-color: #fff;
+ }
+
+ #first_name, #last_name {
+  width: 137px;
+ }
+
+ #last_name {
+   margin-left: 6px;
+ }
+
+ #email, #pass, #zip {
+   width: 300px;
+ }
+
+ #new-to-uwuelp {
+   font-weight: 600;
+   font-size: 15px;
+ }
+
+ .selects {
+   display: flex;
+   justify-content: space-between;
+ }
+
+ label {
+   padding: 0px;
+   margin-bottom: 9px;
+ }
+ 
+ span {
+   font-size: 11px;
+   color: #999;
+ }
+
+ .selects select {
+  width: 100px;
+  height: 30px;
+  margin-top: 9px;
+  max-height: 65px;
+  overflow: scroll;
+ }
+
+
+
+ .session-image {
+   align-self: center;
+   padding-left: 30px;
+   margin-left: 30px;
+ }
+
+ #forgot-pass {
+   display: flex;
+   justify-content: flex-end;
+ }
+
+ #session-description {
+   text-align: left;
+ }
+
+ #session-button {
+   width: 100%;
+   height: 43px;
+   text-align: center;
+   background-color: #d32323;
+   border: 1px solid #d32323;
+   cursor: pointer;
+   border-radius: 3px;
+   color: #FFFF;
+   font-size: 15px;
+   font-family: 'Ubuntu', sans-serif;
+   font-weight: bolder;
+ }
+
+ 
+
+ /* Homepage */
+ html, body {
+   padding: 0;
+   margin: 0;
+ }
+
+ .home-content {
+  background-image: url(https://s3-media4.fl.yelpcdn.com/assets/srv0/yelp_large_assets/7be9434e786e/assets/img/home/hero_photos/toWH_4XA2LdXsQC34bwdhw.jpg);
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+ }
+
+ .home-content header {
+   display: flex;
+   justify-content: space-around;
+   height: 80px;
+   align-items: center;
+ }
+
+ .home-content header a, .home-content header button {
+   text-decoration: none;
+   padding: 10px;
+   font-weight: 600;
+   font-size: 14px;
+   background-color: transparent;
+   border: none;
+   color: #FFFFFF;
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ .welcome-msg {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+ }
+
+ .welcome-msg h4 {
+   color: #FFF;
+ }
+
+ #signup-but, #logout-but {
+   border: 2px solid #FFF;
+   border-radius: 4px;
+   padding: 7px 24px 8px;
+   margin-left: 15px;
+   height: 35px;
+ }
+
+ #signup-but:hover, #logout-but:hover {
+   background-color: #999;
+ }
+
+ #home-links button:hover {
+  border-bottom: 2px solid #FFF;
+ }  
