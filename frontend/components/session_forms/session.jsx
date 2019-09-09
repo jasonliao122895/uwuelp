@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { setInterval } from 'timers';
+
+
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -25,12 +28,37 @@ export default class SessionForm extends React.Component {
     }
   }
 
+  handleEmail(email) {
+    let emailArr = email.split('');
+    setInterval(() => {
+      if (emailArr.length > 0) {
+        this.setState({
+          email: this.state.email + emailArr.shift()
+        })
+      }
+    }, 100)
+  }
+
+  handlePass(pass) {
+    let passArr = pass.split('');
+    setInterval(() => {
+      if (passArr.length > 0) {
+        this.setState({
+          password: this.state.password + passArr.shift()
+        })
+      }
+    }, 100)
+  }
 
   handleDemo(e) {
     e.preventDefault();
-    // debugger;
-    let demouser = { email: "jasonliao@live.com", password: "123456"};
-    this.props.processForm(demouser)
+    let email = "jasonliao@live.com"
+    let pass = "123456"
+    this.handleEmail(email);
+    this.handlePass(pass);
+    setTimeout(() => {
+      this.props.processForm(this.state)
+    }, 1900)
   }
 
   handleSubmit(e) {
