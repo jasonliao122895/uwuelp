@@ -85,6 +85,22 @@ export default class SessionForm extends React.Component {
       restYearArr.push(i)
     }
     
+    let emailError = "";
+    let passwordError = "";
+    let zipcodeError = "";
+    let firstNameError = "";
+    let lastNameError = "";
+
+    this.props.errors.forEach(error => {
+      if (error.includes('First')) firstNameError += error;
+      if (error.includes('Last')) lastNameError += error;
+      if (error.includes('Email')) emailError += error;
+      if (error.includes('Zipcode')) zipcodeError += error;
+      if (error.includes('Password')) passwordError += error;
+    })
+
+    
+
     return (
       
       <div className="session-form">
@@ -110,26 +126,44 @@ export default class SessionForm extends React.Component {
             <fieldset id="or-field">
               <legend>OR</legend>
             </fieldset>
-            <form>
-              {formType === "signup" ? 
-              <input 
-                type="text" onChange={this.handleInput('first_name')}
-                placeholder="First Name" id="first_name" value={this.state.first_name} />: ""}
-              {formType === "signup" ? 
-              <input 
-                type="text" onChange={this.handleInput('last_name')}
-                placeholder="Last Name" id="last_name" value={this.state.last_name}/> : ""}
+            <form className="actual-session-form">
+              <div id="name-div">
+                {formType === "signup" ? 
+                <div>
+                  <input 
+                    type="text" onChange={this.handleInput('first_name')}
+                    placeholder="First Name" id="first_name" value={this.state.first_name} 
+                  />
+                  <p>{firstNameError}</p>
+                </div>
+                  : ""}
+                {formType === "signup" ? 
+                <div>
+                  <input 
+                    type="text" onChange={this.handleInput('last_name')}
+                    placeholder="Last Name" id="last_name" value={this.state.last_name}
+                  />
+                  <p>{lastNameError}</p>
+                </div> : ""}
+              </div>
+            
               <br/>
               <input 
                 type="text" id="email" placeholder="Email" onChange={this.handleInput('email')}
                 value={this.state.email}/>
+              <p>{emailError}</p>
               <br/>
               <input type="password" id="pass" placeholder="Password" onChange={this.handleInput('password')}
                 value={this.state.password}/>
+              <p>{passwordError}</p>
               <br/>
               {formType === "signup" ? 
-              <input type="integer" id="zip" placeholder="Zipcode"
-                onChange={this.handleInput('zipcode')} value={this.state.zipcode}/> : ""}
+              <div>
+                <input type="integer" id="zip" placeholder="Zipcode"
+                  onChange={this.handleInput('zipcode')} value={this.state.zipcode}
+                />
+                <p>{zipcodeError}</p>
+              </div> : ""}
               <br/>
               {formType === "signup" ? 
               <div className="birth-date">

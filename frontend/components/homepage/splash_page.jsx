@@ -10,7 +10,7 @@ export default class Homepage extends React.Component {
   }
 
   render() {
-    // debugger
+    
     return (
       <div>
         <div className="home-content">

@@ -8,7 +8,7 @@
 User.destroy_all
 User.connection.execute('ALTER SEQUENCE users_id_seq RESTART WITH 1')
 
-# User.create(
-#   first_name: 'Jason', last_name: 'Liao', email: 'jasonliao@live.com',
-#   zipcode: 94134, birth_month: 12, birth_day: 28, birth_year: 1995, password: "123456"
-# )
+User.create(
+  first_name: 'Jason', last_name: 'Liao', email: 'jasonliao@live.com',
+  zipcode: 94134, birth_month: 12, birth_day: 28, birth_year: 1995, password: "123456"
+)
