@@ -90,11 +90,10 @@ export default class SessionForm extends React.Component {
       <div className="session-form">
         
           <header>
-            <span>
-              <h3><Link to="/">UwU</Link>></h3>
-              <h1><Link to="/">elp</Link></h1>
-            </span>
-            
+            <Link to="/">
+            <span><h3>UwU</h3></span>
+              <h1>elp</h1>  
+            </Link>
           </header>
         <div className="session-main-content">  
           <div className="session-inputs">

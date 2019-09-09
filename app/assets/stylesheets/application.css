@@ -22,23 +22,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row-reverse;
   font-family: 'Ubuntu', sans-serif;
  }
 
  .session-form h1 {
   font-size: 45px;
- 
   font-family: 'Ubuntu', sans-serif;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: #FFFFFF;
+  color: black;
+  text-shadow: 3px 3px 0 #FFF,
+  -3px 3px 0 #FFF,
+  3px -3px 0 #FFF,
+  -3px -3px 0 #FFF;
+  margin: 0px 0px 0px 30px;
  }
 
  .session-form h3 {
   font-size: 20px;
-
+  text-align: left;
   transform: rotate(-45deg);
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: #FFFFFF;
+  color: #d32323;
+  text-shadow: 2px 2px 0 #FFF,
+  -2px 2px 0 #FFF,
+  -2px -2px 0 #FFF,
+  2px -2px 0 #FFF;
+  margin: 0;
  }
 
  .session-main-content {
@@ -245,4 +253,6 @@
 
  #home-links button:hover {
   border-bottom: 2px solid #FFF;
+  margin-bottom: -2px;
+  cursor: pointer;
  }  

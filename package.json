@@ -29,5 +29,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "file-loader": "^4.2.0"
+  }
 }
