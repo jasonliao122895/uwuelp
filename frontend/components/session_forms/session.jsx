@@ -22,6 +22,7 @@ export default class SessionForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
+
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value})
@@ -90,6 +91,7 @@ export default class SessionForm extends React.Component {
     let zipcodeError = "";
     let firstNameError = "";
     let lastNameError = "";
+    let invalidError = ""
 
     this.props.errors.forEach(error => {
       if (error.includes('First')) firstNameError += error;
@@ -97,6 +99,7 @@ export default class SessionForm extends React.Component {
       if (error.includes('Email')) emailError += error;
       if (error.includes('Zipcode')) zipcodeError += error;
       if (error.includes('Password')) passwordError += error;
+      if (error.includes('Invalid')) invalidError += error;
     })
 
     
@@ -151,11 +154,12 @@ export default class SessionForm extends React.Component {
               <input 
                 type="text" id="email" placeholder="Email" onChange={this.handleInput('email')}
                 value={this.state.email}/>
-              <p>{emailError}</p>
+              {formType === "signup" ? <p>{emailError}</p> : ""}
+              {formType === "login" ? <p>{invalidError}</p> : ""}
               <br/>
               <input type="password" id="pass" placeholder="Password" onChange={this.handleInput('password')}
                 value={this.state.password}/>
-              <p>{passwordError}</p>
+              {formType === "signup" ? <p>{passwordError}</p> : "" }
               <br/>
               {formType === "signup" ? 
               <div>
