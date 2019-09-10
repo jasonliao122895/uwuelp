@@ -27,11 +27,11 @@
 #
 
 class Businesse < ApplicationRecord
-  validates :address, :city, :name, presence: true, uniqueness: true
-  validates :state, :zipcode, :description, :open_hour, :closing_hour, :latitude, :longitude, :phone, presence: true
+  validates :address, :phone, presence: true, uniqueness: true
+  validates :state, :zipcode, :city, :description, :open_hour, :closing_hour, :latitude, :longitude, :name, presence: true
   validates :price_range, inclusion: { in: ['Inexpensive', 'Moderate', 'Pricey', 'Ultra High-End']}
   validates :takeout, :accept_card, :cater, :wifi, inclusion: { in: ['Yes', 'No']}
   validates :parking, inclusion: { in: ['Street', 'Meter', 'Parking Lot']}
   validates :noise_level, inclusion: { in: ['High', 'Low']}
-  validates :category, inclusion: { in: ['Restaurant', 'BarberShop', 'Boba Shop', 'Clothing Store'] }
+  validates :category, inclusion: { in: ['Restaurant', 'Barber Shop', 'Boba Shop', 'Clothing Store'] }
 end

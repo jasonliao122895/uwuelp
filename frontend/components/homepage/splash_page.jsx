@@ -16,7 +16,8 @@ export default class Homepage extends React.Component {
         <div className="home-content">
           <header>
             <div id="home-links">
-              <button>Write a Review</button>
+
+              <Link to="/businesses"><button>Write a Review</button></Link>
               <button>Github</button>
               <button>LinkedIn</button>
             </div>
