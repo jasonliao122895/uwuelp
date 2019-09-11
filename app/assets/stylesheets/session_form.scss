@@ -70,6 +70,8 @@
   padding-top: 9px;
  }
 
+ .errors-div
+
  .session-inputs {
    width: 450px;
    height: 620px;
@@ -147,27 +149,26 @@
    font-size: 15px;
  }
 
- .selects {
-   display: flex;
-   justify-content: space-between;
- }
-
+ 
  label {
    padding: 0px;
    margin-bottom: 9px;
- }
- 
- span {
-   font-size: 11px;
-   color: #999;
- }
-
+  }
+  
+  span {
+    font-size: 11px;
+    color: #999;
+  }
+  
+  .selects {
+    display: flex;
+    justify-content: space-between;
+  }
+  
  .selects select {
   width: 100px;
   height: 30px;
   margin-top: 9px;
-  max-height: 65px;
-  overflow: scroll;
  }
 
 

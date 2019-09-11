@@ -27,7 +27,8 @@ export default class BusinessMap extends React.Component {
       const marker = new google.maps.Marker({
         position: latLng,
         map: this.map,
-        animation: google.maps.Animation.DROP
+        animation: google.maps.Animation.BOUNCE
+        // label: "★"
       })
     }
 
@@ -63,7 +64,7 @@ export default class BusinessMap extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.business) {
+    // if (this.props.business) {
       //   let latLng = {lat: this.props.business.latitude, lng: this.props.business.longitude}
       //   const marker = new google.maps.Marker({
       //   position: latLng,
@@ -71,7 +72,7 @@ export default class BusinessMap extends React.Component {
       // })
     
       // this.MarkerManager.updateMarkers(businessArr);
-    }
+    // }
 
     if (this.props.businesses && this.props.business === undefined) {
       this.MarkerManager.updateMarkers(this.props.businesses);

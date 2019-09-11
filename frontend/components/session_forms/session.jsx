@@ -37,7 +37,7 @@ export default class SessionForm extends React.Component {
           email: this.state.email + emailArr.shift()
         })
       }
-    }, 100)
+    }, 50)
   }
 
   handlePass(pass) {
@@ -48,7 +48,7 @@ export default class SessionForm extends React.Component {
           password: this.state.password + passArr.shift()
         })
       }
-    }, 100)
+    }, 50)
   }
 
   handleDemo(e) {
@@ -58,15 +58,25 @@ export default class SessionForm extends React.Component {
     this.handleEmail(email);
     setTimeout(() => {
       this.handlePass(pass);
-    }, 1900)
+    }, 1000)
     setTimeout(() => {
       this.props.processForm(this.state)
-    }, 2600)
+    }, 1400)
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
+    let errors = document.getElementsByClassName('errors');
+    errors = Array.from(errors)
+    errors.forEach(error => {
+      error.classList.remove('hide');
+    })
+    setTimeout(() => {
+      errors.forEach(error => {
+        error.classList.add('hide');
+      })
+    },1700)
   }
 
   render() {
@@ -103,7 +113,6 @@ export default class SessionForm extends React.Component {
       if (error.includes('Password')) passwordError += error;
       if (error.includes('Invalid')) invalidError += error;
     })
-
     
 
     return (
@@ -139,7 +148,8 @@ export default class SessionForm extends React.Component {
                     type="text" onChange={this.handleInput('first_name')}
                     placeholder="First Name" id="first_name" value={this.state.first_name} 
                   />
-                  <p>{firstNameError}</p>
+                  <p className="errors">{firstNameError}</p>
+                  <div className="errors-div hide"></div>
                 </div>
                   : ""}
                 {formType === "signup" ? 
@@ -148,7 +158,8 @@ export default class SessionForm extends React.Component {
                     type="text" onChange={this.handleInput('last_name')}
                     placeholder="Last Name" id="last_name" value={this.state.last_name}
                   />
-                  <p>{lastNameError}</p>
+                  <p className="errors">{lastNameError}</p>
+                  <div className="errors-div hide"></div>
                 </div> : ""}
               </div>
             
@@ -156,19 +167,37 @@ export default class SessionForm extends React.Component {
               <input 
                 type="text" id="email" placeholder="Email" onChange={this.handleInput('email')}
                 value={this.state.email}/>
-              {formType === "signup" ? <p>{emailError}</p> : ""}
-              {formType === "login" ? <p>{invalidError}</p> : ""}
+              {formType === "signup" ? 
+              <div>
+                <p className="errors">{emailError}</p> 
+                <div className="errors-div hide"></div>
+              </div>
+              : ""}
+              {formType === "login" ? 
+              <div>
+                <p className="errors">{invalidError}</p> 
+                <div className="errors-div"></div>
+              </div>
+              : ""}
               <br/>
               <input type="password" id="pass" placeholder="Password" onChange={this.handleInput('password')}
                 value={this.state.password}/>
-              {formType === "signup" ? <p>{passwordError}</p> : "" }
+              {formType === "signup" ? 
+              <div>
+                <p className="errors">{passwordError}</p> 
+                <div className="errors-div"></div>
+              </div>
+                : "" }
+
+              
               <br/>
               {formType === "signup" ? 
               <div>
                 <input type="integer" id="zip" placeholder="Zipcode"
                   onChange={this.handleInput('zipcode')} value={this.state.zipcode}
                 />
-                <p>{zipcodeError}</p>
+                <p className="errors">{zipcodeError}</p>
+                <div className="errors-div"></div>
               </div> : ""}
               <br/>
               {formType === "signup" ? 
@@ -177,7 +206,7 @@ export default class SessionForm extends React.Component {
                 <span>    Optional</span>
                 <br/>
                 <div className="selects">
-                  <select onChange={this.handleInput('birth_month')} name="birth-month">
+                  <select onChange={this.handleInput('birth_month')} name="birth-month" >
                     <option>Month</option>
                     <option key="1"  value="1">Jan</option>
                     <option key="2"  value="2">Feb</option>
