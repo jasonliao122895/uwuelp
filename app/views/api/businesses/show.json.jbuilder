@@ -6,8 +6,7 @@ json.set! @businesse.id do
   json.state @businesse.state
   json.zipcode @businesse.zipcode
   json.description @businesse.description
-  json.openHour @businesse.open_hour
-  json.closingHour @businesse.closing_hour
+  json.hours `#{@businesse.open_hour} - #{@businesse.closing_hour}`
   json.latitiude @businesse.latitude
   json.phone @businesse.phone
   json.website @businesse.website

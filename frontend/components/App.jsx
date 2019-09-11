@@ -3,13 +3,16 @@ import SignupContainer from './session_forms/signup_container';
 import LoginContainer from './session_forms/login_container';
 import HomepageContainer from './homepage/splash_page_container';
 import { AuthRoute, ProtectedRoute } from '../util/routes_util';
-import { Route } from 'react-router-dom';
-import BusinessIndexContainer from '../components/businesses/businesses_index_container'
+import { Route, Switch } from 'react-router-dom';
+import BusinessIndexContainer from '../components/businesses/businesses_index_container';
+import BusinessShowContainer from '../components/businesses/business_show_container';
 
 const App = () => (
   <div>
+    
     <Route exact path="/" component={HomepageContainer} />
-    <Route path="/businesses" component={BusinessIndexContainer} />
+    <Route exact path="/businesses" component={BusinessIndexContainer} />
+    <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
     <AuthRoute path="/signup" component={SignupContainer} />
     <AuthRoute path="/login" component={LoginContainer} />
   </div>

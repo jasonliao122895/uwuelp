@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link }  from 'react-router-dom';
 
 const BusinessIndexItem = ({ business }) => {
   let price = "";
@@ -15,7 +15,9 @@ const BusinessIndexItem = ({ business }) => {
           <div className="business-info">
 
             <div className="name-rating">
-              <h4><li>{business.name}</li></h4>
+              <Link to={`/businesses/${business.id}`}>
+                <h4><li>{business.name}</li></h4>
+              </Link>
               <div>
                 <h4>*****</h4>
                  <p>{`${price} - ${business.category} ${business.subCategory ? `, ${business.subCategory}` : ""}`}</p>

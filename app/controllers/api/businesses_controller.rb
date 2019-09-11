@@ -2,8 +2,14 @@ class Api::BusinessesController < ApplicationController
 
   def index
     # @businesses = Businesse.all
-    @businesses = Businesse.in_bounds(params[:filters][:bounds])
-    
+    bounds = params[:filters][:bounds]
+
+    if bounds == "hi"
+      @businesses = Businesse.all
+    else
+      @businesses = Businesse.in_bounds(params[:filters][:bounds])
+    end
+      
     render :index
   end
 
