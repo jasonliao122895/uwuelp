@@ -8,12 +8,14 @@ export default class BusinessIndex extends React.Component {
   
   
   componentDidMount() {
-    let bounds = "hi"
+    let bounds = "show all"
     this.props.updateBounds("bounds", bounds);
   }
 
   render() {
-    let businesses = this.props.businesses.map(business => {
+    let numbers = []
+    let businesses = this.props.businesses.map((business, idx) => {
+      numbers.push(idx + 1);
       return (
         <BusinessIndexItem key={business.id} business={business}/>
       )
@@ -31,6 +33,7 @@ export default class BusinessIndex extends React.Component {
               <BenchMap 
                 businesses={Object.values(this.props.businesses)}
                 updateBounds={this.props.updateBounds}
+                numbers={numbers}
               />
             </div>
           </div>

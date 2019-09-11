@@ -1,0 +1,204 @@
+.session-form header {
+  background-color: rgb(37, 36,48);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  font-family: 'Ubuntu', sans-serif;
+ }
+
+ .session-form h1 {
+   font-size: 45px;
+   font-family: 'Ubuntu', sans-serif;
+   color: black;
+   text-shadow: 3px 3px 0 #FFF,
+   -3px 3px 0 #FFF,
+   3px -3px 0 #FFF,
+   -3px -3px 0 #FFF;
+   margin: 0px 0px 0px 30px;
+ }
+
+ .session-form h3 {
+  font-size: 20px;
+   text-align: left;
+   transform: rotate(-45deg);
+   color: rgb(37, 36,48);
+   text-shadow: 2px 2px 0 #FFF,
+   -2px 2px 0 #FFF,
+   -2px -2px 0 #FFF,
+   2px -2px 0 #FFF;
+   margin: 0;
+ }
+
+ .session-form a {
+   text-decoration: none;
+ }
+
+ .session-main-content {
+   display: flex;
+   justify-content: space-around;
+   margin-left: 170px;
+   margin-right: 170px;
+   padding: 15px 15px 36px 15px;
+ }
+
+ .session-main-content a {
+   color: #0073BB;
+   text-decoration: none;
+ }
+
+ #demo {
+   width: 320px;
+   padding: 8px 19px 9px;
+   background-color: #3b5998;
+   border: 1px solid #3b5998;
+   border-radius: 3px;
+   color: #ffff;
+   font-weight: bold;
+   font-size: 13.5px;
+   cursor: pointer;
+ }
+
+ .session-main-content a:hover {
+   text-decoration: underline;
+ }
+
+ .actual-session-form p {
+  margin: 0;
+  color: red;
+  padding-top: 9px;
+ }
+
+ .session-inputs {
+   width: 450px;
+   height: 620px;
+   display: flex; 
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 30px;
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ .session-inputs h2 {
+   width: 100%;
+   text-align: center;
+   color: rgb(37, 36,48);
+ }
+ 
+ .session-inputs p {
+   width: 300px;
+   text-align: center;
+   font-size: 13px;
+ }
+
+ #or-field {
+   margin-top: 30px;
+   margin-bottom: 30px;
+   border: none;
+   border-top: 1px solid #ccc;
+   text-align: center;
+   width: 290px;
+ }
+
+ #or-field legend {
+   padding: 0 15px;
+ }
+
+ .session-inputs input, label, select {
+   padding:  5px 9px;
+   margin-bottom: 0px;
+ }
+
+ .session-inputs input {
+   border: 1px solid #999;
+   border-radius: 3px;
+   background-color: #fff;
+ }
+
+ #first_name, #last_name {
+  width: 137px;
+ }
+
+ #last_name {
+   margin-left: 6px;
+ }
+
+ #name-div {
+   display: flex;
+   flex-direction: row;
+   width: 300px;
+   text-align: center
+ }
+
+ #name-div div, #name-div p {
+   width: 156px;
+   margin: 0;
+ } 
+
+
+ #email, #pass, #zip {
+   width: 300px;
+ }
+
+ #new-to-uwuelp {
+   font-weight: 600;
+   font-size: 15px;
+ }
+
+ .selects {
+   display: flex;
+   justify-content: space-between;
+ }
+
+ label {
+   padding: 0px;
+   margin-bottom: 9px;
+ }
+ 
+ span {
+   font-size: 11px;
+   color: #999;
+ }
+
+ .selects select {
+  width: 100px;
+  height: 30px;
+  margin-top: 9px;
+  max-height: 65px;
+  overflow: scroll;
+ }
+
+
+
+ .session-image {
+   align-self: center;
+   padding-left: 30px;
+   margin-left: 30px;
+ }
+
+ #forgot-pass {
+   display: flex;
+   justify-content: flex-end;
+ }
+
+ #session-description {
+   text-align: left;
+   color: black;
+ }
+
+ #session-button {
+   width: 100%;
+   height: 43px;
+   margin-top: 10px;
+   text-align: center;
+   background-color: rgb(37, 36,48);
+   border: 1px solid rgb(37, 36,48);
+   cursor: pointer;
+   border-radius: 3px;
+   color: #FFFF;
+   font-size: 15px;
+   font-family: 'Ubuntu', sans-serif;
+   font-weight: bolder;
+ }

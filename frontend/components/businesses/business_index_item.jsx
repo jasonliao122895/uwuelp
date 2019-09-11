@@ -10,7 +10,7 @@ const BusinessIndexItem = ({ business }) => {
    return (
     <div>
       <div className="business-list-item">
-        <img src="https://static.boredpanda.com/blog/wp-content/uploads/2014/06/happy-dog-maru-shiba-inu-7.jpg" alt=""/>
+         <img src="http://img1.ak.crunchyroll.com/i/spire1/8ad71330b958165e3b735054f4ff20211498090822_full.jpg" alt=""/>
         <div className="all-business-info">
           <div className="business-info">
 
@@ -42,3 +42,4 @@ const BusinessIndexItem = ({ business }) => {
 }
 
 export default BusinessIndexItem;
+

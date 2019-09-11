@@ -1,3 +1,5 @@
+open_duration = [@businesse.open_hour, @businesse.closing_hour].join('-')
+
 json.set! @businesse.id do
   json.id @businesse.id
   json.name @businesse.name
@@ -6,8 +8,9 @@ json.set! @businesse.id do
   json.state @businesse.state
   json.zipcode @businesse.zipcode
   json.description @businesse.description
-  json.hours `#{@businesse.open_hour} - #{@businesse.closing_hour}`
-  json.latitiude @businesse.latitude
+  json.hours open_duration
+  json.latitude @businesse.latitude
+  json.longitude @businesse.longitude
   json.phone @businesse.phone
   json.website @businesse.website
   json.priceRange @businesse.price_range

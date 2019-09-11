@@ -14,8 +14,21 @@ export default class BusinessMap extends React.Component {
     this.initMap(location);
     this.MarkerManager = new MarkerManager(this.map);
     
-    if (this.props.businesses.length > 0) {
-      this.MarkerManager.updateMarkers(this.props.businesses)
+    // if (this.props.businesses.length > 0) {
+    //   this.MarkerManager.updateMarkers(this.props.businesses)
+    // }
+
+    if (this.props.business) {
+    
+      let business = this.props.business;
+      this.map.setOptions({ draggable: false, zoom: 15 });
+      this.map.setCenter({ lat: business.latitude, lng: business.longitude });
+      let latLng = { lat: this.props.business.latitude, lng: this.props.business.longitude }
+      const marker = new google.maps.Marker({
+        position: latLng,
+        map: this.map,
+        animation: google.maps.Animation.DROP
+      })
     }
 
   }
@@ -50,8 +63,20 @@ export default class BusinessMap extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.filter);
-    this.MarkerManager.updateMarkers(this.props.businesses);
+    if (this.props.business) {
+      //   let latLng = {lat: this.props.business.latitude, lng: this.props.business.longitude}
+      //   const marker = new google.maps.Marker({
+      //   position: latLng,
+      //   map: this.map,
+      // })
+    
+      // this.MarkerManager.updateMarkers(businessArr);
+    }
+
+    if (this.props.businesses && this.props.business === undefined) {
+      this.MarkerManager.updateMarkers(this.props.businesses);
+    }
+      
   }
   
 
@@ -65,8 +90,12 @@ export default class BusinessMap extends React.Component {
     // debugger
     return (
       <div>
-        <button onClick={this.handleFilter} id="filt-but" className="show">Filter</button>
-        <button onClick={this.handleUnfilter} id="unfilt-but" className="hide">Unfilter</button>
+        {!this.props.business ? 
+        <div>
+          <button onClick={this.handleFilter} id="filt-but" className="show">Filter</button>
+          <button onClick={this.handleUnfilter} id="unfilt-but" className="hide">Unfilter</button>
+          <span>Click To Toggle Filter By Map Movement</span>
+        </div> : ""}
       <div id="map-container" ref={map => this.mapNode = map}>
       </div>
       </div>

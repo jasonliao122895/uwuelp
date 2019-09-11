@@ -1,0 +1,68 @@
+ /* Business Index List */
+
+  .business-index-main ol {
+    width: 630px;
+  }
+
+  .business-index-main {
+    display: flex;
+    justify-content: flex-start;
+    width: 900px;
+    margin: 0, auto;
+  }
+
+  .business-index-main-flex {
+    display: flex;
+    justify-content: center;
+  }
+
+    /* Business Index Item */
+.business-list-item img {
+  height: 210px;
+  width: 210px;
+}
+
+.business-list-item li {
+  list-style-position: inside;
+}
+
+.business-list-item {
+  display: flex;
+  flex-direction: row;  
+  padding: 20px 0px 20px 0px;
+  border-bottom: 1px solid #999;
+}
+
+.business-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.all-business-info {
+  padding-left: 30px;
+}
+
+.phone-location span {
+  color: black;
+  font-size: 16px;
+  margin: 5px 0px 5px 0px;
+}
+
+.phone-location p {
+  margin: 0;
+}
+
+.phone-location {
+  text-align: right;
+}
+
+.name-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.name-rating h4, .name-rating p {
+  margin: 0px;
+  margin-top: 5px;
+}

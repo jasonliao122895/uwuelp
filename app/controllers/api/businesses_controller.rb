@@ -4,7 +4,7 @@ class Api::BusinessesController < ApplicationController
     # @businesses = Businesse.all
     bounds = params[:filters][:bounds]
 
-    if bounds == "hi"
+    if bounds == "show all"
       @businesses = Businesse.all
     else
       @businesses = Businesse.in_bounds(params[:filters][:bounds])

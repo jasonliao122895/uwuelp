@@ -1,0 +1,30 @@
+
+ /* Map Size */
+ #map-container {
+   width: 250px;
+   height: 250px;
+ }
+
+ .map-div span {
+   font-size: 10px;
+ }
+
+ .map-div {
+   margin-left: 30px;
+   height: 290px;
+   position: sticky;
+   top: 105px;
+ }
+
+ /* Map Filter */
+
+ .hide {
+  display: none;
+ }
+
+//  map show
+
+#show-map {
+  height: 200px;
+  width: 200px;
+}

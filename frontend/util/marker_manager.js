@@ -9,7 +9,8 @@ export default class MarkerManager {
 
     let businessesObj = {};
     businesses.forEach(business => businessesObj[business.id] = business);
-
+    let keys = Object.keys(this.markers);
+    keys = keys.slice();
     Object.keys(this.markers).forEach(businessId => {
       if (!businessesObj[businessId]) {
         let unwantedMarker = this.markers[businessId];
@@ -20,18 +21,27 @@ export default class MarkerManager {
       }
     })
 
-    businesses.forEach(business => {
+    businesses.forEach((business) => {
       this.createMarkerFromBusiness(business);
+    })
+
+    Object.keys(this.markers).forEach((markerId, idx) => {
+      let marker = this.markers[markerId];
+      let newNum = idx + 1
+      newNum = newNum.toString()
+      marker.setLabel(newNum)
     })
   }
 
   createMarkerFromBusiness(business) {
+   
     if (!this.markers[business.id]) {
       let latLng = { lat: business.latitude, lng: business.longitude }
       let marker = new google.maps.Marker({
         position: latLng,
         map: this.map,
-        animation: google.maps.Animation.DROP
+        animation: google.maps.Animation.DROP,
+       
       })
       this.markers[business.id] = marker; 
     }
@@ -40,4 +50,6 @@ export default class MarkerManager {
   removeMarker(marker) {
     marker.setMap(null);
   }
+
+
 }

@@ -10,9 +10,9 @@ import BusinessShowContainer from '../components/businesses/business_show_contai
 const App = () => (
   <div>
     
-    <Route exact path="/" component={HomepageContainer} />
-    <Route exact path="/businesses" component={BusinessIndexContainer} />
     <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
+    <Route exact path="/businesses" component={BusinessIndexContainer} />
+    <Route exact path="/" component={HomepageContainer} />
     <AuthRoute path="/signup" component={SignupContainer} />
     <AuthRoute path="/login" component={LoginContainer} />
   </div>
