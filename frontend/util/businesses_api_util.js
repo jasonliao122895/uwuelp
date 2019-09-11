@@ -1,9 +1,10 @@
 
 
-export const fetchBusinesses = () => (
+export const fetchBusinesses = (filters) => (
   $.ajax({
     url: '/api/businesses',
-    method: 'GET'
+    method: 'GET',
+    data: { filters  }
   })
 )
 
@@ -13,3 +14,5 @@ export const fetchBusiness = (id) => (
     method: 'GET'
   })
 )
+
+window.fetchBusinesses = fetchBusinesses

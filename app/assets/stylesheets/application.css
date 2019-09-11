@@ -19,6 +19,25 @@
    font-family: 'Ubuntu', sans-serif;
  }
 
+ /* Map Size */
+ #map-container {
+   width: 250px;
+   height: 250px;
+ }
+
+ .map-div {
+   margin-left: 30px;
+   height: 290px;
+   position: sticky;
+   top: 105px;
+ }
+
+ /* Map Filter */
+
+ .hide {
+  display: none;
+ }
+
  /* Login / Signup */
 
  .session-form header {
@@ -389,6 +408,13 @@
 
   .business-index-main {
     display: flex;
+    justify-content: flex-start;
+    width: 900px;
+    margin: 0, auto;
+  }
+
+  .business-index-main-flex {
+    display: flex;
     justify-content: center;
   }
 
@@ -442,3 +468,4 @@
   margin: 0px;
   margin-top: 5px;
 }
+

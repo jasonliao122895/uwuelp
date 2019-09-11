@@ -12,8 +12,8 @@ const receiveBusiness = (business) => ({
   business
 })
 
-export const fetchBusinesses = () => dispatch => (
-  BusinessApiUtil.fetchBusinesses()
+export const fetchBusinesses = (filter) => dispatch => (
+  BusinessApiUtil.fetchBusinesses(filter)
     .then(businesses => dispatch(receiveBusinesses(businesses)))
 )
 
@@ -22,5 +22,5 @@ export const fetchBusiness = (id) => dispatch => (
     .then(business => dispatch(receiveBusiness(business)))
 )
 
-window.fetchBusiness = fetchBusiness
-window.fetchBusinesses = fetchBusinesses
+// window.fetchBusiness = fetchBusiness
+// window.fetchBusinesses = fetchBusinesses

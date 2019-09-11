@@ -56,10 +56,12 @@ export default class SessionForm extends React.Component {
     let email = "jasonliao@live.com"
     let pass = "123456"
     this.handleEmail(email);
-    this.handlePass(pass);
+    setTimeout(() => {
+      this.handlePass(pass);
+    }, 1900)
     setTimeout(() => {
       this.props.processForm(this.state)
-    }, 1900)
+    }, 2600)
   }
 
   handleSubmit(e) {
