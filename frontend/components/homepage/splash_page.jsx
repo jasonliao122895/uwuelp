@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-
+import ImageSlide from '../businesses/img_slide';
 
 export default class Homepage extends React.Component {
 
@@ -36,6 +36,7 @@ export default class Homepage extends React.Component {
             </div>
           </header>
         </div>
+        
       </div>
     )
   }

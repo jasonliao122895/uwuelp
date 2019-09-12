@@ -1,0 +1,25 @@
+.test-carousel img {
+  width: 359px;
+  height: 200px;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+.test-carousel {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-container {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.carousel-slide {
+  display: flex;
+  width: 60%
+}

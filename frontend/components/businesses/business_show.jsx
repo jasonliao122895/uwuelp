@@ -3,6 +3,8 @@ import NavBarContainer from '../../components/nav_bar/nav_bar_container';
 import BusinessMap from '../map/business_map';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faParking, faBox, faVolumeUp, faCreditCard, faUtensils, faWifi, faLaptop, faPhone, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
+import ImageSlide from './img_slide';
+
 
 export default class BusinessShow extends React.Component {
   
@@ -47,6 +49,11 @@ export default class BusinessShow extends React.Component {
           
           <div className="business-show-page">
             <NavBarContainer />
+           
+
+            <ImageSlide />
+
+          
             <div className="show-page-center">
             
               <div className="business-show-main">
@@ -119,6 +126,8 @@ export default class BusinessShow extends React.Component {
                       </div>
                     </div>
 
+                    <a id="more-attribute" onClick={this.handleToggle}>2 More Attributes</a>
+
                     <div  id="hidden-kf">
                       <div id="kf-div-1">
                         <div id="kf-1" className="hide">
@@ -137,7 +146,6 @@ export default class BusinessShow extends React.Component {
                       </div>
                     </div>    
 
-                    <a id="more-attribute" onClick={this.handleToggle}>2 More Attributes</a>
                     <a id="show-less"  onClick={this.handleToggle} className="hide">Show Less</a>
                   </div>
 
