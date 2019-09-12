@@ -4,22 +4,31 @@ export default class ImageSlide extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      count: 1
+    }
     this.handleNext = this.handleNext.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
   }
 
   handleNext(e) {
     e.preventDefault();
+    this.setState({
+      count: this.state.count + 1
+    })
     const carouselSlide = document.querySelector('.carousel-slide');
-    carouselSlide.style.transition = 'transform 0.4s ease-in-out'
-    carouselSlide.style.transform = 'translateX(-1000px)'
+    carouselSlide.style.transition = 'transform 1s ease-in-out'
+    carouselSlide.style.transform = 'translateX(-99%)'
   }
 
   handlePrev(e) {
     e.preventDefault();
+    this.setState({
+      count: this.state.count - 1
+    })
     const carouselSlide = document.querySelector('.carousel-slide');
-    carouselSlide.style.transition = 'transform 0.4s ease-in-out'
-    carouselSlide.style.transform = 'translateX(1000px)'
+    carouselSlide.style.transition = 'transform 1s ease-in-out'
+    carouselSlide.style.transform = 'translateX(0px)'
   }
  
 
@@ -41,8 +50,11 @@ export default class ImageSlide extends React.Component {
           </div>
         </div>
 
-        <button onClick={this.handlePrev} id="prev">Prev</button>
-        <button onClick={this.handleNext} id="next">Next</button>
+        
+        <button onClick={this.handlePrev} id="prev">&#10094;</button> 
+        
+        <button onClick={this.handleNext} id="next">&#10095;</button>
+        
       </div>
     )
   }

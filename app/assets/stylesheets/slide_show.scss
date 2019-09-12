@@ -1,9 +1,10 @@
 .test-carousel img {
-  width: 359px;
-  height: 200px;
+  width: 471.8px;
+  height: 300px;
   object-fit: cover;
   margin-right: 5px;
 }
+
 
 .test-carousel {
   padding: 0px;
@@ -13,7 +14,10 @@
 }
 
 .carousel-container {
+  display: flex;
+  justify-content: space-evenly;
   width: 100%;
+  height: 300px;
   margin: auto;
   overflow: hidden;
   box-sizing: border-box;
@@ -21,5 +25,63 @@
 
 .carousel-slide {
   display: flex;
-  width: 60%
+  justify-content: space-between;
+  width: 100%
 }
+
+#prev, #next {
+  border-radius: 50px;
+  padding: 20px;
+  position: absolute;
+  background: rgb(37, 36, 48);
+  font-size: 30px;
+  color: orange;
+  border: 4px solid orange;
+
+}
+
+#next {
+  right: 0;
+  top: 20%;
+}
+
+#prev {
+  top: 20%;
+}
+
+
+
+
+// .carousel-slide div {
+//   width: 100%;
+//   height: 100%;
+// }
+
+
+// * {
+//   box-sizing: border-box;
+// }
+
+
+
+// .carousel-container {
+//   width: 100%;
+//   height: 400px;
+//   overflow: hidden;
+//   box-sizing: border-box;
+// }
+
+// .carousel-slide {
+//   display: flex;
+//   width: 100%;
+//   box-sizing: border-box;
+// }
+
+// .carousel-slide img {
+//   object-fit: cover;
+//   width: 400px;
+//   height: 400px;
+// }
+
+
+
