@@ -267,7 +267,7 @@ export default class SessionForm extends React.Component {
             
             </form>
               {formType === "signup" ? 
-                <div>
+                <div className="sign-link-session">
                   <p>Already a Uwuelper?</p><Link to="/login">Sign In</Link>
                 </div> : ""
               }

@@ -38,8 +38,7 @@
  .session-main-content {
    display: flex;
    justify-content: center;
-   margin-left: 170px;
-   margin-right: 170px;
+   margin: 170px;
    padding: 15px 15px 36px 15px;
  }
 
@@ -64,6 +63,10 @@
    text-decoration: underline;
  }
 
+ .actual-session-form {
+   width: 320px;
+ }
+
  .actual-session-form p {
   margin: 0;
   color: red;
@@ -73,13 +76,13 @@
  .errors-div
 
  .session-inputs {
-   width: 450px;
+   width: 320px;
    height: 620px;
    display: flex; 
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   padding: 30px;
+   
    font-family: 'Ubuntu', sans-serif;
  }
 
@@ -87,24 +90,27 @@
    width: 100%;
    text-align: center;
    color: rgb(37, 36,48);
+   margin-bottom: 20px;
  }
  
  .session-inputs p {
-   width: 300px;
+   width: 320px;
    text-align: center;
    font-size: 13px;
  }
 
  #or-field {
-   margin-top: 30px;
-   margin-bottom: 30px;
+   margin-top: 15px;
+   margin-bottom: 15px;
    border: none;
    border-top: 1px solid #ccc;
    text-align: center;
-   width: 290px;
+   width: 300px;
  }
 
  #or-field legend {
+   font-size: 13px;
+   color: #999;
    padding: 0 15px;
  }
 
@@ -163,6 +169,7 @@
   .selects {
     display: flex;
     justify-content: space-between;
+    width: 320px;
   }
   
  .selects select {
@@ -188,10 +195,12 @@
    text-align: left;
    color: black;
    position: static;
+   width: 320px;
+   padding-top: 10px;
  }
 
  #session-button {
-   width: 100%;
+   width: 320px;
    height: 43px;
    margin-top: 10px;
    text-align: center;
@@ -203,4 +212,24 @@
    font-size: 15px;
    font-family: 'Ubuntu', sans-serif;
    font-weight: bolder;
+ }
+
+ .sign-link-session {
+   margin-top: 15px;
+   width: 320px;
+   display: flex;
+   justify-content: flex-end;
+ }
+
+ .sign-link-session p {
+   color: #999;
+   font-size: 12px;
+   text-align: right;
+   margin-right: 10px;
+   width: 200px
+  
+ }
+
+ .sign-link-session a {
+  font-size: 13px;
  }

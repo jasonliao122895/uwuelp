@@ -35,6 +35,8 @@ class Businesse < ApplicationRecord
   validates :noise_level, inclusion: { in: ['High', 'Low']}
   validates :category, inclusion: { in: ['Restaurant', 'Barber Shop', 'Boba Shop', 'Clothing Store'] }
 
+  has_one_attached :prof_pic
+
 
   def self.in_bounds(bounds) 
     north_bound = bounds["northEast"]["lat"].to_f
