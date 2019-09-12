@@ -1,6 +1,6 @@
 .session-form header {
   background-color: rgb(37, 36,48);
-  height: 80px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,6 +37,7 @@
 
  .session-main-content {
    display: flex;
+   height: 600px;
    justify-content: center;
    margin: 170px;
    padding: 15px 15px 36px 15px;
@@ -57,6 +58,7 @@
    font-weight: bold;
    font-size: 13.5px;
    cursor: pointer;
+   margin-bottom: 20px;
  }
 
  .session-main-content a:hover {
@@ -68,12 +70,17 @@
  }
 
  .actual-session-form p {
+  
   margin: 0;
   color: red;
-  position: fixed;
+  position: absolute;
  }
 
- .errors-div
+ .actual-session-form a {
+   font-size: 13px;
+ }
+
+ 
 
  .session-inputs {
    width: 320px;
@@ -99,9 +106,17 @@
    font-size: 13px;
  }
 
+ .session-inputs a {
+   font-size: 13px;
+ }
+
+ .toa {
+   margin-bottom: 20px;
+ }
+
  #or-field {
-   margin-top: 15px;
-   margin-bottom: 15px;
+  //  margin-top: 15px;
+  //  margin-bottom: 15px;
    border: none;
    border-top: 1px solid #ccc;
    text-align: center;
@@ -183,7 +198,7 @@
  .session-image {
    align-self: center;
    padding-left: 30px;
-   margin-left: 100px;
+   margin-left: 70px;
  }
 
  #forgot-pass {

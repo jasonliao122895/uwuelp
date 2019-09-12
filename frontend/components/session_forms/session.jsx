@@ -145,7 +145,7 @@ export default class SessionForm extends React.Component {
             <p id="new-to-uwuelp">
               {formType === "signup" ? "Connect with great local businesses" : "New to UwUelp?   "}  
               {formType === "login" ? <Link to="/signup">Sign Up</Link> : ""}</p>
-            <p>
+            <p className="toa">
               {formType === "login" ? "By logging in, " : "By continuing, "}
                you agree to UwUelp's <a href="#"> Terms of Service </a> 
               and <a href="#"> Private Policy </a>.
@@ -199,7 +199,7 @@ export default class SessionForm extends React.Component {
               {formType === "signup" ? 
               <div>
                 <p className="errors">{passwordError}</p> 
-                <div className="errors-div"></div>
+                
               </div>
                 : "" }
 
@@ -211,7 +211,7 @@ export default class SessionForm extends React.Component {
                   onChange={this.handleInput('zipcode')} value={this.state.zipcode}
                 />
                 <p className="errors">{zipcodeError}</p>
-                <div className="errors-div"></div>
+                
               </div> : ""}
               <br/>
               {formType === "signup" ? 
