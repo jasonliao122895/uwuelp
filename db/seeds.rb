@@ -18,7 +18,7 @@ Businesse.destroy_all
 Businesse.connection.execute('ALTER SEQUENCE businesses_id_seq RESTART WITH 1')
 
 Businesse.create(
-  name: 'Ichiraku Ramen', address: '125 Chashu St', city: 'San Francisco', state: 'CA', zipcode: 94134, description: 'Rāmen Ichiraku, Literally meaning: Ramen is the Best Pleasure) is a ramen restaurant in Konohagakure.', open_hour: '9:00 AM', closing_hour: '7:00 PM', latitude: 37.7275, longitude: -122.4040, phone: '(415)-123-4567', website: 'https://naruto.fandom.com/wiki/Ramen_Ichiraku', price_range: 'Inexpensive', parking: 'Street', takeout: 'No', noise_level: 'High', accept_card: "No", cater: "No", wifi: "No", category: 'Restaurant', sub_category: 'Japanese'  
+  name: 'Ichiraku Ramen', address: '125 Chashu St', city: 'San Francisco', state: 'CA', zipcode: 94134, description: 'Rāmen Ichiraku, Literally meaning: (Ramen is the Best Pleasure) is a ramen restaurant in Konohagakure.', open_hour: '9:00 AM', closing_hour: '7:00 PM', latitude: 37.7275, longitude: -122.4040, phone: '(415)-123-4567', website: 'https://naruto.fandom.com/wiki/Ramen_Ichiraku', price_range: 'Inexpensive', parking: 'Street', takeout: 'No', noise_level: 'High', accept_card: "No", cater: "No", wifi: "No", category: 'Restaurant', sub_category: 'Japanese'  
 )
 
 Businesse.create(

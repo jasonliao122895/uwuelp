@@ -22,6 +22,16 @@ export default class SessionForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
+  componentDidMount() {
+    let errors = document.getElementsByClassName('errors');
+    errors = Array.from(errors)
+    
+      errors.forEach(error => {
+        error.classList.add('hide');
+      })
+   
+  }
+
 
   handleInput(type) {
     return (e) => {
@@ -53,6 +63,10 @@ export default class SessionForm extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
+    this.setState({
+      email: "",
+      password: ""
+    })
     let email = "jasonliao@live.com"
     let pass = "123456"
     this.handleEmail(email);
@@ -76,7 +90,7 @@ export default class SessionForm extends React.Component {
       errors.forEach(error => {
         error.classList.add('hide');
       })
-    },1700)
+    },2500)
   }
 
   render() {
