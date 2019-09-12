@@ -4,18 +4,16 @@ export default class ImageSlide extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      count: 1
-    }
     this.handleNext = this.handleNext.bind(this);
     this.handlePrev = this.handlePrev.bind(this);
   }
 
   handleNext(e) {
-    e.preventDefault();
-    this.setState({
-      count: this.state.count + 1
-    })
+    e.preventDefault(); 
+    const prevBut = document.getElementById('prev');
+    const nextBut = document.getElementById('next');
+    nextBut.classList.toggle('hide')
+    prevBut.classList.toggle('hide')
     const carouselSlide = document.querySelector('.carousel-slide');
     carouselSlide.style.transition = 'transform 1s ease-in-out'
     carouselSlide.style.transform = 'translateX(-102%)'
@@ -23,9 +21,10 @@ export default class ImageSlide extends React.Component {
 
   handlePrev(e) {
     e.preventDefault();
-    this.setState({
-      count: this.state.count - 1
-    })
+    const nextBut = document.getElementById('next');
+    const prevBut = document.getElementById('prev');
+    nextBut.classList.toggle('hide')
+    prevBut.classList.toggle('hide')
     const carouselSlide = document.querySelector('.carousel-slide');
     carouselSlide.style.transition = 'transform 1s ease-in-out'
     carouselSlide.style.transform = 'translateX(0px)'
@@ -51,7 +50,7 @@ export default class ImageSlide extends React.Component {
         </div>
 
         
-        <button onClick={this.handlePrev} id="prev">&#10094;</button> 
+        <button className="hide" onClick={this.handlePrev} id="prev">&#10094;</button> 
         
         <button onClick={this.handleNext} id="next">&#10095;</button>
         

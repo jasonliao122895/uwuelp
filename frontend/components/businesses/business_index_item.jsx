@@ -10,7 +10,7 @@ const BusinessIndexItem = ({ business }) => {
    return (
     <div>
       <div className="business-list-item">
-         <img src="http://img1.ak.crunchyroll.com/i/spire1/8ad71330b958165e3b735054f4ff20211498090822_full.jpg" alt=""/>
+         <img src={business.profPic} alt=""/>
         <div className="all-business-info">
           <div className="business-info">
 
@@ -20,7 +20,7 @@ const BusinessIndexItem = ({ business }) => {
               </Link>
               <div>
                 <h4>*****</h4>
-                 <p>{`${price} - ${business.category} ${business.subCategory ? `, ${business.subCategory}` : ""}`}</p>
+                 <p>{`${price} • ${business.category} ${business.subCategory ? `, ${business.subCategory}` : ""}`}</p>
               </div>
             </div>
             <div className="phone-location">

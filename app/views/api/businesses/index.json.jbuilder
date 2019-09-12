@@ -10,5 +10,6 @@
     json.subCategory business.sub_category
     json.latitude business.latitude
     json.longitude business.longitude
+    json.profPic url_for(business.prof_pic)
   end
 end

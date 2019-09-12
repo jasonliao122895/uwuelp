@@ -11,7 +11,7 @@
 
  .map-div {
    margin-left: 30px;
-   height: 290px;
+   height: 320px;
    position: sticky;
    top: 105px;
  }
@@ -20,6 +20,13 @@
 
  .hide {
   display: none;
+ }
+
+ #filt-but, #unfilt-but {
+   border: 1px solid white;
+   padding: 4px;
+   background-color: rgb(37, 36,48);
+   color: #FFF;
  }
 
 //  map show

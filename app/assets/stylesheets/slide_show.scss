@@ -30,14 +30,19 @@
 }
 
 #prev, #next {
-  border-radius: 50px;
+  border: none;
   padding: 20px;
   position: absolute;
-  background: rgb(37, 36, 48);
+  background-color: transparent;
   font-size: 30px;
   color: orange;
-  border: 4px solid orange;
 
+}
+
+#prev:hover, #next:hover {
+  background: rgb(37, 36, 48);
+  border: 4px solid orange;
+  border-radius: 50px;
 }
 
 #next {
