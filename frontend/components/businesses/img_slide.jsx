@@ -18,7 +18,7 @@ export default class ImageSlide extends React.Component {
     })
     const carouselSlide = document.querySelector('.carousel-slide');
     carouselSlide.style.transition = 'transform 1s ease-in-out'
-    carouselSlide.style.transform = 'translateX(-99%)'
+    carouselSlide.style.transform = 'translateX(-102%)'
   }
 
   handlePrev(e) {

@@ -1,5 +1,5 @@
 .test-carousel img {
-  width: 471.8px;
+  width: 25%;
   height: 300px;
   object-fit: cover;
   margin-right: 5px;
@@ -9,14 +9,14 @@
 .test-carousel {
   padding: 0px;
   margin: 0px;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
 }
 
 .carousel-container {
   display: flex;
   justify-content: space-evenly;
-  width: 100%;
+  width: 100vw;
   height: 300px;
   margin: auto;
   overflow: hidden;
