@@ -13,9 +13,11 @@ export default class BusinessShow extends React.Component {
     this.props.fetchBusiness(this.props.match.params.businessId)
   }
 
-  // componentDidUpdate() {
-  //   this.props.fetchBusiness(this.props.match.params.businessId)
-  // }
+  componentDidUpdate(nextProps) {
+    if (this.props.location.pathname !== nextProps.location.pathname) {
+      this.props.fetchBusiness(this.props.match.params.businessId)
+    }
+  }
 
   handleToggle(e) {
     e.preventDefault();

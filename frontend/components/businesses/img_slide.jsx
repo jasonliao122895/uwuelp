@@ -40,7 +40,7 @@ export default class ImageSlide extends React.Component {
   
             <div className="carousel-slide">
               {this.props.photos.map(photoUrl => (
-                <img src={photoUrl} alt=""/>
+                <img key={photoUrl} src={photoUrl} alt=""/>
               ))}
             </div>
           </div>
@@ -54,7 +54,7 @@ export default class ImageSlide extends React.Component {
       )
     } else {
       return <div>
-        
+
       </div>
     }
   }
