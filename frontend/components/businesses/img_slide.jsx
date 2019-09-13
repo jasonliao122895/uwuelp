@@ -32,26 +32,31 @@ export default class ImageSlide extends React.Component {
  
 
   render() {
+    if (this.props.photos) {
+      return (
+        <div className="test-carousel">
   
-    return (
-      <div className="test-carousel">
-
-        <div className="carousel-container">
-
-          <div className="carousel-slide">
-            {this.props.photos.map(photoUrl => (
-              <img src={photoUrl} alt=""/>
-            ))}
+          <div className="carousel-container">
+  
+            <div className="carousel-slide">
+              {this.props.photos.map(photoUrl => (
+                <img src={photoUrl} alt=""/>
+              ))}
+            </div>
           </div>
+  
+          
+          <button className="hide" onClick={this.handlePrev} id="prev">&#10094;</button> 
+          
+          <button onClick={this.handleNext} id="next">&#10095;</button>
+          
         </div>
-
-        
-        <button className="hide" onClick={this.handlePrev} id="prev">&#10094;</button> 
-        
-        <button onClick={this.handleNext} id="next">&#10095;</button>
+      )
+    } else {
+      return <div>
         
       </div>
-    )
+    }
   }
   
 }
