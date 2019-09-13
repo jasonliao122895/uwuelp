@@ -63,6 +63,31 @@ business10 = Businesse.create(
   name: 'Cancer\'s Barber Shop', address: '1337 Spirit Ln', city: 'San Francisco', state: 'CA', zipcode: 94124, description: 'Premium styling Barber Shop/Salon that is operated by once of the best stylist to have ever existed.', open_hour: '10:00 AM', closing_hour: '7:00 PM', latitude: 37.7433 , longitude: -122.3876, phone: '(415)-580-7260', website: 'https://fairytail.fandom.com/wiki/Cancer', price_range: 'Pricey', parking: 'Street', takeout: 'No', noise_level: 'Low', accept_card: "Yes", cater: "No", wifi: "No", category: 'Barber Shop'  
 )
 
+arr1 = [0, 5, 6, 7, 8, 9]
+arr2 = [1, 2, 3, 4]
+
+# file = open("https://uwuelp-seed.s3-us-west-1.amazonaws.com/prof_pic/1.jpg")
+
+# business1.prof_pic.attach(io: file, filename: "1.jpg" )
+
+Businesse.all.each_with_index do |business, idx|
+  front_url = "https://uwuelp-seed.s3-us-west-1.amazonaws.com/prof_pic/" 
+  file = ""
+  url_tail = ""
+  number = idx + 1
+
+  if arr1.include?(idx)
+    new_url = "#{front_url}" + "#{number}" + ".jpg"
+    url_tail = "#{number}.jpg"
+  else
+    new_url = "#{front_url}" + "#{number}" + ".png"
+    url_tail = "#{idx + 1}.png"
+  end
+  file = open(new_url)
+
+  business.prof_pic.attach(io: file, filename: url_tail )
+end
+
 
 
 
