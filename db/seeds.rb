@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'open-uri'
+require 'aws-sdk-s3'
 
 User.destroy_all
 User.connection.execute('ALTER SEQUENCE users_id_seq RESTART WITH 1')
@@ -66,12 +67,9 @@ business10 = Businesse.create(
 arr1 = [0, 5, 6, 7, 8, 9]
 arr2 = [1, 2, 3, 4]
 
-# file = open("https://uwuelp-seed.s3-us-west-1.amazonaws.com/prof_pic/1.jpg")
-
-# business1.prof_pic.attach(io: file, filename: "1.jpg" )
 
 Businesse.all.each_with_index do |business, idx|
-  front_url = "https://uwuelp-seed.s3-us-west-1.amazonaws.com/prof_pic/" 
+  front_url = "https://uwuelp-seeds.s3-us-west-1.amazonaws.com/" 
   file = ""
   url_tail = ""
   number = idx + 1
@@ -84,7 +82,7 @@ Businesse.all.each_with_index do |business, idx|
     url_tail = "#{idx + 1}.png"
   end
   file = open(new_url)
-
+  
   business.prof_pic.attach(io: file, filename: url_tail )
 end
 
