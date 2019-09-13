@@ -22,4 +22,5 @@ json.set! @businesse.id do
   json.wifi @businesse.wifi
   json.category @businesse.category
   json.subCategory @businesse.sub_category
+  json.photosUrls @businesse.food_pics.map { |file| url_for(file) }
 end

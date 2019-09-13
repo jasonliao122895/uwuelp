@@ -37,6 +37,8 @@ class Businesse < ApplicationRecord
 
   has_one_attached :prof_pic
 
+  has_many_attached :food_pics
+
 
   def self.in_bounds(bounds) 
     north_bound = bounds["northEast"]["lat"].to_f

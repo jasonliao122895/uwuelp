@@ -42,7 +42,6 @@ export default class BusinessShow extends React.Component {
       if (business.priceRange === 'Ultra High-End') price = "$$$$";
       let weekArr = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
       
-     
       return (
         <div >
   
@@ -51,7 +50,7 @@ export default class BusinessShow extends React.Component {
             <NavBarContainer />
            
 
-            <ImageSlide />
+            <ImageSlide photos={business.photosUrls}/>
 
           
             <div className="show-page-center">

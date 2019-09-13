@@ -28,7 +28,7 @@ business2 = Businesse.create(
   name: 'Baratie', address: '175 Sanji St', city: 'San Francisco', state: 'CA', zipcode: 94124, description: 'The Baratie is an ocean-going restaurant run by Zeff. It is located in the Sambas Region (サンバス海域 Sanbasu Kaiiki?) of the East Blue, close to the entrance of the Grand Line. It is the setting of the Baratie Arc.', open_hour: '11:00 AM', closing_hour: '5:00 PM', latitude: 37.7211 , longitude: -122.3795, phone: '(415)-020-0560', website: 'https://onepiece.fandom.com/wiki/Baratie', price_range: 'Ultra High-End', parking: 'Parking Lot', takeout: 'Yes', noise_level: 'High', accept_card: "Yes", cater: "No", wifi: "Yes", category: 'Restaurant', sub_category: 'Japanese'  
 )
 
-business3 =Businesse.create(
+business3 = Businesse.create(
   name: 'Restaurant Yukihira', address: '95 Sumiredori St', city: 'San Francisco', state: 'CA', zipcode: 94114, description: 'Japanese style special-of-the-day type restaurant owned by Jōichirō Yukihira in the Sumiredōri Shopping District. However, Jōichirō closed it in order to travel abroad for 3 years and send his son Sōma to an Elite Culinary School called Tōtsuki Culinary Academy.', open_hour: '2:00 PM', closing_hour: '11:00 PM', latitude: 37.7651 , longitude: -122.4762, phone: '(415)-450-0060', website: 'https://shokugekinosoma.fandom.com/wiki/Restaurant_Yukihira', price_range: 'Moderate', parking: 'Meter', takeout: 'No', noise_level: 'Low', accept_card: "No", cater: "No", wifi: "No", category: 'Restaurant', sub_category: 'Japanese'  
 )
 
@@ -60,12 +60,59 @@ business9 = Businesse.create(
 )
 
 business10 = Businesse.create(
-  name: 'Cancer\'s Barber Shop', address: '1337 Spirit Ln', city: 'San Francisco', state: 'CA', zipcode: 94124, description: 'Premium styling Barber Shop/Salon that is operated by once of the best stylist to have ever existed.', open_hour: '10:00 AM', closing_hour: '7:00 PM', latitude: 37.7433 , longitude: -122.3876, phone: '(415)-580-7260', website: 'https://fairytail.fandom.com/wiki/Cancer', price_range: 'Pricey', parking: 'Street', takeout: 'No', noise_level: 'Low', accept_card: "Yes", cater: "No", wifi: "No", category: 'Barber Shop'  
+  name: 'Cancer\'s Barber Shop', address: '1337 Spirit Ln', city: 'San Francisco', state: 'CA', zipcode: 94124, description: 'Premium styling Barber Shop/Salon that is operated by once of the best stylist to have ever existed.', open_hour: '10:00 AM', closing_hour: '7:00 PM', latitude: 37.7433, longitude: -122.3876, phone: '(415)-580-7260', website: 'https://fairytail.fandom.com/wiki/Cancer', price_range: 'Pricey', parking: 'Street', takeout: 'No', noise_level: 'Low', accept_card: "Yes", cater: "No", wifi: "No", category: 'Barber Shop'  
 )
 
-arr1 = [0, 5, 6, 7, 8, 9]
-arr2 = [1, 2, 3, 4]
 
+business11 = Businesse.create(
+  name: 'Aquarius\'s Seafood', address: '125 Ocean St', city: 'San Diego', state: 'CA', zipcode: 92037, description: 'a Seafood restaurant opened by one of the strongest celestial spirit from Fairy Tail.', open_hour: '9:00 AM', closing_hour: '7:00 PM', latitude: 32.8624, longitude: -117.2610, phone: '(858)-123-4567', website: 'https://fairytail.fandom.com/wiki/Aquarius', price_range: 'Inexpensive', parking: 'Street', takeout: 'No', noise_level: 'High', accept_card: "No", cater: "No", wifi: "No", category: 'Restaurant', sub_category: 'Seafood'  
+)
+
+business12 = Businesse.create(
+  name: 'Taurus\'s Drip Shop', address: '175 Milk St', city: 'San Diego', state: 'CA', zipcode: 92108, description: 'A clothing store owned by a buff celestial spirit.', open_hour: '11:00 AM', closing_hour: '5:00 PM', latitude: 32.7700 , longitude: -117.1647, phone: '(858)-020-0560', website: 'https://fairytail.fandom.com/wiki/Taurus', price_range: 'Ultra High-End', parking: 'Parking Lot', takeout: 'Yes', noise_level: 'High', accept_card: "Yes", cater: "No", wifi: "Yes", category: 'Clothing Store' 
+)
+
+business13 = Businesse.create(
+  name: 'Virgo\'s Maid Cafe', address: '95 GoShujinSama St', city: 'San Francisco', state: 'CA', zipcode: 92123, description: 'A maid cafe owned by a spirit with TONS of experience as a maid over centuries of experience.', open_hour: '2:00 PM', closing_hour: '11:00 PM', latitude: 32.7873 , longitude: -117.1524, phone: '(858)-450-0060', website: 'https://fairytail.fandom.com/wiki/Virgo', price_range: 'Moderate', parking: 'Meter', takeout: 'No', noise_level: 'Low', accept_card: "No", cater: "No", wifi: "No", category: 'Restaurant', sub_category: 'Japanese'  
+)
+
+
+business14 = Businesse.create(
+  name: 'Sagittarius\'s ', address: '95 MushiMushi St', city: 'San Diego', state: 'CA', zipcode: 92111, description: 'A clothing owned by one of the finest dressed celestial spirit.', open_hour: '6:00 PM', closing_hour: '11:00 PM', latitude: 32.7939 , longitude: -117.1668, phone: '(858)-480-0000', website: 'https://fairytail.fandom.com/wiki/Sagittarius', price_range: 'Moderate', parking: 'Meter', takeout: 'No', noise_level: 'Low', accept_card: "No", cater: "No", wifi: "No", category: 'Clothing Store'
+)
+
+
+business15 = Businesse.create(
+  name: 'Leo', address: '959 Regulus Ave', city: 'San Diego', state: 'CA', zipcode: 92117, description: 'A restaurant managed by an Alpha.', open_hour: '11:00 AM', closing_hour: '8:00 PM', latitude: 32.8283 , longitude: -117.1930, phone: '(858)-439-0760', website: 'https://fairytail.fandom.com/wiki/Loke', price_range: 'Pricey', parking: 'Meter', takeout: 'Yes', noise_level: 'High', accept_card: "Yes", cater: "Yes", wifi: "Yes", category: 'Restaurant', sub_category: 'Japanese'  
+)
+
+
+business16 = Businesse.create(
+  name: 'ArieTea', address: '569 Kawaii Ave', city: 'San Diego', state: 'CA', zipcode: 92117, description: 'A boba spot made by one of the kindest celestial spirit.', open_hour: '8:00 AM', closing_hour: '8:00 PM', latitude: 32.8359 , longitude: -117.1830, phone: '(858)-220-0060', website: 'https://fairytail.fandom.com/wiki/Aries', price_range: 'Ultra High-End', parking: 'Parking Lot', takeout: 'No', noise_level: 'Low', accept_card: "Yes", cater: "Yes", wifi: "Yes", category: 'Boba Shop'  
+)
+
+business17 = Businesse.create(
+  name: 'ScorpCuts', address: '77 Sand Ave', city: 'San Diego', state: 'CA', zipcode: 92117, description: 'a barber shop owned by one of the coolest celestial spirits.', open_hour: '8:00 AM', closing_hour: '8:00 PM', latitude: 32.8355 , longitude: -117.1930, phone: '(858)-490-0060', website: 'https://fairytail.fandom.com/wiki/Scorpio', price_range: 'Moderate', parking: 'Parking Lot', takeout: 'Yes', noise_level: 'High', accept_card: "No", cater: "Yes", wifi: "Yes", category: 'Barber Shop'
+)
+
+business18 = Businesse.create(
+  name: 'Gemini Tacos', address: '7000 Twins Dr', city: 'San Diego', state: 'CA', zipcode: 92117, description: 'A taco shops that sells mini tacos and is own by the Gemini twins.', open_hour: '9:00 AM', closing_hour: '5:00 PM', latitude: 32.8270 , longitude: -117.2060, phone: '(858)-590-1060', website: 'https://fairytail.fandom.com/wiki/Gemini', price_range: 'Pricey', parking: 'Street', takeout: 'Yes', noise_level: 'High', accept_card: "Yes", cater: "No", wifi: "No", category: 'Restaurant', sub_category: 'Mexican'  
+)
+
+business19 = Businesse.create(
+  name: 'Capri Corns', address: '100 Best Zodiac', city: 'San Diego', state: 'CA', zipcode: 92122, description: 'A restaurants that sells elote corn and is owned by the Capricorn celestial spirit.', open_hour: '7:00 AM', closing_hour: '5:00 PM', latitude: 32.8671 , longitude: -117.2074, phone: '(858)-990-1060', website: 'https://fairytail.fandom.com/wiki/Capricorn', price_range: 'Pricey', parking: 'Street', takeout: 'Yes', noise_level: 'High', accept_card: "Yes", cater: "No", wifi: "No", category: 'Restaurant', sub_category: 'Mexican'  
+)
+
+business20 = Businesse.create(
+  name: 'Nikoraaaa', address: '1337 Laaaaa Ln', city: 'San Diego', state: 'CA', zipcode: 92121, description: 'Laaaaaaaaaaaaaaaaaaa', open_hour: '10:00 AM', closing_hour: '7:00 PM', latitude: 32.8819, longitude: -117.2193, phone: '(858)-580-7260', website: 'https://fairytail.fandom.com/wiki/Nikora', price_range: 'Pricey', parking: 'Street', takeout: 'No', noise_level: 'Low', accept_card: "Yes", cater: "No", wifi: "No", category: 'Barber Shop'  
+)
+
+
+
+
+
+
+arr1 = [0, 5, 6, 7, 8, 9, 12, 13, 18, 19]
 
 Businesse.all.each_with_index do |business, idx|
   front_url = "https://uwuelp-seeds.s3-us-west-1.amazonaws.com/" 
@@ -80,10 +127,72 @@ Businesse.all.each_with_index do |business, idx|
     new_url = "#{front_url}" + "#{number}" + ".png"
     url_tail = "#{idx + 1}.png"
   end
+ 
   file = open(new_url)
   
   business.prof_pic.attach(io: file, filename: url_tail )
 end
+
+[business1, business4, business7, business10, business13, business16, business19].each do |business| 
+  file1 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food1/1.png")
+  file2 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food1/2.png")
+  file3 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food1/3.png")
+  file4 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food1/4.png")
+  file5 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food1/5.png")
+  file6 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food1/6.png")
+  file7 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food1/7.png")
+  file8 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food1/8.png")
+
+  business.food_pics.attach(io: file1, filename: "#{business.name}1.png")
+  business.food_pics.attach(io: file2, filename: "#{business.name}2.png")
+  business.food_pics.attach(io: file3, filename: "#{business.name}3.png")
+  business.food_pics.attach(io: file4, filename: "#{business.name}4.png")
+  business.food_pics.attach(io: file5, filename: "#{business.name}5.png")
+  business.food_pics.attach(io: file6, filename: "#{business.name}6.png")
+  business.food_pics.attach(io: file7, filename: "#{business.name}7.png")
+  business.food_pics.attach(io: file8, filename: "#{business.name}8.png")
+ 
+end
+
+[business2, business5, business8, business11, business14, business17, business20].each do |business|
+  file1 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food2/1.png")
+  file2 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food2/2.png")
+  file3 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food2/3.png")
+  file4 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food2/4.png")
+  file5 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food2/5.png")
+  file6 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food2/6.png")
+  file7 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food2/7.png")
+  file8 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food2/8.png")
+
+  business.food_pics.attach(io: file1, filename: "#{business.name}1.png")
+  business.food_pics.attach(io: file2, filename: "#{business.name}2.png")
+  business.food_pics.attach(io: file3, filename: "#{business.name}3.png")
+  business.food_pics.attach(io: file4, filename: "#{business.name}4.png")
+  business.food_pics.attach(io: file5, filename: "#{business.name}5.png")
+  business.food_pics.attach(io: file6, filename: "#{business.name}6.png")
+  business.food_pics.attach(io: file7, filename: "#{business.name}7.png")
+  business.food_pics.attach(io: file8, filename: "#{business.name}8.png")
+end
+
+[business3, business6, business9, business12, business15, business18].each do |business|
+  file1 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food3/1.png")
+  file2 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food3/2.png")
+  file3 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food3/3.png")
+  file4 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food3/4.png")
+  file5 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food3/5.png")
+  file6 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food3/6.png")
+  file7 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food3/7.png")
+  file8 = open("https://uwuelp-seeds.s3-us-west-1.amazonaws.com/food3/8.png")
+
+  business.food_pics.attach(io: file1, filename: "#{business.name}1.png")
+  business.food_pics.attach(io: file2, filename: "#{business.name}2.png")
+  business.food_pics.attach(io: file3, filename: "#{business.name}3.png")
+  business.food_pics.attach(io: file4, filename: "#{business.name}4.png")
+  business.food_pics.attach(io: file5, filename: "#{business.name}5.png")
+  business.food_pics.attach(io: file6, filename: "#{business.name}6.png")
+  business.food_pics.attach(io: file7, filename: "#{business.name}7.png")
+  business.food_pics.attach(io: file8, filename: "#{business.name}8.png")
+end 
 
 
 
