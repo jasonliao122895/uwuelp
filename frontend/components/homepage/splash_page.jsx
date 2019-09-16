@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import ImageSlide from '../businesses/img_slide';
+import UserProfile from '../nav_bar/user_profile_container';
 
 export default class Homepage extends React.Component {
 
@@ -30,7 +30,7 @@ export default class Homepage extends React.Component {
                 :
                 <div className="welcome-msg">
                   <h4>Welcome, {this.props.user.firstName} {` ${this.props.user.lastName}.`} </h4>
-                  <button id="logout-but"onClick={this.handleLogOut.bind(this)}>Log Out</button>
+                  <UserProfile />
                 </div>
               }
             </div>

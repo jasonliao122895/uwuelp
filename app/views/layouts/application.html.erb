@@ -12,7 +12,20 @@
     <%= javascript_include_tag 'application' %>
     <%= stylesheet_link_tag 'application', '//fonts.googleapis.com/css?family=Ubuntu' %>
 
-     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyALGGai6OviXovIkJLYGAPUoXIO93JrNy4&" %> 
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyALGGai6OviXovIkJLYGAPUoXIO93JrNy4&" %> 
+
+    <%= favicon_link_tag asset_path('favicon.jpg') %>
+    <script type="text/javascript">
+      window.one = "<%= image_url('1.png') %>";
+      window.oneHalf = "<%= image_url('1half.png') %>";
+      window.two = "<%= image_url('2.png') %>";
+      window.twoHalf = "<%= image_url('2half.png') %>";
+      window.three = "<%= image_url('3.png') %>";
+      window.threeHalf = "<%= image_url('3half.png') %>";
+      window.four = "<%= image_url('4.png') %>";
+      window.fourHalf = "<%= image_url('4half.png') %>";
+      window.five = "<%= image_url('5.png') %>";
+    </script>
 
   </head>
 

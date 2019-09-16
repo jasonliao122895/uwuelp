@@ -23,10 +23,12 @@
  }
 
  #filt-but, #unfilt-but {
-   border: 1px solid white;
+   border: 1px solid rgb(210, 170, 15);
+   border-radius: 5px;
+   margin-right: 5px;
    padding: 4px;
    background-color: rgb(37, 36,48);
-   color: #FFF;
+   color: rgb(210, 170, 15);
  }
 
 //  map show

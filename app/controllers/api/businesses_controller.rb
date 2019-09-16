@@ -1,7 +1,7 @@
 class Api::BusinessesController < ApplicationController
 
   def index
-    # @businesses = Businesse.all
+    
     bounds = params[:filters][:bounds]
 
     if bounds == "show all"

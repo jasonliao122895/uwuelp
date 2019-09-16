@@ -24,6 +24,12 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_one_attached :prof_pic
+
+  has_many :reviews,
+  foreign_key: :author_id,
+  class_name: :Review
+
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
   end

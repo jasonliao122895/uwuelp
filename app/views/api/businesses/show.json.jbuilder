@@ -1,4 +1,5 @@
 open_duration = [@businesse.open_hour, @businesse.closing_hour].join('-')
+ratings = @businesse.reviews.map{ |review| review.rating }
 
 json.set! @businesse.id do
   json.id @businesse.id
@@ -19,8 +20,10 @@ json.set! @businesse.id do
   json.noiseLevel @businesse.noise_level
   json.acceptCard @businesse.accept_card
   json.cater @businesse.cater
+  json.avgRating ratings.sum / (ratings.length * 1.0 ) 
   json.wifi @businesse.wifi
   json.category @businesse.category
   json.subCategory @businesse.sub_category
   json.photosUrls @businesse.food_pics.map { |file| url_for(file) }
+  json.reviews @businesse.reviews
 end

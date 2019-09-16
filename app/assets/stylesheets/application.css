@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import "font-awesome";
 
  /* Reset */
 
@@ -21,12 +22,15 @@ html, head, footer {
   height: 100%;
 }
 
+a, button {
+  cursor: pointer;
+  color: #0073BB;
+}
 
  a, button, h1, h2, h3, h4, h5, h6, p, tr, td, span {
    font-family: 'Ubuntu', sans-serif;
    outline: none;
    margin: 0;
-
  }
 
 

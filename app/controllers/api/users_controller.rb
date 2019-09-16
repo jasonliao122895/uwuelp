@@ -1,8 +1,14 @@
+require 'open-uri'
+
 class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+  
+    file = open('https://uwuelp-seeds.s3-us-west-1.amazonaws.com/userprofpics/default.jpg')
+    @user.prof_pic.attach(io: file, filename: "#{@user.email}.jpg")
+    
+    if @user.save      
       login(@user)
       # render json: @user
       render '/api/users/show'

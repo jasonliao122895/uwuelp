@@ -24,6 +24,8 @@
 #  wifi         :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  category     :string           not null
+#  sub_category :string
 #
 
 require 'test_helper'

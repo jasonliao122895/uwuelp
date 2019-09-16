@@ -21,7 +21,7 @@ export default class BusinessMap extends React.Component {
     if (this.props.business) {
     
       let business = this.props.business;
-      this.map.setOptions({ draggable: false, zoom: 15 });
+      this.map.setOptions({ draggable: false, disableDefaultUI: true, zoom: 15 });
       this.map.setCenter({ lat: business.latitude, lng: business.longitude });
       let latLng = { lat: this.props.business.latitude, lng: this.props.business.longitude }
       const marker = new google.maps.Marker({
@@ -83,7 +83,7 @@ export default class BusinessMap extends React.Component {
 
   initMap (location) {
     this.map = new google.maps.Map(
-      document.getElementById('map-container'), { zoom: 11, center: location}
+      document.getElementById('map-container'), { zoom: 11, center: location, streetViewControl: false, mapTypeControl: false, fullscreenControl: false }
     )
   }
 

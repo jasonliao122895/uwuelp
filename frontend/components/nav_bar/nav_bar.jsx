@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UserProfileContainer from './user_profile_container';
 
-const NavBar = ({ signout, loggedIn }) => (
+const NavBar = () => (
   <header className="nav-bar">
     <div className="logo">
       <Link to="/">
@@ -17,15 +18,11 @@ const NavBar = ({ signout, loggedIn }) => (
       Near
       <input type="text"/>
     </label>
-    <button className="nav-search-but"><span role="img" aria-label="search">🔍</span></button>
-    {
-      !loggedIn ? 
-      <div>
-        <Link to="/login"><button className="nav-login">Log In</button></Link>
-        <Link to="/signup"><button className="nav-signup">Sign Up</button></Link>
-      </div> 
-      : <button className="nav-login" onClick={signout}>Logout</button>
-    }
+    <button className="nav-search-but">
+      <span role="img" aria-label="search">🔍</span>
+    </button>
+    
+    <UserProfileContainer />
   </header>
 
 )

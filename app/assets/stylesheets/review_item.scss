@@ -1,0 +1,118 @@
+.review-container {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 19px;
+  margin-bottom: 19px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+#business-show-author {
+  display: flex;
+  flex-wrap: wrap;
+  width: 222px;
+}
+
+#business-show-review-info {
+  width: 407px;
+}
+
+#business-show-review-info span {
+  color: black;
+  margin-top: 30px;
+}
+
+
+.currentUser-review-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.currentUser-info, #business-show-author, .profile-info {
+  display: flex;
+  flex-direction: row;
+  width: 222px;
+}
+
+.currentUser-info p, #business-show-author p , .profile-info p {
+  margin-top: 3px;
+  font-size: 13px;
+}
+
+#current-user-star {
+  background-color: orange;
+  border-radius: 2px;
+  color: white;
+  font-size: 7px;
+  margin-right: 5px;
+  padding: 3px;
+}
+
+#current-user-friend {
+  color: orange;
+  margin-right: 2.5px;
+}
+
+#current-user-friend2 {
+  margin-right: 5px;
+}
+
+.rating-created-at {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.rating-created-at p {
+  margin-right: 5px;
+}
+
+.currentUser-info img, #business-show-author img, .profile-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  margin-right: 5px;
+  object-fit: cover;
+}
+
+.profile-info {
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#show-edit-link {
+  width: 200px;
+  padding-top: 5px;
+}
+
+#show-edit-link a {
+  font-size: 13px;
+}
+
+.rating-created-at img {
+  width: 102px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.review-container button {
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  margin-top: 10px;
+}
+
+.delete-but {
+  text-align: center;
+}
+
+.rating-buts {
+  display: flex;
+  justify-content: flex-end;  
+}
+

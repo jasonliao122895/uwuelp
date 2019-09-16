@@ -24,6 +24,8 @@
 #  wifi         :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  category     :string           not null
+#  sub_category :string
 #
 
 class Businesse < ApplicationRecord
@@ -34,6 +36,10 @@ class Businesse < ApplicationRecord
   validates :parking, inclusion: { in: ['Street', 'Meter', 'Parking Lot']}
   validates :noise_level, inclusion: { in: ['High', 'Low']}
   validates :category, inclusion: { in: ['Restaurant', 'Barber Shop', 'Boba Shop', 'Clothing Store'] }
+
+  has_many :reviews,
+  foreign_key: :business_id,
+  class_name: :Review
 
   has_one_attached :prof_pic
 

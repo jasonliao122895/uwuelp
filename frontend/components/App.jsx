@@ -6,10 +6,14 @@ import { AuthRoute, ProtectedRoute } from '../util/routes_util';
 import { Route, Switch } from 'react-router-dom';
 import BusinessIndexContainer from '../components/businesses/businesses_index_container';
 import BusinessShowContainer from '../components/businesses/business_show_container';
+import CreateReviewFormContainer from '../components/reviews/review_form/create_review_form';
+import EditReviewFormContainer from '../components/reviews/review_form/edit_review_form';
 
 const App = () => (
   <div>
     
+    <Route exact path="/businesses/:businessId/reviews" component={CreateReviewFormContainer} />
+    <Route exact path="/businesses/:businessId/reviews/:id/edit" component={EditReviewFormContainer} />
     <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
     <Route exact path="/businesses" component={BusinessIndexContainer} />
     <Route exact path="/" component={HomepageContainer} />

@@ -1,10 +1,11 @@
 import React from 'react';
-import NavBarContainer from '../../components/nav_bar/nav_bar_container';
+import NavBar from '../nav_bar/nav_bar';
 import BusinessMap from '../map/business_map';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faParking, faBox, faVolumeUp, faCreditCard, faUtensils, faWifi, faLaptop, faPhone, faLocationArrow } from '@fortawesome/free-solid-svg-icons';
+import { faParking, faBox, faVolumeUp, faCreditCard, faUtensils, faWifi, faLaptop, faPhone, faLocationArrow, faStar, faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
 import ImageSlide from './img_slide';
-
+import ReviewIndexContainer from '../reviews/review_index_container';
+import { Link } from 'react-router-dom';
 
 export default class BusinessShow extends React.Component {
   
@@ -13,8 +14,8 @@ export default class BusinessShow extends React.Component {
     this.props.fetchBusiness(this.props.match.params.businessId)
   }
 
-  componentDidUpdate(nextProps) {
-    if (this.props.location.pathname !== nextProps.location.pathname) {
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
       this.props.fetchBusiness(this.props.match.params.businessId)
     }
   }
@@ -34,7 +35,7 @@ export default class BusinessShow extends React.Component {
   render() {
     let {business} = this.props;
    
-   
+    
     if (business !== undefined ) {
       
       let price = "";
@@ -43,13 +44,25 @@ export default class BusinessShow extends React.Component {
       if (business.priceRange === 'Pricey') price = "$$$";
       if (business.priceRange === 'Ultra High-End') price = "$$$$";
       let weekArr = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-      
+      let rating = business.avgRating;
+      let ratingUrl;
+      if (rating < 1.5) ratingUrl = window.one;
+      if (rating < 2.0 && rating >= 1.5) ratingUrl = window.oneHalf;
+      if (rating < 2.5 && rating >= 2.0) ratingUrl = window.two;
+      if (rating < 3 && rating >= 2.5) ratingUrl = window.twoHalf;
+      if (rating < 3.5 && rating >= 3.0) ratingUrl = window.three;
+      if (rating < 4 && rating >= 3.5) ratingUrl = window.threeHalf;
+      if (rating < 4.5 && rating >= 4.0) ratingUrl = window.four;
+      if (rating < 5 && rating >= 4.5) ratingUrl = window.fourHalf;
+      if (rating === 5) ratingUrl = window.five;
+    
+      let reviewLength = business.reviews.length;
       return (
         <div >
   
           
           <div className="business-show-page">
-            <NavBarContainer />
+            <NavBar />
            
 
             <ImageSlide photos={business.photosUrls}/>
@@ -61,8 +74,20 @@ export default class BusinessShow extends React.Component {
 
                 <div className="business-show-div">
                   <h1>{business.name}</h1>
-                  <p>*****</p>
-                  <p>{`${price} - ${business.category} ${business.subCategory ? `, ${business.subCategory}` : ""}`}</p>
+                  <div className="show-rating-container">
+                    {rating > 0 ?
+                      <img id="show-avg-rating" src={ratingUrl} alt="" />
+
+                      : <p>No Rating</p>}
+                    <span>{`${reviewLength} Reviews`}</span> 
+                  </div>
+                  <p>{`${price} • ${business.category} ${business.subCategory ? `, ${business.subCategory}` : ""}`}</p>
+                  <Link to={`/businesses/${business.id}/reviews`}>
+                    <button>
+                      <span><FontAwesomeIcon icon={faStar}/></span>
+                      Write a Review               
+                    </button>
+                  </Link>
                 </div>
 
                 <div className="business-show-div">
@@ -157,7 +182,34 @@ export default class BusinessShow extends React.Component {
                     <p>{business.description}</p>
                 </div>
                 <div className="business-show-reviews">
-    
+                  <h3>Recommended Reviews</h3>
+                  <div className="currentUser-review-container">
+                    <div className="currentUser-info">
+                      {this.props.currentUser ? 
+                        <img src={this.props.currentUser.profPic} alt="" />
+                        : <img src="https://patriotpower.ogsd.net/wp-content/uploads/2018/03/Profile_Kirby.aead314d435d8e52d9a4e92a6f799c4eee08081e.jpg" alt=""/>
+                      }
+                      
+                      <div>
+                        {this.props.currentUser ? 
+                          <h4>{`${this.props.currentUser.firstName}  ${this.props.currentUser.lastName}.`}</h4>
+                          : <h4>Guest</h4> }
+                        <p>
+                          <span><FontAwesomeIcon id="current-user-star" icon={faStar}/></span>
+                          {(this.props.currentUser && this.props.currentUser.numReviews) ? `${this.props.currentUser.numReviews} Reviews` : "0 Reviews" }
+                        </p>
+                        <p>
+                          <span><FontAwesomeIcon id="current-user-friend" icon={faFemale} /></span>
+                          <span><FontAwesomeIcon id="current-user-friend2" icon={faMale} /></span>
+                          {this.props.currentUser ? "4 Friends" : "N/A" }
+                        </p>
+                      </div>
+                    </div> 
+                    <div className="review-form-link">
+                      <Link to={`/businesses/${business.id}/reviews`}>{`Start your review for ${business.name}`}</Link>
+                    </div>      
+                  </div>
+                    <ReviewIndexContainer currentUser={this.props.currentUser} business={business}/>
                 </div>
               </div>
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import BusinessIndexItem from './business_index_item';
-import NavBarContainer from '../nav_bar/nav_bar_container';
+import NavBar from '../nav_bar/nav_bar';
 import BenchMap from '../map/business_map';
 
 
@@ -23,7 +23,7 @@ export default class BusinessIndex extends React.Component {
     
     return (
       <div>
-        <NavBarContainer />
+        <NavBar />
         <div className="business-index-main-flex">
           <div className="business-index-main">
             <ol>
