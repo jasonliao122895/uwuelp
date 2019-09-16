@@ -4,7 +4,6 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-  
     file = open('https://uwuelp-seeds.s3-us-west-1.amazonaws.com/userprofpics/default.jpg')
     @user.prof_pic.attach(io: file, filename: "#{@user.email}.jpg")
     
