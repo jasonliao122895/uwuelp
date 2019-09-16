@@ -19,7 +19,7 @@ const BusinessIndexItem = ({ business }) => {
   if (rating < 4.5 && rating >= 4.0) ratingUrl = window.four;
   if (rating < 5 && rating >= 4.5) ratingUrl = window.fourHalf;
   if (rating === 5) ratingUrl = window.five;
-
+  
    return (
     <div>
       <div className="business-list-item">
@@ -48,8 +48,7 @@ const BusinessIndexItem = ({ business }) => {
 
           </div>
           <p>
-            This is a temporary fake review while I get my reviews setup.
-            ᕦ(。U ω U。)ᕤ 
+            {business.review !== undefined && business.review !== null ? business.review.body : "No Reviews"}
           </p>
 
         </div>

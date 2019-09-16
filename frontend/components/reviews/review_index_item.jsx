@@ -49,7 +49,8 @@ export default class ReviewIndexItem extends React.Component {
     if (review.rating === 3) reviewUrl = window.three
     if (review.rating === 4) reviewUrl = window.four
     if (review.rating === 5) reviewUrl = window.five
-  
+    debugger
+    if (review === undefined) return (<div></div>)
     return (
       <div className="review-container" id="review-container" data-review-id={review.id}
         onMouseOver={this.showEdit} onMouseOut={this.hideEdit}  >
@@ -69,7 +70,7 @@ export default class ReviewIndexItem extends React.Component {
           </div>
           
           <div id="show-edit-link">
-            { currentUser.id === review.authorId ?
+            { currentUser && currentUser.id === review.authorId ?
             <Link className="hide" id={`edit-link-${review.id}`}  to={`/businesses/${review.businessId}/reviews/${review.id}/edit`}>Edit Review</Link> : ""
             }
           </div>
@@ -83,7 +84,7 @@ export default class ReviewIndexItem extends React.Component {
             </div>
             <span style={{ fontSize: '14px', color: 'black' }}>{review.body}</span>
             <div className="rating-buts">
-              {currentUser.id === review.authorId ?
+              { currentUser && currentUser.id === review.authorId ?
                 <button onClick={this.handleDelete}><span className="delete-but"><FontAwesomeIcon icon={faTrashAlt} /></span></button>
                 : ""}
             </div>

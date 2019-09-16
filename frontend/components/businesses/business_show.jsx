@@ -56,7 +56,8 @@ export default class BusinessShow extends React.Component {
       if (rating < 5 && rating >= 4.5) ratingUrl = window.fourHalf;
       if (rating === 5) ratingUrl = window.five;
     
-      let reviewLength = business.reviews.length;
+      let reviewLength;
+      if (business.reviews) reviewLength = business.reviews.length;
       return (
         <div >
   
