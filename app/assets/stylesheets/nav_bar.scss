@@ -11,7 +11,7 @@
    text-decoration: none;
   }
 
- .nav-bar h3 {
+ .logo h3 {
    font-size: 20px;
    text-align: left;
    transform: rotate(-45deg);
@@ -23,7 +23,7 @@
    margin: 0;
  }
 
- .nav-bar h1 {
+ .logo h1 {
    font-size: 45px;
    font-family: 'Ubuntu', sans-serif;
    color: black;
@@ -44,55 +44,6 @@
   height: 37px; 
  }
 
- .nav-bar label {
-   background-color: #FFFF;
-   height: 36px;
-   display: flex;
-   align-items: center;
-   margin-bottom: 0;
-   font-weight: bold;
-   padding-left: 10px;
-   width: 326px;
-   font-family: 'Ubuntu', sans-serif;
- }
-
- .nav-find {
-   margin-left: 20px;
- }
-
- .nav-find input {
-   border: none;
-   border-right: 0.5px solid gray;
-   width: 100%;
-   outline: none;
-
- }
-
- .nav-near input {
-   border: none;
-   width: 100%;
-   outline: none;
- }
-
- .nav-login {
-  background-color: rgb(37, 36,48);
-  padding: 12px;
-  border-radius: 3px;
-  font-weight: 700;
-  color: #FFF;
-  border: 1px solid #FFF;
-  margin-right: 10px;
-  margin-left: 20px;
-  height: 37px;
- }
-
- .nav-search-but {
-  background-color:rgb(190, 165, 61);
-  padding: 6px 12px;
-  border: none;
-  border-radius: 0 4px 4px 0;
-  height: 36px;
- }
 
  .profile-option {
    display: flex;
@@ -117,8 +68,8 @@
 
  #profile-menu {
    position: absolute;
-   margin-left: 56px;
    top: 70px;
+   right: 50px;
    width: 200px;
    height: 250px;
    background-color: #FFF;
@@ -131,7 +82,7 @@
   content: "";
   position: absolute;
   bottom: 100%;
-  left: 5%;
+  left: 50%;
   margin-left: -5px;
   border-width: 7px;
   border-style: solid;
@@ -158,3 +109,80 @@
  #logout-link {
    margin: 20px;
  }
+
+ .nav-search-bar {
+   display: flex;
+   flex-direction: row;
+   height: 40px;
+   margin-left: 10px;
+   margin-right: 10px;
+ }
+
+ .nav-search-bar a {
+   display: none;
+ }
+
+//  .nav-search-bar form {
+//    height: 40px;
+//  }
+
+ .nav-search-bar label {
+   background-color: #FFF;
+   padding-left: 10px;
+   height: 40px;
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ .nav-search-bar input {
+   border: none;
+   outline: none;
+   height: 25px;
+   font-size: 14px;
+   margin-left: 10px;
+   width: 242px;
+ }
+
+ .nav-search-but {
+   background-color: rgb(210, 170, 15);
+   height: 40px;
+   border: none;
+   padding: 10px;
+   border-bottom-right-radius: 3px;
+   border-top-right-radius: 3px;
+ }
+
+ .nav-search-but span {
+   color: #FFF;
+   font-size: 16px;
+ }
+
+
+
+ #nav-near, #nav-find {
+  padding-top: 10px;
+  padding-bottom: 12px;
+  width: 50px;
+}
+
+#nav-find input {
+  border-right: 1px solid #e6e6e6;
+}
+
+.nav-login {
+  color: #FFF;
+  font-size: 13px;
+  font-weight: 700;
+  margin-right: 10px;
+  background-color: rgb(37, 36,48);
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.nav-signup {
+  color: rgb(37, 36,48);
+  background-color: #FFF;
+  font-size: 13px;
+  font-weight: 700px;
+  padding: 10px;
+  border-radius: 3px;
+}

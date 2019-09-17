@@ -110,7 +110,7 @@ business12 = Businesse.create(
 )
 
 business13 = Businesse.create(
-  name: 'Virgo\'s Maid Cafe', address: '95 GoShujinSama St', city: 'San Francisco', state: 'CA', zipcode: 92123, description: 'A maid cafe owned by a spirit with TONS of experience as a maid over centuries of experience.', open_hour: '2:00 PM', closing_hour: '11:00 PM', latitude: 32.7873 , longitude: -117.1524, phone: '(858)-450-0060', website: 'https://fairytail.fandom.com/wiki/Virgo', price_range: 'Moderate', parking: 'Meter', takeout: 'No', noise_level: 'Low', accept_card: "No", cater: "No", wifi: "No", category: 'Restaurant', sub_category: 'Japanese'  
+  name: 'Virgo\'s Maid Cafe', address: '95 GoShujinSama St', city: 'San Diego', state: 'CA', zipcode: 92123, description: 'A maid cafe owned by a spirit with TONS of experience as a maid over centuries of experience.', open_hour: '2:00 PM', closing_hour: '11:00 PM', latitude: 32.7873 , longitude: -117.1524, phone: '(858)-450-0060', website: 'https://fairytail.fandom.com/wiki/Virgo', price_range: 'Moderate', parking: 'Meter', takeout: 'No', noise_level: 'Low', accept_card: "No", cater: "No", wifi: "No", category: 'Restaurant', sub_category: 'Japanese'  
 )
 
 

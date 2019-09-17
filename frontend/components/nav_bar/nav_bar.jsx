@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import UserProfileContainer from './user_profile_container';
+import SearchContainer from '../search/search_container';
 
 const NavBar = () => (
   <header className="nav-bar">
@@ -10,17 +11,13 @@ const NavBar = () => (
         <h1>elp</h1>
       </Link>
     </div>
-    <label className="nav-find">
-      Find
-      <input type="text"/>
-    </label>
-    <label className="nav-near">
-      Near
-      <input type="text"/>
-    </label>
-    <button className="nav-search-but">
-      <span role="img" aria-label="search">🔍</span>
-    </button>
+    
+    <div>
+      <div className="nav-search-bar">
+        <SearchContainer />
+
+      </div>
+    </div>
     
     <UserProfileContainer />
   </header>

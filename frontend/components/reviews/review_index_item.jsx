@@ -49,7 +49,7 @@ export default class ReviewIndexItem extends React.Component {
     if (review.rating === 3) reviewUrl = window.three
     if (review.rating === 4) reviewUrl = window.four
     if (review.rating === 5) reviewUrl = window.five
-    debugger
+   
     if (review === undefined) return (<div></div>)
     return (
       <div className="review-container" id="review-container" data-review-id={review.id}

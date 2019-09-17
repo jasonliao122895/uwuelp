@@ -7,19 +7,32 @@ export default class BusinessMap extends React.Component {
     super(props);
     this.handleFilter = this.handleFilter.bind(this);
     this.handleUnfilter = this.handleUnfilter.bind(this);
+    this.state = {
+      filterOn: false
+    }
   }
   
   componentDidMount() {
-    const location = { lat: 37.7758, lng: -122.435 };
-    this.initMap(location);
-    this.MarkerManager = new MarkerManager(this.map);
+      // debugger
+      if (this.props.businesses.length > 1 ) {
+        let allLats = this.props.businesses.map((business) => (business.latitude))
+        allLats = allLats.reduce((acc, el) => acc + el)
+        const avgLat = allLats / this.props.businesses.length;
     
-    // if (this.props.businesses.length > 0) {
-    //   this.MarkerManager.updateMarkers(this.props.businesses)
-    // }
+        let allLngs = this.props.businesses.map((business) => (business.longitude))
+        allLngs = allLngs.reduce((acc, el) => acc + el)
+        const avgLng = allLngs / this.props.businesses.length;
+        const centerLocation = { lat: avgLat, lng: avgLng }
+        this.initMap(centerLocation, 11);
+      }
+    
+    // debugger
+    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager.updateMarkers(this.props.businesses);
+   
 
     if (this.props.business) {
-    
+      
       let business = this.props.business;
       this.map.setOptions({ draggable: false, disableDefaultUI: true, zoom: 15 });
       this.map.setCenter({ lat: business.latitude, lng: business.longitude });
@@ -28,7 +41,6 @@ export default class BusinessMap extends React.Component {
         position: latLng,
         map: this.map,
         animation: google.maps.Animation.BOUNCE
-        // label: "★"
       })
     }
 
@@ -36,8 +48,11 @@ export default class BusinessMap extends React.Component {
 
   handleFilter(e) {
     e.preventDefault();
+    this.setState({
+      filterOn: true
+    })
     this.map.addListener('idle', () => {
-
+      // debugger
       let bounds = this.map.getBounds();
       let northEast = bounds.getNorthEast();
       let southWest = bounds.getSouthWest();
@@ -46,7 +61,9 @@ export default class BusinessMap extends React.Component {
         northEast: { lat: northEast.lat(), lng: northEast.lng() },
         southWest: { lat: southWest.lat(), lng: southWest.lng() }
       }
-      this.props.updateBounds('bounds', bounds)
+  
+      this.props.filter('bounds', bounds)
+    
     })
     const filterButton = document.getElementById('filt-but');
     const unfiltButton = document.getElementById('unfilt-but');
@@ -56,6 +73,9 @@ export default class BusinessMap extends React.Component {
 
   handleUnfilter(e) {
     e.preventDefault();
+    this.setState({
+      filterOn: false
+    })
     google.maps.event.clearListeners(this.map, 'idle');
     const unfiltButton = document.getElementById('unfilt-but');
     const filterButton = document.getElementById('filt-but');
@@ -64,26 +84,34 @@ export default class BusinessMap extends React.Component {
   }
 
   componentDidUpdate() {
-    // if (this.props.business) {
-      //   let latLng = {lat: this.props.business.latitude, lng: this.props.business.longitude}
-      //   const marker = new google.maps.Marker({
-      //   position: latLng,
-      //   map: this.map,
-      // })
-    
-      // this.MarkerManager.updateMarkers(businessArr);
-    // }
 
-    if (this.props.businesses && this.props.business === undefined) {
+    if (this.props.businesses.length > 1 && this.props.business === undefined) {
       this.MarkerManager.updateMarkers(this.props.businesses);
+
+      let allLats = this.props.businesses.map((business) => (business.latitude))
+      allLats = allLats.reduce((acc, el) => acc + el)
+      const avgLat = allLats / this.props.businesses.length;
+  
+      let allLngs = this.props.businesses.map((business) => (business.longitude))
+      allLngs = allLngs.reduce((acc, el) => acc + el)
+      const avgLng = allLngs / this.props.businesses.length;
+      const centerLocation = { lat: avgLat, lng: avgLng }
+    
+      if (!this.state.filterOn && this.map) {
+        this.map.setOptions( { center: centerLocation, zoom: 11 } )
+      }
+
     }
+
+   
+
       
   }
   
 
-  initMap (location) {
+  initMap (location, zoomOption) {
     this.map = new google.maps.Map(
-      document.getElementById('map-container'), { zoom: 11, center: location, streetViewControl: false, mapTypeControl: false, fullscreenControl: false }
+      document.getElementById('map-container'), { zoom: zoomOption, center: location, streetViewControl: false, mapTypeControl: false, fullscreenControl: false }
     )
   }
 

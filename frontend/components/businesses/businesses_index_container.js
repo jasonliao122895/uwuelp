@@ -6,14 +6,15 @@ import { filter } from '../../actions/filter_actions';
 const mapStateToProps = state => {
   let businesses = Object.values(state.entities.businesses);
   return {
-    businesses
+    businesses,
+    location: state.filters.near,
+    find: state.filters.find
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchBusinesses: (filter) => dispatch(fetchBusinesses(filter)),
-    updateBounds: (filt, val) => dispatch(filter(filt, val))
+    filter: (filt, val) => dispatch(filter(filt, val))
   }
 }
 

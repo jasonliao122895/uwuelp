@@ -7,9 +7,18 @@ import BenchMap from '../map/business_map';
 export default class BusinessIndex extends React.Component {
   
   
-  componentDidMount() {
-    let bounds = "show all"
-    this.props.updateBounds("bounds", bounds);
+  // componentDidMount() {
+  //   // let bounds = "show all"
+  //   // this.props.filter("near", 'San Francisco');
+  // }
+
+  componentDidUpdate(prevProps) {
+    // if (this.props.location.pathname !== prevProps.location.pathname) {
+    //   this.props.filter('near', this.props.location)
+    //     .then(() => {
+    //       this.props.filter('find', this.props.find)
+    //     })
+    // }
   }
 
   render() {
@@ -20,7 +29,7 @@ export default class BusinessIndex extends React.Component {
         <BusinessIndexItem key={business.id} business={business}/>
       )
     })
-    
+    if (this.props.businesses === undefined) return (<div></div>)
     return (
       <div>
         <NavBar />
@@ -32,8 +41,8 @@ export default class BusinessIndex extends React.Component {
             <div className="map-div">
               <BenchMap 
                 businesses={Object.values(this.props.businesses)}
-                updateBounds={this.props.updateBounds}
-                numbers={numbers}
+                filter={this.props.filter}
+                numbers={numbers} location={this.props.location}
               />
             </div>
           </div>

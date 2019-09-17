@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import UserProfile from '../nav_bar/user_profile_container';
+import SearchContainer from '../search/search_container';
+
 
 export default class Homepage extends React.Component {
 
@@ -13,6 +15,9 @@ export default class Homepage extends React.Component {
     
     return (
       <div>
+        <div className="background-image">
+
+        </div>
         <div className="home-content">
           <header>
             <div id="home-links">
@@ -35,6 +40,23 @@ export default class Homepage extends React.Component {
               }
             </div>
           </header>
+
+          <div className="splash-logo">
+            <div className="logo">
+              <Link to="/">
+                <span><h3>UwU</h3></span>
+                <h1>elp</h1>
+              </Link>
+            </div>
+            <div className="splash-search">
+
+              <SearchContainer />
+
+            </div>
+          </div>
+          
+          
+
         </div>
         
       </div>

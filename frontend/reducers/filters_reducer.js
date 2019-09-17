@@ -2,7 +2,9 @@ import { UPDATE_FILTER } from '../actions/filter_actions';
 
 
 const initialState = {
-  bounds: {}
+  bounds: {},
+  find: "",
+  near: ""
 }
 
 export const filterReducer = (state = initialState, action) => {
