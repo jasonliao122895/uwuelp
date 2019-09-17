@@ -14,25 +14,26 @@ export default class BusinessMap extends React.Component {
   
   componentDidMount() {
       // debugger
-      if (this.props.businesses.length > 1 ) {
-        let allLats = this.props.businesses.map((business) => (business.latitude))
-        allLats = allLats.reduce((acc, el) => acc + el)
-        const avgLat = allLats / this.props.businesses.length;
-    
-        let allLngs = this.props.businesses.map((business) => (business.longitude))
-        allLngs = allLngs.reduce((acc, el) => acc + el)
-        const avgLng = allLngs / this.props.businesses.length;
-        const centerLocation = { lat: avgLat, lng: avgLng }
-        this.initMap(centerLocation, 11);
+      if (this.props.businesses && this.props.business === undefined ) {
+        if (this.props.businesses.length > 1) {
+          let allLats = this.props.businesses.map((business) => (business.latitude))
+          allLats = allLats.reduce((acc, el) => acc + el)
+          const avgLat = allLats / this.props.businesses.length;
+      
+          let allLngs = this.props.businesses.map((business) => (business.longitude))
+          allLngs = allLngs.reduce((acc, el) => acc + el)
+          const avgLng = allLngs / this.props.businesses.length;
+          const centerLocation = { lat: avgLat, lng: avgLng }
+          this.initMap(centerLocation, 11);
+          this.MarkerManager = new MarkerManager(this.map);
+          this.MarkerManager.updateMarkers(this.props.businesses);
+
+        }
       }
     
-    // debugger
-    this.MarkerManager = new MarkerManager(this.map);
-    this.MarkerManager.updateMarkers(this.props.businesses);
-   
 
     if (this.props.business) {
-      
+      this.initMap({ lat: 37.1223, lng: -122.1343 }, 11)
       let business = this.props.business;
       this.map.setOptions({ draggable: false, disableDefaultUI: true, zoom: 15 });
       this.map.setCenter({ lat: business.latitude, lng: business.longitude });
@@ -43,6 +44,8 @@ export default class BusinessMap extends React.Component {
         animation: google.maps.Animation.BOUNCE
       })
     }
+
+    
 
   }
 
@@ -85,22 +88,24 @@ export default class BusinessMap extends React.Component {
 
   componentDidUpdate() {
 
-    if (this.props.businesses.length > 1 && this.props.business === undefined) {
-      this.MarkerManager.updateMarkers(this.props.businesses);
-
-      let allLats = this.props.businesses.map((business) => (business.latitude))
-      allLats = allLats.reduce((acc, el) => acc + el)
-      const avgLat = allLats / this.props.businesses.length;
-  
-      let allLngs = this.props.businesses.map((business) => (business.longitude))
-      allLngs = allLngs.reduce((acc, el) => acc + el)
-      const avgLng = allLngs / this.props.businesses.length;
-      const centerLocation = { lat: avgLat, lng: avgLng }
+    if (this.props.businesses && this.props.business === undefined) {
+      if (this.props.businesses.length > 1 ) {
+        let allLats = this.props.businesses.map((business) => (business.latitude))
+        allLats = allLats.reduce((acc, el) => acc + el)
+        const avgLat = allLats / this.props.businesses.length;
     
-      if (!this.state.filterOn && this.map) {
-        this.map.setOptions( { center: centerLocation, zoom: 11 } )
-      }
+        let allLngs = this.props.businesses.map((business) => (business.longitude))
+        allLngs = allLngs.reduce((acc, el) => acc + el)
+        const avgLng = allLngs / this.props.businesses.length;
+        const centerLocation = { lat: avgLat, lng: avgLng }
 
+        if (!this.state.filterOn && this.map) {
+          this.map.setOptions( { center: centerLocation, zoom: 11 } )
+        }
+      }
+    
+      // debugger
+      this.MarkerManager.updateMarkers(this.props.businesses);
     }
 
    

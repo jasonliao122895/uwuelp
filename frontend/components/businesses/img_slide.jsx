@@ -15,7 +15,7 @@ export default class ImageSlide extends React.Component {
     nextBut.classList.toggle('hide')
     prevBut.classList.toggle('hide')
     const carouselSlide = document.querySelector('.carousel-slide');
-    carouselSlide.style.transition = 'transform 1s ease-in-out'
+    carouselSlide.style.transition = 'transform 0.5s ease-in-out'
     carouselSlide.style.transform = 'translateX(-102%)'
   }
 
@@ -26,7 +26,7 @@ export default class ImageSlide extends React.Component {
     nextBut.classList.toggle('hide')
     prevBut.classList.toggle('hide')
     const carouselSlide = document.querySelector('.carousel-slide');
-    carouselSlide.style.transition = 'transform 1s ease-in-out'
+    carouselSlide.style.transition = 'transform 0.5s ease-in-out'
     carouselSlide.style.transform = 'translateX(0px)'
   }
  

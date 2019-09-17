@@ -69,20 +69,41 @@
  #profile-menu {
    position: absolute;
    top: 70px;
-   right: 50px;
-   width: 200px;
+   width: 158px;
    height: 250px;
    background-color: #FFF;
    z-index: 3;
    border: 1px solid rgb(37, 36,48);
  }
 
+#profile-infos {
+  width: 155px;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+#profile-infos img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+#profile-infos h4, p {
+ 
+  width: 80px;
+  font-size: 13px;
+}
+
+
 
  #profile-menu::after {
   content: "";
   position: absolute;
   bottom: 100%;
-  left: 50%;
+  left: 25%;
   margin-left: -5px;
   border-width: 7px;
   border-style: solid;

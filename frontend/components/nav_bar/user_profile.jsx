@@ -32,13 +32,13 @@ export default class UserProfile extends React.Component {
               <Link to="/signup"><button className="nav-signup">Sign Up</button></Link>
             </div>
             : 
-            <div>
+            <div className="profile-option-container">
               <div className="profile-option" onClick={this.handleToggle}>
                 <img src={this.props.currentUser.profPic} alt=""/>
                 <span><FontAwesomeIcon id="caret-down" icon={faCaretDown} /></span>
               </div>
               <div id="profile-menu" className="hide">
-                <div className="profile-info">
+                <div id="profile-infos">
                   <img src={this.props.currentUser.profPic} alt="" />
                   <div>
                     <h4>{`${this.props.currentUser.firstName}  ${this.props.currentUser.lastName}.`}</h4>

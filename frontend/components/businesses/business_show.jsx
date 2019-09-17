@@ -63,10 +63,14 @@ export default class BusinessShow extends React.Component {
   
           
           <div className="business-show-page">
+
+            <div className="nav-and-carousel">
             <NavBar />
            
 
             <ImageSlide photos={business.photosUrls}/>
+
+            </div>
 
           
             <div className="show-page-center">
@@ -214,33 +218,41 @@ export default class BusinessShow extends React.Component {
                 </div>
               </div>
 
-            </div>
 
-            <div className="business-show-website">
-              <div className="business-show-website-div">
-                <span><FontAwesomeIcon className="info-icon" icon={faLaptop} /></span>
-                <a href={business.website}>Website</a>
-              </div>
 
-              <div className="business-show-website-div">
-                <span><FontAwesomeIcon className="info-icon" icon={faPhone} /></span>
-                <span id="span-show">{business.phone}</span>
-              </div>
+              <div className="show-website-container">
 
-              <div className="business-show-website-addy">
-            
-              
-                  <span><FontAwesomeIcon className="info-icon" icon={faLocationArrow} /></span>
-                <div>
-                  <p>{business.address}</p>
-                  <p>{`${business.city} ,${business.state} ${business.zipcode}`}</p>
 
+                <div className="business-show-website">
+                  <div className="business-show-website-div">
+                    <span><FontAwesomeIcon className="info-icon" icon={faLaptop} /></span>
+                    <a href={business.website}>Website</a>
+                  </div>
+
+                  <div className="business-show-website-div">
+                    <span><FontAwesomeIcon className="info-icon" icon={faPhone} /></span>
+                    <span id="span-show">{business.phone}</span>
+                  </div>
+
+                  <div className="business-show-website-addy">
+
+
+                    <span><FontAwesomeIcon className="info-icon" icon={faLocationArrow} /></span>
+                    <div>
+                      <p>{business.address}</p>
+                      <p>{`${business.city} ,${business.state} ${business.zipcode}`}</p>
+
+                    </div>
+                  </div>
                 </div>
+
+
               </div>
 
-
             </div>
-
+                   
+              
+            
           
           </div>
           

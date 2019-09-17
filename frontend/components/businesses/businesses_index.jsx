@@ -7,10 +7,11 @@ import BenchMap from '../map/business_map';
 export default class BusinessIndex extends React.Component {
   
   
-  // componentDidMount() {
-  //   // let bounds = "show all"
-  //   // this.props.filter("near", 'San Francisco');
-  // }
+  componentDidMount() {
+    debugger
+    // let bounds = "show all"
+    // this.props.filter("near", 'San Francisco');
+  }
 
   componentDidUpdate(prevProps) {
     // if (this.props.location.pathname !== prevProps.location.pathname) {

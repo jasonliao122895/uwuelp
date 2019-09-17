@@ -35,13 +35,13 @@
   position: absolute;
   background-color: transparent;
   font-size: 30px;
-  color: orange;
+  color: rgb(37, 36, 48);
 
 }
 
 #prev:hover, #next:hover {
-  background: rgb(37, 36, 48);
-  border: 4px solid orange;
+  background: rgb(210, 170, 15);
+  border: 4px solid rgb(37, 36, 48);
   border-radius: 50px;
 }
 
