@@ -8,14 +8,15 @@ export default class BusinessMap extends React.Component {
     this.handleFilter = this.handleFilter.bind(this);
     this.handleUnfilter = this.handleUnfilter.bind(this);
     this.state = {
-      filterOn: false
+      filterOn: false,
+      count: 1
     }
   }
   
   componentDidMount() {
       // debugger
       if (this.props.businesses && this.props.business === undefined ) {
-        if (this.props.businesses.length > 1) {
+        if (this.props.businesses.length >= 1) {
           let allLats = this.props.businesses.map((business) => (business.latitude))
           allLats = allLats.reduce((acc, el) => acc + el)
           const avgLat = allLats / this.props.businesses.length;
@@ -27,7 +28,18 @@ export default class BusinessMap extends React.Component {
           this.initMap(centerLocation, 11);
           this.MarkerManager = new MarkerManager(this.map);
           this.MarkerManager.updateMarkers(this.props.businesses);
-
+        } else {
+          let location;
+          if (this.props.location.toLowerCase() === 'san francisco') {
+            location = { lat: 37.76149, lng: -122.4139 }
+          } else if (this.props.location.toLowerCase() === 'san diego') {
+            location = { lat: 32.8604, lng: -117.2075 }
+          } else {
+            location = { lat: 37.71771, lng: -122.6446}
+          }
+          this.initMap(location)
+          this.MarkerManager = new MarkerManager(this.map);
+          this.MarkerManager.updateMarkers(this.props.businesses);
         }
       }
     
@@ -55,7 +67,7 @@ export default class BusinessMap extends React.Component {
       filterOn: true
     })
     this.map.addListener('idle', () => {
-      // debugger
+      debugger
       let bounds = this.map.getBounds();
       let northEast = bounds.getNorthEast();
       let southWest = bounds.getSouthWest();
@@ -87,9 +99,9 @@ export default class BusinessMap extends React.Component {
   }
 
   componentDidUpdate() {
-
+    
     if (this.props.businesses && this.props.business === undefined) {
-      if (this.props.businesses.length > 1 ) {
+      if (this.props.businesses.length >= 1 ) {
         let allLats = this.props.businesses.map((business) => (business.latitude))
         allLats = allLats.reduce((acc, el) => acc + el)
         const avgLat = allLats / this.props.businesses.length;
@@ -102,10 +114,22 @@ export default class BusinessMap extends React.Component {
         if (!this.state.filterOn && this.map) {
           this.map.setOptions( { center: centerLocation, zoom: 11 } )
         }
+      } else {
+        // debugger;
+        let location;
+        if (this.props.location.toLowerCase() === 'san francisco') {
+          location = { lat: 37.76149, lng: -122.4139 }
+        } else if (this.props.location.toLowerCase() === 'san diego') {
+          location = { lat: 32.8604, lng: -117.2075 }
+        } else {
+          location = { lat: 37.71771, lng: -122.6446 }
+        }
+        this.map.setCenter(location);
       }
-    
+      if (!this.props.business) {
+        this.MarkerManager.updateMarkers(this.props.businesses);
+      }
       // debugger
-      this.MarkerManager.updateMarkers(this.props.businesses);
     }
 
    

@@ -33,7 +33,7 @@ class Search extends React.Component {
       .then(() => {
         this.props.filter('find', 'Restaurants')
           .then(() => {
-            this.props.history.replace('/businesses');
+            this.props.history.replace('/businesses?find=restaurants&near=san-francisco');
           })
       })
   }
@@ -44,7 +44,7 @@ class Search extends React.Component {
       .then(() => {
         this.props.filter('find', 'Boba Shops')
           .then(() => {
-            this.props.history.replace('/businesses');
+            this.props.history.replace('/businesses?find=boba-shops&near=san-francisco');
           })
       });
   }
@@ -55,7 +55,7 @@ class Search extends React.Component {
       .then(() => {
         this.props.filter('find', 'Barber Shops')
           .then(() => {
-            this.props.history.replace('/businesses');
+            this.props.history.replace('/businesses?find=barber-shops&near=san-diego');
           })
       })
   }
@@ -64,20 +64,22 @@ class Search extends React.Component {
     e.preventDefault()
     this.props.filter('near', 'San Diego')
       .then(() => {
-        this.props.filter('find', 'Clothing Store')
+        this.props.filter('find', 'Clothing Stores')
           .then(() => {
-            this.props.history.replace('/businesses');
+            this.props.history.replace('/businesses?find=clothing-stores&near=san-diego');
           })
       })
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    let near = this.state.near.split(' ').join('-');
+    let find = this.state.find.split(' ').join('-');
     this.props.filter('near', this.state.near)
       .then(() => {
         this.props.filter('find', this.state.find)
           .then(() => {
-            this.props.history.replace('/businesses')
+            this.props.history.replace(`/businesses?find=${find}&near=${near}`)
           })
       })
     

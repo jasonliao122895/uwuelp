@@ -143,7 +143,7 @@ export default class ReviewForm extends React.Component {
     
     e.preventDefault();
     this.props.action(this.state)
-      .then(() => this.props.history.push(`/businesses/${this.props.business.id}`));
+      .then(() => this.props.history.replace(`/businesses/${this.props.business.id}`))
   }
 
   render() {

@@ -18,6 +18,7 @@ export default class BusinessShow extends React.Component {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.props.fetchBusiness(this.props.match.params.businessId)
     }
+    // window.location.reload(true);
   }
 
   handleToggle(e) {
