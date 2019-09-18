@@ -8,7 +8,8 @@ const mapStateToProps = state => {
   return {
     businesses,
     near: state.filters.near,
-    find: state.filters.find
+    find: state.filters.find,
+    loading: state.ui.loading.indexLoading
   }
 }
 

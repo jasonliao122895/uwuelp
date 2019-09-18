@@ -6,7 +6,8 @@ const mapStateToProps = (state, ownProps) => {
   
   return {
     business: state.entities.businesses[ownProps.match.params.businessId],
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    loading: state.ui.loading.showLoading
   }
 }
 

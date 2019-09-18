@@ -17,11 +17,10 @@ export const filter = (filter, value) => {
   return (dispatch, getState) => {
     dispatch(updateFilter(filter, value));
     return fetchBusinesses(getState().filters)(dispatch);
-    // delicious curry!
+    
   };
 }
 
-window.filter = filter;
 
 
 

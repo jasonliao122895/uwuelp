@@ -3,7 +3,7 @@ import BusinessIndexItem from './business_index_item';
 import NavBar from '../nav_bar/nav_bar';
 import BusinessMap from '../map/business_map';
 import NavLinkContainer from '../nav_bar/nav_link_container'
-
+import Loader from './loader';
 
 export default class BusinessIndex extends React.Component {
 
@@ -173,6 +173,9 @@ export default class BusinessIndex extends React.Component {
 
 
   render() {
+
+    if (this.props.loading) return (<div><Loader /></div>)
+
     let numbers = []
     let price1 = this.state.price1;
     let price2 = this.state.price2;

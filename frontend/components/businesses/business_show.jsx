@@ -6,6 +6,7 @@ import { faParking, faBox, faVolumeUp, faCreditCard, faUtensils, faWifi, faLapto
 import ImageSlide from './img_slide';
 import ReviewIndexContainer from '../reviews/review_index_container';
 import { Link } from 'react-router-dom';
+import Loader from './loader';
 
 export default class BusinessShow extends React.Component {
   
@@ -35,7 +36,7 @@ export default class BusinessShow extends React.Component {
 
   render() {
     let {business} = this.props;
-   
+    if (this.props.loading) return (<div><Loader /></div>)
     
     if (business !== undefined ) {
       
