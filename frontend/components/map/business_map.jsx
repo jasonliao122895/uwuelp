@@ -67,7 +67,7 @@ export default class BusinessMap extends React.Component {
       filterOn: true
     })
     this.map.addListener('idle', () => {
-      debugger
+     
       let bounds = this.map.getBounds();
       let northEast = bounds.getNorthEast();
       let southWest = bounds.getSouthWest();

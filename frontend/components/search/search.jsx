@@ -89,7 +89,7 @@ class Search extends React.Component {
 
     return  (
       <form>
-
+        <div>
         <label id="nav-find">
           Find
           <input type="text" value={this.state.find} onChange={this.handleInput('find')} placeholder="Categories, Name... " />
@@ -101,9 +101,9 @@ class Search extends React.Component {
         </label>
 
         <button className="nav-search-but" onClick={this.handleSubmit}>
-          <span><FontAwesomeIcon icon={faSearch} /></span>
+          <FontAwesomeIcon icon={faSearch} />
         </button>
-
+        </div>
         <div className="category-links">
           <a onClick={this.handleRestaurants}>Restaurants</a>
           <a onClick={this.handleBoba}>Boba Shops</a>

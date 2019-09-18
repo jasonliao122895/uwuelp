@@ -2,8 +2,26 @@ import React from 'react';
 import BusinessIndexItem from './business_index_item';
 import NavBar from '../nav_bar/nav_bar';
 import BusinessMap from '../map/business_map';
+import NavLinkContainer from '../nav_bar/nav_link_container'
+
 
 export default class BusinessIndex extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      businesses: this.props.businesses,
+      filtered: [],
+      price1: "inactive",
+      price2: "inactive",
+      price3: "inactive",
+      price4: "inactive"
+    }
+    this.handlePrice1 = this.handlePrice1.bind(this);
+    this.handlePrice2 = this.handlePrice2.bind(this);
+    this.handlePrice3 = this.handlePrice3.bind(this);
+    this.handlePrice4 = this.handlePrice4.bind(this);
+  }
   
   parseQuery(queryString) {
     let primaryRes = queryString.split('=').slice(1);
@@ -23,23 +41,139 @@ export default class BusinessIndex extends React.Component {
       .then(() => {
         this.props.filter('find', find)
       })
-    // debugger;
-    // let bounds = "show all"
-    // this.props.filter("near", 'San Francisco');
+    
+  }
+
+  handlePrice1(e) {
+    e.preventDefault();
+    const button1 = document.getElementById('price1')
+    let arr = this.props.businesses.filter((business) => {
+      return business.priceRange === "Inexpensive"
+    })
+
+    let newArr = this.state.filtered.filter((business) => {
+      return !arr.includes(business)
+    })
+
+    if (this.state.price1 === "inactive") {
+      button1.style.color = 'lightgreen';
+      this.setState({
+        filtered: this.state.filtered.concat(arr),
+        price1: "active"
+      })
+    } else {
+      button1.style.color = ''
+      this.setState({
+        price1: "inactive",
+        filtered: newArr
+      })
+    }
+  }
+
+  handlePrice2(e) {
+    e.preventDefault();
+    const button2 = document.getElementById('price2')
+    let arr = this.props.businesses.filter((business) => {
+      return business.priceRange === "Moderate"
+    })
+
+    let newArr = this.state.filtered.filter((business) => {
+      return !arr.includes(business)
+    })
+
+    if (this.state.price2 === "inactive") {
+      button2.style.color = 'lightgreen';
+      this.setState({
+        filtered: this.state.filtered.concat(arr),
+        price2: "active"
+      })
+    } else {
+      button2.style.color = ''
+      this.setState({
+        price2: "inactive",
+        filtered: newArr
+      })
+    }
+  }
+
+  handlePrice3(e) {
+    e.preventDefault();
+    const button3 = document.getElementById('price3')
+    let arr = this.props.businesses.filter((business) => {
+      return business.priceRange === "Pricey"
+    })
+
+    let newArr = this.state.filtered.filter((business) => {
+      return !arr.includes(business)
+    })
+
+    if (this.state.price3 === "inactive") {
+      button3.style.color = 'lightgreen';
+      this.setState({
+        filtered: this.state.filtered.concat(arr),
+        price3: "active"
+      })
+    } else {
+      button3.style.color = ''
+      this.setState({
+        price3: "inactive",
+        filtered: newArr
+      })
+    }
+  }
+
+  handlePrice4(e) {
+    e.preventDefault();
+    const button4 = document.getElementById('price4')
+    let arr = this.props.businesses.filter((business) => {
+      return business.priceRange === "Ultra High-End"
+    })
+
+    let newArr = this.state.filtered.filter((business) => {
+      return !arr.includes(business)
+    })
+
+    if (this.state.price4 === "inactive") {
+      button4.style.color = 'lightgreen';
+      this.setState({
+        filtered: this.state.filtered.concat(arr),
+        price4: "active"
+      })
+    } else {
+      button4.style.color = ''
+      this.setState({
+        price4: "inactive",
+        filtered: newArr
+      })
+    }
   }
 
   componentDidUpdate(prevProps) {
-    // if (this.props.location.pathname !== prevProps.location.pathname) {
-    //   this.props.filter('near', this.props.location)
-    //     .then(() => {
-    //       this.props.filter('find', this.props.find)
-    //     })
-    // }
+    // debugger
+    if (this.props.location !== prevProps.location) {
+      // debugger
+      this.setState({
+        filtered: []
+      })
+    }
   }
+
 
   render() {
     let numbers = []
-    let businesses = this.props.businesses.map((business, idx) => {
+    let price1 = this.state.price1;
+    let price2 = this.state.price2;
+    let price3 = this.state.price3;
+    let price4 = this.state.price4;
+
+    let allBusinesses;
+    if (price1 === "active" || price2 === "active" || price3 === "active" || price4 === "active") {
+      allBusinesses = this.state.filtered;
+    } else {
+      allBusinesses = this.props.businesses;
+    }
+
+    let businesses = allBusinesses.map((business, idx) => {
       numbers.push(idx + 1);
       return (
         <BusinessIndexItem key={business.id} business={business}/>
@@ -49,6 +183,24 @@ export default class BusinessIndex extends React.Component {
       return (
         <div>
           <NavBar/>
+          <NavLinkContainer />
+          
+          <div className="filter-options-index">
+            <div className="filter-options-container">
+
+              <h5>Filters</h5>
+              <div className="price-container">
+                <button>$</button>
+                <button>$$</button>
+                <button>$$$</button>
+                <button>$$$$</button>
+              </div>
+
+
+            </div>
+          </div>
+      
+        
           <div className="business-index-main-flex">
             <div className="business-index-main">
               <ol>
@@ -70,6 +222,23 @@ export default class BusinessIndex extends React.Component {
     return (
       <div>
         <NavBar />
+        <NavLinkContainer />
+
+        <div className="filter-options-index">
+          <div className="filter-options-container">
+
+            <h5>Filters</h5>
+            <div className="price-container">
+              <button id="price1" onClick={this.handlePrice1}>$</button>
+              <button id="price2" onClick={this.handlePrice2}>$$</button>
+              <button id="price3" onClick={this.handlePrice3}>$$$</button>
+              <button id="price4" onClick={this.handlePrice4}>$$$$</button>
+            </div>
+
+
+          </div>
+        </div>
+
         <div className="business-index-main-flex">
           <div className="business-index-main">
             <ol>
@@ -77,7 +246,7 @@ export default class BusinessIndex extends React.Component {
             </ol>
             <div className="map-div">
               <BusinessMap 
-                businesses={Object.values(this.props.businesses)}
+                businesses={allBusinesses}
                 filter={this.props.filter}
                 numbers={numbers} location={this.props.location}
               />

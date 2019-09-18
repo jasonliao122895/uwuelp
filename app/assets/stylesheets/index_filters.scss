@@ -1,0 +1,44 @@
+.filter-options-index {
+  display: flex;
+  width: 100%;  
+  height: 100px;
+  justify-content: center;
+}
+
+.filter-options-container {
+  display: flex;
+  flex-direction: row;
+  width: 860px;
+  padding-left: 40px;
+}
+
+.filter-options-container div {
+  padding-top: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.filter-options-container h5{
+  padding-top: 30px;
+  padding-left: 10px;
+  font-size: 25px;
+}
+
+.price-container button {
+  color: #ffffff  ;
+  padding: 8.5px 11px;
+  font-size: 13px;
+  background-color: #24242F;
+}
+
+.price-container button:hover {
+  border: 1px solid rgb(0, 177, 236);
+  color: rgb(0, 177, 236);
+  transform: scale(1.1)
+}
+
+.active {
+  color: lightgreen;
+}
+
+
