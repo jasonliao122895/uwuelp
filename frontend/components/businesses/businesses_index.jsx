@@ -152,9 +152,22 @@ export default class BusinessIndex extends React.Component {
     // debugger
     if (this.props.location !== prevProps.location) {
       // debugger
+      const button1 = document.getElementById('price1')
+      const button2 = document.getElementById('price2')
+      const button3 = document.getElementById('price3')
+      const button4 = document.getElementById('price4')
+      button1.style.color = "";
+      button2.style.color = "";
+      button3.style.color = "";
+      button4.style.color = "";
       this.setState({
-        filtered: []
+        filtered: [],
+        price1: "inactive",
+        price2: "inactive",
+        price3: "inactive",
+        price4: "inactive",
       })
+      
     }
   }
 
@@ -204,13 +217,13 @@ export default class BusinessIndex extends React.Component {
           <div className="business-index-main-flex">
             <div className="business-index-main">
               <ol>
-                <h1>{`There are no ${this.props.find} in ${this.props.location}! `}</h1>
+                <h1>{`There are no ${this.props.find} in ${this.props.near}! `}</h1>
               </ol>
               <div className="map-div">
                 <BusinessMap
                   businesses={Object.values(this.props.businesses)}
                   filter={this.props.filter}
-                  numbers={numbers} location={this.props.location}
+                  numbers={numbers} location={this.props.near}
                 />
               </div>
             </div>
@@ -248,7 +261,7 @@ export default class BusinessIndex extends React.Component {
               <BusinessMap 
                 businesses={allBusinesses}
                 filter={this.props.filter}
-                numbers={numbers} location={this.props.location}
+                numbers={numbers} location={this.props.near}
               />
             </div>
           </div>

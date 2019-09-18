@@ -7,7 +7,7 @@ const mapStateToProps = state => {
   let businesses = Object.values(state.entities.businesses);
   return {
     businesses,
-    location: state.filters.near,
+    near: state.filters.near,
     find: state.filters.find
   }
 }
