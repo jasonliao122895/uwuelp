@@ -70,7 +70,8 @@
    position: absolute;
    top: 70px;
    width: 158px;
-   height: 250px;
+   height: 100px;
+   border-radius: 15px;
    background-color: #FFF;
    z-index: 3;
    border: 1px solid rgb(37, 36,48);
@@ -195,6 +196,10 @@
   background-color: rgb(37, 36,48);
   padding: 10px;
   border-radius: 3px;
+}
+
+#nav-sess:hover {
+  border-bottom: none;
 }
 
 .nav-signup {

@@ -17,13 +17,15 @@ export default class BusinessShow extends React.Component {
   
   componentDidMount() {
     this.props.fetchBusiness(this.props.match.params.businessId)
-    this.props.fetchUser(this.props.currentUser.id);
+    if (this.props.currentUser) {
+      this.props.fetchUser(this.props.currentUser.id);
+    }
     // debugger
   }
 
   componentDidUpdate(prevProps) {
     
-    if (this.props.numReviews !== prevProps.numReviews) {
+    if (this.props.numReviews !== prevProps.numReviews && this.props.currentUser) {
       this.props.fetchUser(this.props.currentUser.id)
     }
 

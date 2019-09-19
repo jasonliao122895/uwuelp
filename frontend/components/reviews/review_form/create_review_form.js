@@ -7,7 +7,9 @@ const mapStateToProps = (state, ownProps) => {
   
   return {
     formType: "create",
-    business: state.entities.businesses[ownProps.match.params.businessId]
+    business: state.entities.businesses[ownProps.match.params.businessId],
+    errors: state.errors.reviews,
+    loggedIn: Boolean(state.session.id)
   }
 }
 

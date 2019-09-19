@@ -28,8 +28,8 @@ export default class UserProfile extends React.Component {
         {
           !this.props.loggedIn ?
             <div>
-              <Link to="/login"><button className="nav-login">Log In</button></Link>
-              <Link to="/signup"><button className="nav-signup">Sign Up</button></Link>
+              <Link id="nav-sess" to="/login"><button className="nav-login">Log In</button></Link>
+              <Link id="nav-sess" to="/signup"><button className="nav-signup">Sign Up</button></Link>
             </div>
             : 
             <div className="profile-option-container">
@@ -54,11 +54,9 @@ export default class UserProfile extends React.Component {
                     </p>
                   </div>
                 </div>
-                <ul className="profile-list">
-                  <li><a >Features</a></li>
-                  <li><a >GitHub</a></li>
-                  <li><a >LinkedIn</a></li>
-                </ul>
+                {/* <ul className="profile-list">
+                
+                </ul> */}
                 <a id="logout-link" onClick={this.props.signout}>Log Out</a>
               </div>
             </div>

@@ -14,7 +14,8 @@ class Api::ReviewsController < ApplicationController
     if @review.save
       render :show
     else
-      render @reivew.errors.full_messages, status: 422
+      # debugger
+      render json: @review.errors.full_messages, status: 422
     end
 
   end
@@ -27,7 +28,7 @@ class Api::ReviewsController < ApplicationController
     if @review.update_attributes(review_params)
       render :show
     else
-      render @review.errors.full_messages, status: 422
+      render json: @review.errors.full_messages, status: 422
     end
 
   end

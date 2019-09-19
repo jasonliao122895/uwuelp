@@ -23,8 +23,7 @@
   color: #fff;
   font-size: 20px;
   padding-left: 20px;
-  width: 300px;
-  margin-right: 50%;
+  width: 60%;
 }
 
 .review-form-header h3 {
@@ -85,8 +84,9 @@
   .review-form-container textarea {
     border: none;
     outline: none;
+    padding-top: 10px;
     width: 587px;
-    height: 268px;
+    height: 300px;
     font-size: 18px;
   }
 
@@ -100,3 +100,22 @@
     border-radius: 3px;
     background-color: rgb(37, 36,48);
   }
+
+  .review-errors {
+    color: red;
+    list-style: none;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
+    justify-self: flex-end;
+  }
+
+  .empty-div-review {
+    position: absolute;
+  }
+
+  .empty-div-review-container {
+    display: flex;
+    align-items: center;
+  }
+
+

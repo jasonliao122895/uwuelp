@@ -134,7 +134,7 @@ export default class SessionForm extends React.Component {
       <div className="session-form">
         
           <header>
-            <Link to="/">
+            <Link id="sess-head" to="/">
             <span><h3>UwU</h3></span>
               <h1>elp</h1>  
             </Link>

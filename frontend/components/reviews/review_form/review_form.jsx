@@ -20,8 +20,14 @@ export default class ReviewForm extends React.Component {
   }
 
   componentDidMount() {
+    let reviewErrors = document.getElementsByClassName('review-errors');
+    reviewErrors = Array.from(reviewErrors);
+
+    reviewErrors.forEach(error => {
+      error.classList.add('hide');
+    })
+
     this.props.fetchBusiness(this.props.match.params.businessId);
-    
   }
 
   
@@ -143,7 +149,23 @@ export default class ReviewForm extends React.Component {
     
     e.preventDefault();
     this.props.action(this.state)
-      .then(() => this.props.history.replace(`/businesses/${this.props.business.id}`))
+      .then(
+        () => this.props.history.replace(`/businesses/${this.props.business.id}`),
+        () => {
+          let reviewErrors = document.getElementsByClassName('review-errors');
+          reviewErrors = Array.from(reviewErrors)
+          reviewErrors.forEach(error => {
+            error.classList.remove('hide');
+          })
+          setTimeout(() => {
+            reviewErrors.forEach(error => {
+              error.classList.add('hide');
+            })
+          }, 2500)
+        }
+      )
+    
+    
   }
 
   render() {
@@ -173,7 +195,13 @@ export default class ReviewForm extends React.Component {
             <h2>
               {this.props.formType === "create" ? "Write a Review" : "Edit Your Review" }
             </h2>
-            <UserProfileContainer />
+            <div className="empty-div-review-container">
+
+              <div className="empty-div-review">
+                <UserProfileContainer />
+              </div>
+
+            </div>
 
           </div>
         </header>
@@ -219,11 +247,21 @@ export default class ReviewForm extends React.Component {
                 </div>
                 <textarea onChange={this.handleInput('body')} value={this.state.body} cols="30" rows="10" placeholder={placeholder}></textarea>
 
-
+                
+                  {this.props.errors.map((error) => <li className="review-errors">{error}</li>)}
+                
               </div>
             </div>
 
-            <button onClick={this.handleSubmit}>{this.props.formType === "create" ? "Post Review" : "Edit Review"}</button>
+            {
+              this.props.loggedIn ?
+              <button onClick={this.handleSubmit}>{this.props.formType === "create" ? "Post Review" : "Edit Review"}</button> :
+              <Link to="/login">
+                <button>
+                    {this.props.formType === "create" ? "Post Review" : "Edit Review"}
+                </button>
+              </Link>
+            }
           </form>
         </div>
       </div>
