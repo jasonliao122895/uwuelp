@@ -58,7 +58,7 @@ class Businesse < ApplicationRecord
   end
 
   def self.in_location(location)
-    Businesse.where('lower(city) LIKE ? or lower(state) LIKE ? ', "%#{location.downcase}%", "%#{location.downcase}%" )
+    Businesse.where('lower(city) LIKE ? or lower(address) LIKE ? ', "%#{location.downcase}%", "%#{location.downcase}%" )
   end
 
   def self.find_business(query)

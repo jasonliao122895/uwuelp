@@ -3,6 +3,7 @@ import { fetchReviews, deleteReview } from '../../actions/review_actions';
 import ReviewIndex from './review_index';
 
 const mapStateToProps = (state) => {
+  // debugger
   let reviews = Object.values(state.entities.reviews)
   return {
     reviews

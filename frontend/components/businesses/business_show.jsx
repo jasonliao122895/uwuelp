@@ -10,16 +10,28 @@ import Loader from './loader';
 
 export default class BusinessShow extends React.Component {
   
+
+  constructor(props) {
+    super(props)
+  }
   
   componentDidMount() {
     this.props.fetchBusiness(this.props.match.params.businessId)
+    this.props.fetchUser(this.props.currentUser.id);
+    // debugger
   }
 
   componentDidUpdate(prevProps) {
+    
+    if (this.props.numReviews !== prevProps.numReviews) {
+      this.props.fetchUser(this.props.currentUser.id)
+    }
+
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.props.fetchBusiness(this.props.match.params.businessId)
     }
-    
+
+
   }
 
   handleToggle(e) {
@@ -59,6 +71,7 @@ export default class BusinessShow extends React.Component {
       if (rating === 5) ratingUrl = window.five;
     
       let reviewLength;
+      
       if (business.reviews) reviewLength = business.reviews.length;
       return (
         <div >

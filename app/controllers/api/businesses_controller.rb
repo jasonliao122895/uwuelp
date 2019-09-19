@@ -5,7 +5,14 @@ class Api::BusinessesController < ApplicationController
     bounds = params[:filters][:bounds]
     near = params[:filters][:near]
     find = params[:filters][:find]
-    
+    if near.downcase == "sf"
+      near = "san francisco"
+    end
+
+    if find.downcase == "sd"
+      near = "san diego"
+    end
+
     bound_filter = Businesse.in_bounds(bounds) if bounds
   
     # debugger
@@ -28,6 +35,19 @@ class Api::BusinessesController < ApplicationController
   def show
     @businesse = Businesse.find_by(id: params[:id])
     render :show
+  end
+
+  def search 
+    query = params[:query]
+    if query.length > 1
+      @businesses = Businesse.where('lower(name) LIKE ?', "%#{query.downcase}%" )
+      @businesses = @businesses[0..4]
+      render :index
+    else
+      @businesses = Businesse.none
+      render :index
+    end
+  
   end
 
 end

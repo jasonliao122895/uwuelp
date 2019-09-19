@@ -148,12 +148,12 @@ export default class BusinessMap extends React.Component {
     // debugger
     return (
       <div>
-        {!this.props.business ? 
+        {/* {!this.props.business ? 
         <div>
           <button onClick={this.handleFilter} id="filt-but" className="show">Filter</button>
           <button onClick={this.handleUnfilter} id="unfilt-but" className="hide">Unfilter</button>
           <span>Click To Toggle Filter By Map Movement</span>
-        </div> : ""}
+        </div> : ""} */}
       <div id="map-container" ref={map => this.mapNode = map}>
       </div>
       </div>

@@ -8,6 +8,12 @@ export default  class ReviewIndex extends React.Component {
     this.props.fetchReviews(this.props.business.id)
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.reviews.length != prevProps.reviews.length) {
+      this.props.fetchReviews(this.props.business.id)
+    }
+  }
+
   render() {
 
     let reviews = this.props.reviews.reverse().map(review => {

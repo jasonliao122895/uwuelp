@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { configureStore } from './store/store'
 import Root from './components/root'
-import { fetchReviews, createReview, updateReview, deleteReview } from './actions/review_actions';
+import { getBusinessesRes } from './actions/search_business_action';
 
 document.addEventListener('DOMContentLoaded', () => {
 

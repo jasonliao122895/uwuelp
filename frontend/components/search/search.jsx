@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import SearchResultItem from './search_result_item';
 
 class Search extends React.Component {
   
@@ -16,6 +17,26 @@ class Search extends React.Component {
     this.handleBoba = this.handleBoba.bind(this);
     this.handleClothing = this.handleClothing.bind(this);
     this.handleBarber = this.handleBarber.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  componentDidMount() {
+    let searches = document.getElementsByClassName('search-result-container');
+    searches = searches[0]
+    // let searchRes = document.getElementsByClassName('search-result-item');
+    // searchRes = Array.from(searchRes)
+    if (this.props.location.search || this.props.location.pathname === "/" || this.props.location.pathname.split('/')[1] === "businesses" ) {
+      if (searches !== null) {
+        searches.classList.add('hide')
+        // searchRes.forEach((search) => {
+        //   search.classList.add('hide')
+        // })
+      }
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    
   }
 
   handleInput(type) {
@@ -25,6 +46,22 @@ class Search extends React.Component {
         [type]: e.target.value
       })
     }
+  }
+
+  handleSearch() {
+    let searches = document.getElementsByClassName('search-result-container');
+    searches = searches[0]
+    let searchRes = document.getElementsByClassName('search-result-item');
+    searchRes = Array.from(searchRes)
+    
+    if (searches !== null) {
+      searches.classList.remove('hide')
+      searchRes.forEach((search) => {
+        search.classList.remove('hide')
+      })
+    }
+    
+    this.props.getBusinessesRes(this.state.find)
   }
 
   handleRestaurants(e) {
@@ -73,6 +110,10 @@ class Search extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    
+
+    // debugger
+    
     let near = this.state.near.split(' ').join('-');
     let find = this.state.find.split(' ').join('-');
     this.props.filter('near', this.state.near)
@@ -82,18 +123,29 @@ class Search extends React.Component {
             this.props.history.replace(`/businesses?find=${find}&near=${near}`)
           })
       })
+
+    
     
   }
   
   render() {
+    
+    let searchRes = this.props.searchRes.map((result) => {
+      return <SearchResultItem result={result}/>
+    })
 
+    
     return  (
       <form>
         <div>
         <label id="nav-find">
           Find
-          <input type="text" value={this.state.find} onChange={this.handleInput('find')} placeholder="Categories, Name... " />
+          <input type="text" value={this.state.find} onInput={this.handleSearch} onChange={this.handleInput('find')} placeholder="Categories, Name... " />
+          <div className="search-result-container">
+            {searchRes}
+          </div>
         </label>
+        
 
         <label id="nav-near">
           Near

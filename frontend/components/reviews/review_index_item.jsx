@@ -15,9 +15,9 @@ export default class ReviewIndexItem extends React.Component {
     e.preventDefault()
     let obj = { id: this.props.review.id, business_id: this.props.review.businessId }
     this.props.deleteReview(obj)
-      .then(() => {
-        this.props.location.push(`/businesses/${this.props.review.businessId}`)
-      })
+      // .then(() => {
+      //   this.props.location.replace(`/businesses/${this.props.review.businessId}`)
+      // })
   }
 
   showEdit(e) {
@@ -41,6 +41,7 @@ export default class ReviewIndexItem extends React.Component {
   }
 
   render() {
+    
     let { review, currentUser } = this.props
     let date = new Date(review.createAt);
     let month = date.getMonth();

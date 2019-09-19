@@ -6,17 +6,35 @@ import SearchContainer from '../search/search_container';
 
 export default class Homepage extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = ({
+      slideIndex: 0
+    })
+  }
+
+
   handleLogOut(e) {
     e.preventDefault();
     this.props.signout()
   }
 
+
+
+
   render() {
-    
+    let bkPics = [window.bk1, window.bk2, window.bk3]
+    let rand = Math.floor(Math.random() * Math.floor(3))
     return (
       <div>
         <div className="background-image">
-
+          <div className="bk-container">
+            <div className="bk-slider">
+              <img className="bk-slides" src={bkPics[rand]} alt=""/>
+              {/* <img className="bk-slides" src={window.bk2} alt=""/>
+              <img className="bk-slides" src={window.bk3} alt=""/> */}
+            </div>
+          </div>
         </div>
         <div className="home-content">
           <header>

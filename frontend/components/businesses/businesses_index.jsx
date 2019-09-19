@@ -4,6 +4,7 @@ import NavBar from '../nav_bar/nav_bar';
 import BusinessMap from '../map/business_map';
 import NavLinkContainer from '../nav_bar/nav_link_container'
 import Loader from './loader';
+import { Redirect } from 'react-router-dom';
 
 export default class BusinessIndex extends React.Component {
 
@@ -15,7 +16,8 @@ export default class BusinessIndex extends React.Component {
       price1: "inactive",
       price2: "inactive",
       price3: "inactive",
-      price4: "inactive"
+      price4: "inactive",
+      redirect: false
     }
     this.handlePrice1 = this.handlePrice1.bind(this);
     this.handlePrice2 = this.handlePrice2.bind(this);
@@ -33,15 +35,28 @@ export default class BusinessIndex extends React.Component {
   }
 
   componentDidMount() {
-   
-    let queryArr = this.parseQuery(this.props.history.location.search)
-    let find = queryArr[0];
-    let near = queryArr[1];
-    this.props.filter('near', near)
-      .then(() => {
-        this.props.filter('find', find)
-      })
     
+    // debugger
+    if (this.props.location.search !== "") {
+      let queryArr = this.parseQuery(this.props.history.location.search)
+      let find = queryArr[0];
+      let near = queryArr[1];
+      this.props.filter('near', near)
+        .then(() => {
+          this.props.filter('find', find)
+        })
+    } else if (this.props.location.search === ""){
+      this.setState({
+        redirect: true
+      })
+    }
+    
+  }
+
+  handleRedirect() {
+    if (this.state.redirect) {
+      return <Redirect to='/404' />
+    }
   }
 
   handlePrice1(e) {
@@ -156,10 +171,13 @@ export default class BusinessIndex extends React.Component {
       const button2 = document.getElementById('price2')
       const button3 = document.getElementById('price3')
       const button4 = document.getElementById('price4')
-      button1.style.color = "";
-      button2.style.color = "";
-      button3.style.color = "";
-      button4.style.color = "";
+      if (button1 && button2 && button3 && button4) {
+        button1.style.color = "";
+        button2.style.color = "";
+        button3.style.color = "";
+        button4.style.color = "";
+
+      }
       this.setState({
         filtered: [],
         price1: "inactive",
@@ -175,7 +193,8 @@ export default class BusinessIndex extends React.Component {
   render() {
 
     if (this.props.loading) return (<div><Loader /></div>)
-
+    
+    
     let numbers = []
     let price1 = this.state.price1;
     let price2 = this.state.price2;
@@ -198,6 +217,7 @@ export default class BusinessIndex extends React.Component {
     if (this.props.businesses === undefined || this.props.businesses.length === 0) {
       return (
         <div>
+          {this.handleRedirect()}
           <NavBar/>
           <NavLinkContainer />
           
@@ -237,6 +257,7 @@ export default class BusinessIndex extends React.Component {
       
     return (
       <div>
+        {this.handleRedirect()}
         <NavBar />
         <NavLinkContainer />
 
