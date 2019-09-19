@@ -2,13 +2,21 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faFemale, faMale, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import {Link} from 'react-router-dom';
-
+import ReactionCreateContainer from '../reactions/reaction_create_container';
+import ReactionUpdateContainer from '../reactions/reaction_update_container';
 
 export default class ReviewIndexItem extends React.Component {
 
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    // if (this.props.reactions !== prevProps.reactions) {
+    //   this.forceUpdate()
+    // }
+    // debugger
   }
 
   handleDelete(e) {
@@ -42,7 +50,7 @@ export default class ReviewIndexItem extends React.Component {
 
   render() {
     
-    let { review, currentUser } = this.props
+    let { review, currentUser, numCool, numFunny, numUseful } = this.props
     let date = new Date(review.createAt);
     let month = date.getMonth();
     let day = date.getDate();
@@ -54,7 +62,7 @@ export default class ReviewIndexItem extends React.Component {
     if (review.rating === 4) reviewUrl = window.four
     if (review.rating === 5) reviewUrl = window.five
    
-    if (review === undefined) return (<div></div>)
+    if (review === undefined ) return (<div></div>)
     return (
       <div className="review-container" id="review-container" data-review-id={review.id}
         onMouseOver={this.showEdit} onMouseOut={this.hideEdit}  >
@@ -88,6 +96,17 @@ export default class ReviewIndexItem extends React.Component {
             </div>
             <span style={{ fontSize: '14px', color: 'black' }}>{review.body}</span>
             <div className="rating-buts">
+             
+              { currentUser && review.currentUserReaction && review.currentUserReaction.length === 0 && review.authorId !== currentUser.id ?
+                <ReactionCreateContainer reviewId={review.id} numUseful={numUseful} numFunny={numFunny} numCool={numCool}  /> :
+                ""
+              } 
+
+              
+
+              { currentUser && review.currentUserReaction && review.currentUserReaction.length > 0 && review.authorId !== currentUser.id ? <ReactionUpdateContainer reaction={review.currentUserReaction[0]} review={review} numUseful={numUseful} numFunny={numFunny} numCool={numCool} /> : ""
+              }
+              
               { currentUser && currentUser.id === review.authorId ?
                 <button onClick={this.handleDelete}><span className="delete-but"><FontAwesomeIcon icon={faTrashAlt} /></span></button>
                 : ""}

@@ -8,9 +8,16 @@ export const addReaction = (reaction) => (
   })
 )
 
-export const fetchReactions = () => (
+export const fetchReactions = (review) => (
   $.ajax({
-    url: '/api/reactions',
+    url: `/api/businesses/${review.businessId}/reviews/${review.id}/reactions`,
+    method: 'GET'
+  })
+)
+
+export const fetchReaction = (id) => (
+  $.ajax({
+    url: `/api/reactions/${id}`,
     method: 'GET'
   })
 )

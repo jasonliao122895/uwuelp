@@ -24,5 +24,9 @@ class Review < ApplicationRecord
   foreign_key: :business_id,
   class_name: :Businesse
 
+  has_many :reactions,
+  foreign_key: :review_id,
+  class_name: :Reaction
+
   
 end

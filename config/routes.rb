@@ -6,9 +6,12 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
     resources :businesses, only: [:index, :show, :create] do
-      resources :reviews, only: [:index, :create, :update, :destroy]
+      resources :reviews, only: [:index, :create, :update, :destroy] do
+        resources :reactions, only: [:index]
+      end
     end
-    resources :reactions, only: [:index, :create, :destroy, :update]
+    
+    resources :reactions, only: [:show, :create, :destroy, :update]
     get '/businesses/search/:query', to: 'businesses#search'
   end
 end

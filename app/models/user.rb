@@ -30,6 +30,11 @@ class User < ApplicationRecord
   foreign_key: :author_id,
   class_name: :Review
 
+  has_many :reactions,
+  foreign_key: :author_id,
+  class_name: :Reaction
+  
+
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
   end
