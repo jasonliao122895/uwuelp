@@ -1,24 +1,51 @@
-# README
+# UwUelp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+UwUelp, a Yelp clone, is a web application that allows users to look up businesses, and see different information about those businesses, and as well as review written by the user or other users.
 
-Things you may want to cover:
+[Live Demo](https://uwuelp.herokuapp.com "UwUelp Homepage")
 
-* Ruby version
+## Technologies
 
-* System dependencies
+* Backend: Rails/Active Record/PostgreSQL
+* Frontend: React/Redux
+* [Google Map API](https://developers.google.com/maps/documentation/ "Google Map Api")
+* [Emojipedia](https://emojipedia.org/ "Emojipedia")
+* [GIPHY](https://giphy.com/ "GIPHY")
 
-* Configuration
+## Features
 
-* Database creation
+* Frontend to backend user authentication using BCrypt
+* Allows for Search of business by name, category, loction, or a combination of name / catergory with location
+* Shows location of businesses on the search page and its individual page
+* Can Create, Read, Update, or Destory a reviews and that is dynamically shown in real time in the frontend
+* Users can react to reviews and that updates the count of the type of reaction of a specifc review
 
-* Database initialization
+## Homepage
 
-* How to run the test suite
+  Once a user logs in, they are redirected to the homepage where they can search up businesses by name, category, and location.
 
-* Services (job queues, cache servers, search engines, etc.)
+![homepage](/app/assets/images/homepage.gif)
+  
 
-* Deployment instructions
+  ## Business Index
 
-* ...
+  Upon searching, displays a list of businesses that fits the search result, and allows for filter by search results
+
+  ![business index](https://i.imgur.com/bs3GR41.png)
+  
+  ![filter show](/app/assets/images/filterprice.gif)
+
+  
+
+  ## Business Show
+  Shows all the details and reviews of a specifc business
+
+  ![business show](/app/assets/images/businessshow.gif)
+  
+  
+  ## Create/Update/Delete Review
+  Can create, update or delete a comment. Numbers of comment when creating or deleting a comment will be reflected in the frontend on profile.
+
+  ![review demo](/app/assets/images/reviewdemo.gif)
+
+

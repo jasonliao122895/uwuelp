@@ -62,7 +62,7 @@ class Businesse < ApplicationRecord
   end
 
   def self.find_business(query)
-    Businesse.where('lower(sub_category) LIKE ? or lower(category) LIKE ? or lower(name) LIKE ? ', "%#{query[0..5].downcase}%", "%#{query[0..5].downcase}%", "%#{query[0..5].downcase}%")
+    Businesse.where('lower(sub_category) LIKE ? or lower(category) LIKE ? or lower(name) LIKE ? ', "%#{query[0..3].downcase}%", "%#{query[0..3].downcase}%", "%#{query[0..3].downcase}%")
   end
 
 end
