@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { updateReview } from '../../../actions/review_actions';
 import { fetchBusiness } from '../../../actions/businesses.action';
 import ReviewForm from './review_form';
+import { openModal, closeModal } from '../../../actions/modal_action';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -15,7 +16,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     action: (review) => dispatch(updateReview(review)),
-    fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId))
+    fetchBusiness: (businessId) => dispatch(fetchBusiness(businessId)),
+    openModal: () => dispatch(openModal())
+    
   }
 }
 

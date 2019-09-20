@@ -210,3 +210,17 @@
   padding: 10px;
   border-radius: 3px;
 }
+
+#logout-link {
+  color: black;
+  padding-bottom: 10px;
+}
+
+#logout-link:hover {
+  border: none;
+}
+
+.review-form-link a:hover {
+  border: none;
+  margin-bottom: 1px;
+}

@@ -1,0 +1,81 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.modal-child {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 6s ease-in-out;
+}
+
+.modal-session-container {
+  width: 400px;
+  background-color: #FFFF;
+  border-radius: 3px;
+  border: 1px solid #ffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 300px;;
+  // opacity: 0;
+  // transition: all 3s ease-in;
+  flex-direction: column;
+}
+
+
+
+.modal-session-container input {
+  width: 300px;
+  padding: 5px 9px;
+  margin-bottom: 9px;
+  border-radius: 3px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.modal-session-container h2 {
+  color: #d32323;
+  padding-top: 30px;
+  padding-bottom: 15px;
+}
+
+.modal-login-button {
+  width: 320px;
+  padding: 10px 13px;
+  background-color: #d32323;
+  border: 1px solid #d32323;
+  color: #FFF;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-sess-close-but img {
+  width: 20px;
+  height: 20px;
+}
+.modal-sess-close-but {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px; 
+}

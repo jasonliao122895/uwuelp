@@ -79,9 +79,6 @@ export default  class ReviewIndex extends React.Component {
     // debugger
     return (
       <div>
-        <ul>
-          <p>{`Cool: ${numCool}, Funny: ${numFunny}, Useful ${numUseful}`}</p>
-        </ul>
         {reviews}
       </div>
     )

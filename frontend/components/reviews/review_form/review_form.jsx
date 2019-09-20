@@ -3,7 +3,7 @@ import {FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import UserProfileContainer from '../../nav_bar/user_profile_container';
-
+import ModalContainer from '../../session_forms/modal';
 
 export default class ReviewForm extends React.Component {
 
@@ -17,6 +17,7 @@ export default class ReviewForm extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   componentDidMount() {
@@ -27,12 +28,20 @@ export default class ReviewForm extends React.Component {
       error.classList.add('hide');
     })
 
+    // let modalBackground = document.getElementsByClassName('modal-background');
+    // modalBackground = Array.from(modalBackground)[0];
+    // const body = document.querySelector('body')
+    // modalBackground.addEventListener('click', () => {
+    //   body.classList.remove('modal-open')
+    // })
+
     this.props.fetchBusiness(this.props.match.params.businessId);
   }
 
   
 
   componentDidUpdate() {
+    
     let star5 = document.getElementById('lstar5');
     let star4 = document.getElementById('lstar4');
     let star3 = document.getElementById('lstar3');
@@ -136,6 +145,15 @@ export default class ReviewForm extends React.Component {
     }
   }
 
+  handleModal(e) {
+    e.preventDefault();
+    const body = document.querySelector('body');
+    body.classList.add('modal-open')
+    this.props.openModal()
+    
+
+  }
+
 
   handleInput(type) {
     return (e) => {
@@ -183,6 +201,7 @@ export default class ReviewForm extends React.Component {
 
     return (
       <div>
+        <ModalContainer />
         <header className="review-form-header">
           <div className="review-form-nav">
 
@@ -256,11 +275,11 @@ export default class ReviewForm extends React.Component {
             {
               this.props.loggedIn ?
               <button onClick={this.handleSubmit}>{this.props.formType === "create" ? "Post Review" : "Edit Review"}</button> :
-              <Link to="/login">
-                <button>
-                    {this.props.formType === "create" ? "Post Review" : "Edit Review"}
-                </button>
-              </Link>
+              
+              <button id="modal-open-but" onClick={this.handleModal}>
+                  {this.props.formType === "create" ? "Post Review" : "Edit Review"}
+              </button>
+              
             }
           </form>
         </div>

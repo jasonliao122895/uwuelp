@@ -37,7 +37,7 @@ export default class UserProfile extends React.Component {
                 <img src={this.props.currentUser.profPic} alt=""/>
                 <span><FontAwesomeIcon id="caret-down" icon={faCaretDown} /></span>
               </div>
-              <div id="profile-menu" className="hide">
+              <div id="profile-menu" onClick={this.handleToggle} className="hide">
                 <div id="profile-infos">
                   <img src={this.props.currentUser.profPic} alt="" />
                   <div>
