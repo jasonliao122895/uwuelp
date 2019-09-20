@@ -24,8 +24,6 @@ export default class SessionForm extends React.Component {
 
   componentDidMount() {
     let errors = document.getElementsByClassName('errors');
-    let demo = document.getElementById('demo');
-    demo.setAttribute('disabled', false)
     errors = Array.from(errors)
     
       errors.forEach(error => {
