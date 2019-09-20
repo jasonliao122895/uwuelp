@@ -113,11 +113,51 @@
 
 .rating-buts {
   display: flex;
-  justify-content: flex-end;  
+  justify-content: space-between;  
+}
+
+
+
+.reaction-buts div form button {
+  width: 90px;
+  margin-right: 10px;
+  font-size: 12px;
+  color: black;
+  background-color: #ffffff;
+  border-color:  black;
+  // color: #E6E6E6;
+}
+
+.reaction-buts div form button span {
+  padding-right: 5px;
+}
+
+.reaction-amounts {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  height: 30px;;
+}
+
+.reaction-amounts h6 {
+  width: 76px;
+  font-size: 12px;
+  text-align: center;
+  padding: 6px;
+  border-radius: 3px;
+  margin-right: 10px;
+  cursor: default;
+}
+
+.reaction-amounts span {
+  padding-right: 5px;
 }
 
 .reacted {
-  background-color: lightskyblue;
-  color: plum;
+  transition: 0.6s linear; 
+  background-color: #24242f !important;
+  border-color:  #24242f !important;
+  font-weight: bolder !important;
+  font-size: 12px;
+  color: lightgreen !important;
 }
-

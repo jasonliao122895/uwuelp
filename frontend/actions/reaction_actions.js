@@ -14,7 +14,7 @@ const receiveReactions = (reactions) => ({
 
 export const addReaction = (reaction) => (dispatch) => (
   ReactionApiUtil.addReaction(reaction)
-    .then((reaction) => dispatch(reaction))
+    .then((reaction) => dispatch(receiveReaction(reaction)))
 )
 
 export const updateReaction = (reaction) => (dispatch) => (

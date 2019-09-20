@@ -13,10 +13,9 @@ export default class ReviewIndexItem extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // if (this.props.reactions !== prevProps.reactions) {
-    //   this.forceUpdate()
-    // }
-    // debugger
+    if (this.props.review.numReacts && prevProps.review.numReacts && this.props.review.numReacts.length !== prevProps.review.numReacts.length) {
+      this.props.fetchReviews(this.props.businessId)
+    }
   }
 
   handleDelete(e) {
@@ -96,16 +95,34 @@ export default class ReviewIndexItem extends React.Component {
             </div>
             <span style={{ fontSize: '14px', color: 'black' }}>{review.body}</span>
             <div className="rating-buts">
-             
-              { currentUser && review.currentUserReaction && review.currentUserReaction.length === 0 && review.authorId !== currentUser.id ?
-                <ReactionCreateContainer reviewId={review.id} numUseful={numUseful} numFunny={numFunny} numCool={numCool}  /> :
-                ""
-              } 
 
-              
+              <div className="reaction-buts">
 
-              { currentUser && review.currentUserReaction && review.currentUserReaction.length > 0 && review.authorId !== currentUser.id ? <ReactionUpdateContainer reaction={review.currentUserReaction[0]} review={review} numUseful={numUseful} numFunny={numFunny} numCool={numCool} /> : ""
-              }
+                { currentUser && review.currentUserReaction && review.currentUserReaction.length === 0 && review.authorId !== currentUser.id ?
+                  <ReactionCreateContainer reviewId={review.id} numUseful={numUseful} numFunny={numFunny} numCool={numCool}  /> :
+                  ""
+                } 
+
+                { currentUser && review.currentUserReaction && review.currentUserReaction.length > 0 && review.authorId !== currentUser.id ? <ReactionUpdateContainer reaction={review.currentUserReaction[0]} review={review} numUseful={numUseful} numFunny={numFunny} numCool={numCool} /> : ""
+                }
+
+                { currentUser === undefined || currentUser.id === review.authorId ? 
+                  <div className="reaction-amounts">
+                    <h6><span role="img" aria-label="lightbulb">💡</span>{`Useful ${numUseful}`}</h6>
+                    <h6><span role="img" aria-label="funny">😂</span>{`Funny ${numFunny}`}</h6>
+                    <h6><span role="img" aria-label="funny">😎</span>{`Cool ${numCool}`}</h6>
+                  </div>
+                    :
+                    ""
+                }
+
+
+
+              </div>
+
+              <div className="reaction-empty-div">
+
+              </div>
               
               { currentUser && currentUser.id === review.authorId ?
                 <button onClick={this.handleDelete}><span className="delete-but"><FontAwesomeIcon icon={faTrashAlt} /></span></button>

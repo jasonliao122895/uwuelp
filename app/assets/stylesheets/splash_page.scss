@@ -1,4 +1,4 @@
-html, body {
+html, body, footer {
    padding: 0;
    margin: 0;
  }
@@ -8,7 +8,7 @@ html, body {
   top: 0;
   z-index: 9999;
   width: 100%;
-  height: 600px;
+  height: 60%;
   background-size: cover;
  }
 
@@ -153,5 +153,9 @@ html, body {
   1px -1px 0 black,
   -1px -1px 0 black,
   -1px 1px 0 black;
+}
+
+main {
+  margin: 0px;
 }
  

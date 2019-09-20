@@ -15,7 +15,8 @@ const mapStateToProps = (state) => {
     reviews,
     numUseful,
     numFunny,
-    numCool
+    numCool,
+    reactions
     
   }
 }

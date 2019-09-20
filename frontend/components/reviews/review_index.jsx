@@ -42,15 +42,12 @@ export default  class ReviewIndex extends React.Component {
 
       this.props.reviews.forEach((review) => {
         this.props.fetchReactions(review)
-          .then(() => {
-            this.setState({ reactions: this.state.reactions.concat(this.props.reactions) })
-          })
       })
     }
     // debugger
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     // debugger
     if (this.props.reviews.length !== prevProps.reviews.length) {
       this.props.fetchReviews(this.props.business.id)
@@ -63,63 +60,11 @@ export default  class ReviewIndex extends React.Component {
       }
     }
 
-    let totalNumUseful = this.props.reviews.map((review) => review.numUseful)
-    if (totalNumUseful.length !== 0) {
-      totalNumUseful = totalNumUseful.reduce((acc, el) => acc + el)
+    if (this.props.reactions.length != prevProps.reactions.length) {
+      this.props.fetchReviews(this.props.business.id)
     }
 
-    let totalNumFunny = this.props.reviews.map((review) => review.numFunny)
-    if (totalNumFunny.length !== 0) {
-      totalNumFunny = totalNumFunny.reduce((acc, el) => acc + el)
-    }
-
-    let totalNumCool = this.props.reviews.map((review) => review.numCool)
-    if (totalNumCool.length !== 0) {
-      totalNumCool = totalNumCool.reduce((acc, el) => acc + el)
-    }
-
-    let preNumUseful = prevProps.reviews.map((review) => review.numUseful)
-    if (preNumUseful.length !== 0) {
-      preNumUseful = preNumUseful.reduce((acc, el) => acc + el)
-    } else {
-      preNumUseful = 0
-    }
-
-    let preNumFunny = prevProps.reviews.map((review) => review.numFunny)
-    if (preNumFunny.length !== 0) {
-      preNumFunny = preNumFunny.reduce((acc, el) => acc + el)
-    } else {
-      preNumFunny = 0
-    }
-
-    let preNumCool = prevProps.reviews.map((review) => review.numCool)
-    if (preNumCool.length !== 0) {
-      preNumCool = preNumCool.reduce((acc, el) => acc + el)
-    } else {
-      preNumCool = 0
-    }
-    // debugger
-    // if (totalNumUseful !== preNumUseful || totalNumCool !== preNumCool || totalNumFunny !== preNumFunny) {
-    //   this.props.fetchReviews(this.props.business.id)
-    // } 
-    // debugger
-    // debugger
-    // if (this.props.reactions.length !== 0 && this.props.reactions !== prevProps.reactions) {
-      // debugger
-      // this.props.fetchReviews(this.props.business.id)
-    // }
-
-    // debugger
-
-    // if (this.props.reactions.length !== 0 && this.props.reactions !== prevProps.reactions) {
-      // debugger;
-      // this.setState({load: false})
-      // if (this.state.load) {
-        // this.props.fetchReviews(this.props.business.id)
-        
-      // }
-    // }
-
+    
 
   }
 
@@ -128,8 +73,8 @@ export default  class ReviewIndex extends React.Component {
     let reviews = this.props.reviews.reverse().map(review => {
       return <ReviewIndexItem 
       currentUser={this.props.currentUser} key={review.id} 
-      review={review} deleteReview={this.props.deleteReview}
-      fetchReaction={this.props.fetchReaction} numCool={numCool} numFunny={numFunny} numUseful={numUseful} />
+        review={review} deleteReview={this.props.deleteReview} fetchReviews={this.props.fetchReviews} businessId={this.props.business.id}
+      fetchReactions={this.props.fetchReactions} numCool={numCool} numFunny={numFunny} numUseful={numUseful} />
     })
     // debugger
     return (

@@ -32,33 +32,8 @@ export default class ReactionUpdate extends React.Component {
 
   }
 
-  componentDidUpdate(prevProps) {
-    // let usefulBol = this.props.reaction.useful;
-    // let funnyBol = this.props.reaction.funny;
-    // let coolBol = this.props.reaction.cool;
-    // let useful = document.getElementById(`useful${this.props.reaction.id}`)
-    // // debugger
-    // let funny = document.getElementById(`funny${this.props.reaction.id}`)
-    // let cool = document.getElementById(`cool${this.props.reaction.id}`)
-    // // debugger
-    // if (usefulBol) {
-    //   useful.classList.add('reacted')
-    // } else {
-    //   useful.classList.remove('reacted')
-    // }
-
-    // if (funnyBol) {
-    //   funny.classList.add('reacted')
-    // } else {
-    //   funny.classList.remove('reacted')
-    // }
-
-    // if (coolBol) {
-    //   cool.classList.add('reacted')
-    // } else {
-    //   cool.classList.remove('reacted')
-    // }
-
+  componentDidUpdate() {
+    
   }
 
   handleUseful(e) {
@@ -136,10 +111,19 @@ export default class ReactionUpdate extends React.Component {
 
     return (
       <div>
-        <form>
-          <button id={`useful${this.props.reaction.id}`} onClick={this.handleUseful}>{`Useful ${numUseful}`}</button>
-          <button id={`funny${this.props.reaction.id}`} onClick={this.handleFunny}>{`Funny ${numFunny}`}</button>
-          <button id={`cool${this.props.reaction.id}`} onClick={this.handleCool}>{`Cool ${numCool}`}</button>
+        <form className="reaction-form">
+          <button className="reaction-buttons" id={`useful${this.props.reaction.id}`} onClick={this.handleUseful}>
+            <span role="img" aria-label="lightbulb">💡</span>
+            {`Useful ${numUseful}`}
+          </button>
+          <button className="reaction-buttons"  id={`funny${this.props.reaction.id}`} onClick={this.handleFunny}>
+            <span role="img" aria-label="funny">😂</span>
+            {`Funny ${numFunny}`}
+          </button>
+          <button className="reaction-buttons"  id={`cool${this.props.reaction.id}`} onClick={this.handleCool}>
+            <span role="img" aria-label="funny">😎</span>
+            {`Cool ${numCool}`}
+          </button>
         </form>
       </div>
     )

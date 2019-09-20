@@ -1,13 +1,27 @@
 import React from 'react';
 
-const Loader = () => {
+export default class Loader extends React.Component {
 
-  return (
-    <div className="loader">
-      <img src="https://i.imgur.com/HAsqhU3.gif" alt=""/>
-    </div>
+  componentWillMount() {
+    const footer = document.querySelector('footer');
+    footer.style.display = "none";
+  }
 
-  )
+  componentWillUnmount() {
+    const footer = document.querySelector('footer');
+    footer.style.display = "";
+  }
+
+  render() {
+    return (
+      <div className="loader">
+        <img src="https://i.imgur.com/HAsqhU3.gif" alt=""/>
+      </div>
+    
+    )
+  }
+
 }
 
-export default Loader;
+
+

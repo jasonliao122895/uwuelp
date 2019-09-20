@@ -16,7 +16,7 @@ class Api::ReactionsController < ApplicationController
     @reaction = Reaction.new(reaction_params)
     @reaction.author_id = current_user.id
     @reaction.review_id = params[:reaction][:review_id].to_i
-    debugger
+   
     if @reaction.save
       render :show
     else

@@ -20,6 +20,8 @@
 html, head, footer {
   width: 100%;
   height: 100%;
+  margin: 0;
+  min-width: 1400px;
 }
 
 a, button {
@@ -31,6 +33,36 @@ a, button {
    font-family: 'Ubuntu', sans-serif;
    outline: none;
    margin: 0;
+ }
+
+ footer {
+   margin: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 30vh;
+   width: 100%;
+   background-color: #24242F;
+ }
+
+ footer img {
+   width: 150px;
+   height: 150px;
+   border-radius: 100px;
+   border: 1px solid #FFF;
+ }
+
+ footer p {
+   width: 400px;
+   color: #FFFF;
+   padding: 40px;
+ }
+
+ .footer-div {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   width: 800px;
  }
 
 

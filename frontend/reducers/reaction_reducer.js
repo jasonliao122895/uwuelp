@@ -6,7 +6,7 @@ export const reactionReducer = (state = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_REACTION:
-      // debugger
+      
       newState[action.reaction.id] = action.reaction;
       return newState;
     case RECEIVE_REACTIONS:
