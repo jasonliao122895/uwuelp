@@ -17,27 +17,6 @@ export default  class ReviewIndex extends React.Component {
   componentDidMount() {
     this.props.fetchReviews(this.props.business.id)
 
-    
-    // let totalNumUseful = this.props.reviews.map((review) => review.numUseful)
-    // if (totalNumUseful.length !== 0) {
-    //   totalNumUseful = totalNumUseful.reduce((acc, el) => acc + el)
-    // }
-
-    // let totalNumFunny = this.props.reviews.map((review) => review.numFunny)
-    // if (totalNumFunny.length !== 0) {
-    //   totalNumFunny = totalNumFunny.reduce((acc, el) => acc + el)
-    // }
-
-    // let totalNumCool = this.props.reviews.map((review) => review.numCool)
-    // if (totalNumCool.length !== 0) {
-    //   totalNumCool = totalNumCool.reduce((acc, el) => acc + el)
-    // }
-
-    // if (totalNumUseful > 0) this.setState({totalUseful: totalNumUseful});
-    // if (totalNumFunny > 0) this.setState({totalFunny: totalNumFunny});
-    // if (totalNumCool > 0) this.setState({totalCool: totalNumCool})
-
-    // debugger
     if (this.props.reviews.length > 0) {
 
       this.props.reviews.forEach((review) => {
@@ -60,7 +39,7 @@ export default  class ReviewIndex extends React.Component {
       }
     }
 
-    if (this.props.reactions.length != prevProps.reactions.length) {
+    if (this.props.reactions.length !== prevProps.reactions.length) {
       this.props.fetchReviews(this.props.business.id)
     }
 

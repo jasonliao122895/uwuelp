@@ -32,8 +32,11 @@ export default class ReactionUpdate extends React.Component {
 
   }
 
-  componentDidUpdate() {
-    
+  componentDidUpdate(prevProps, prevState) {
+    // debugger
+    // if (this.state !== prevState || this.props === prevProps) {
+    //   this.props.fetchReviews(this.props.review.businessId)
+    // }
   }
 
   handleUseful(e) {
@@ -98,16 +101,6 @@ export default class ReactionUpdate extends React.Component {
 
   render() {
     let { numUseful, numFunny, numCool } = this.props;
-
-    // let numUseful = 0
-    // let numCool = 0
-    // let numFunny = 0
-    // reactions.forEach((reaction) => {
-    //   if (reaction.useful) numUseful++;
-    //   if (reaction.cool) numCool++;
-    //   if (reaction.funny) numFunny++; 
-    // })
-    // debugger
 
     return (
       <div>

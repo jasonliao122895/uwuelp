@@ -13,18 +13,21 @@ export default class ReviewIndexItem extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.review.numReacts && prevProps.review.numReacts && this.props.review.numReacts.length !== prevProps.review.numReacts.length) {
+    
+    let condition = (this.props.numCool !== prevProps.numCool || this.props.numUseful !== prevProps.numUseful || this.props.numFunny !== prevProps.numFunny)
+    // debugger
+    if (this.props.review.numReacts && prevProps.review.numReacts && condition) {
+      // debugger;
       this.props.fetchReviews(this.props.businessId)
     }
+
+    // if (this.props.review.numReacts && prevProps.review.numReacts ) 
   }
 
   handleDelete(e) {
     e.preventDefault()
     let obj = { id: this.props.review.id, business_id: this.props.review.businessId }
     this.props.deleteReview(obj)
-      // .then(() => {
-      //   this.props.location.replace(`/businesses/${this.props.review.businessId}`)
-      // })
   }
 
   showEdit(e) {
@@ -54,14 +57,23 @@ export default class ReviewIndexItem extends React.Component {
     let month = date.getMonth();
     let day = date.getDate();
     let year = date.getFullYear();
+    let reviewNumUseful;
+    let reviewNumFunny;
+    let reviewNumCool;
+    if (review.numReacts) {
+      reviewNumUseful = review.numReacts.filter((reaction) => reaction.useful === true).length
+      reviewNumFunny = review.numReacts.filter((reaction) => reaction.funny === true).length
+      reviewNumCool = review.numReacts.filter((reaction) => reaction.cool === true).length
+    }
     let reviewUrl;
     if (review.rating === 1) reviewUrl = window.one
     if (review.rating === 2) reviewUrl = window.two
     if (review.rating === 3) reviewUrl = window.three
     if (review.rating === 4) reviewUrl = window.four
     if (review.rating === 5) reviewUrl = window.five
-   
+    
     if (review === undefined ) return (<div></div>)
+    // debugger;
     return (
       <div className="review-container" id="review-container" data-review-id={review.id}
         onMouseOver={this.showEdit} onMouseOut={this.hideEdit}  >
@@ -99,18 +111,18 @@ export default class ReviewIndexItem extends React.Component {
               <div className="reaction-buts">
 
                 { currentUser && review.currentUserReaction && review.currentUserReaction.length === 0 && review.authorId !== currentUser.id ?
-                  <ReactionCreateContainer reviewId={review.id} numUseful={numUseful} numFunny={numFunny} numCool={numCool}  /> :
+                  <ReactionCreateContainer reviewId={review.id} numUseful={reviewNumUseful} numFunny={reviewNumFunny} numCool={reviewNumCool}  /> :
                   ""
                 } 
 
-                { currentUser && review.currentUserReaction && review.currentUserReaction.length > 0 && review.authorId !== currentUser.id ? <ReactionUpdateContainer reaction={review.currentUserReaction[0]} review={review} numUseful={numUseful} numFunny={numFunny} numCool={numCool} /> : ""
+                { currentUser && review.currentUserReaction && review.currentUserReaction.length > 0 && review.authorId !== currentUser.id ? <ReactionUpdateContainer reaction={review.currentUserReaction[0]} review={review} numUseful={reviewNumUseful} numFunny={reviewNumFunny} numCool={reviewNumCool} /> : ""
                 }
 
                 { currentUser === undefined || currentUser.id === review.authorId ? 
                   <div className="reaction-amounts">
-                    <h6><span role="img" aria-label="lightbulb">💡</span>{`Useful ${numUseful}`}</h6>
-                    <h6><span role="img" aria-label="funny">😂</span>{`Funny ${numFunny}`}</h6>
-                    <h6><span role="img" aria-label="funny">😎</span>{`Cool ${numCool}`}</h6>
+                    <h6><span role="img" aria-label="lightbulb">💡</span>{`Useful ${reviewNumUseful}`}</h6>
+                    <h6><span role="img" aria-label="funny">😂</span>{`Funny ${reviewNumFunny}`}</h6>
+                    <h6><span role="img" aria-label="funny">😎</span>{`Cool ${reviewNumCool}`}</h6>
                   </div>
                     :
                     ""
