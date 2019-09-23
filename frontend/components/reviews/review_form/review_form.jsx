@@ -9,9 +9,15 @@ export default class ReviewForm extends React.Component {
 
   constructor(props) {
     super(props);
+    let body;
+    if (this.props.review === undefined) {
+      body = ""
+    } else {
+      body = this.props.review.body
+    }
     this.state = {
       rating: "0",
-      body: "",
+      body: body,
       business_id: this.props.match.params.businessId,
       id: this.props.match.params.id
     }

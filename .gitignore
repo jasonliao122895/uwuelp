@@ -27,4 +27,5 @@
 /config/master.key
 /app/assets/javascripts/bundle.js
 /app/assets/javascripts/bundle.js.map
+
 /app/views/layouts/application.html.erb
