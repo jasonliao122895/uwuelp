@@ -15,7 +15,7 @@ class Api::BusinessesController < ApplicationController
 
     bound_filter = Businesse.in_bounds(bounds) if bounds
   
-    # debugger
+    
     if near != "" && find != ""
       @businesses = Businesse.in_location(near)
       @finds = Businesse.find_business(find)
@@ -28,7 +28,7 @@ class Api::BusinessesController < ApplicationController
       @businesses = Businesse.find_business(find) 
       @businesses = @businesses.select { |business| bound_filter.include?(business) } if !bound_filter.nil?
     end
-      # debugger
+     
     render :index
   end
 
