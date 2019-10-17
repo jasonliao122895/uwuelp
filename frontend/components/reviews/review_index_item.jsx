@@ -15,13 +15,11 @@ export default class ReviewIndexItem extends React.Component {
   componentDidUpdate(prevProps) {
     
     let condition = (this.props.numCool !== prevProps.numCool || this.props.numUseful !== prevProps.numUseful || this.props.numFunny !== prevProps.numFunny)
-    // debugger
+    
     if (this.props.review.numReacts && prevProps.review.numReacts && condition) {
-      // debugger;
       this.props.fetchReviews(this.props.businessId)
     }
-
-    // if (this.props.review.numReacts && prevProps.review.numReacts ) 
+ 
   }
 
   handleDelete(e) {

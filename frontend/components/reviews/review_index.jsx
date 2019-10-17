@@ -17,13 +17,12 @@ export default  class ReviewIndex extends React.Component {
   componentDidMount() {
     this.props.fetchReviews(this.props.business.id)
 
-    if (this.props.reviews.length > 0) {
-
-      this.props.reviews.forEach((review) => {
-        this.props.fetchReactions(review)
-      })
-    }
-    // debugger
+    // if (this.props.reviews.length > 0) {
+    //   this.props.reviews.forEach((review) => {
+    //     this.props.fetchReactions(review)
+    //   })
+    // }
+    
   }
 
   componentDidUpdate(prevProps) {
