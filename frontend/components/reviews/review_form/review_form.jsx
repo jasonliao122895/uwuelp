@@ -33,14 +33,6 @@ export default class ReviewForm extends React.Component {
     reviewErrors.forEach(error => {
       error.classList.add('hide');
     })
-
-    // let modalBackground = document.getElementsByClassName('modal-background');
-    // modalBackground = Array.from(modalBackground)[0];
-    // const body = document.querySelector('body')
-    // modalBackground.addEventListener('click', () => {
-    //   body.classList.remove('modal-open')
-    // })
-
     this.props.fetchBusiness(this.props.match.params.businessId);
   }
 
@@ -294,23 +286,3 @@ export default class ReviewForm extends React.Component {
   }
 }
 
-
-/*
-  <div className="rating">
-    <input type="radio" name="rating" className="star5" value="5" id="star5" onChange={this.handleInput('rating')} />
-    <label htmlFor="star5" id="lstar5" ><FontAwesomeIcon icon={faStar}/></label>
-
-    <input type="radio" name="rating" className="star4" value="4" id="star4" onChange={this.handleInput('rating')} />
-    <label htmlFor="star4" id="lstar4"><FontAwesomeIcon icon={faStar} /></label>
-
-    <input type="radio" name="rating" className="star3" value="3" id="star3" onChange={this.handleInput('rating')} />
-    <label htmlFor="star3" id="lstar3"><FontAwesomeIcon icon={faStar} /></label>
-
-    <input type="radio" name="rating" className="star2" value="2" id="star2" onChange={this.handleInput('rating')} />
-    <label htmlFor="star2" id="lstar2"><FontAwesomeIcon icon={faStar} /></label>
-
-    <input type="radio" name="rating" className="star1" value="1" id="star1" onChange={this.handleInput('rating')} />
-    <label htmlFor="star1" id="lstar1"><FontAwesomeIcon icon={faStar} /></label>
-  </div>
-
-*/

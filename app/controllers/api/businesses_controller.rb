@@ -44,7 +44,7 @@ class Api::BusinessesController < ApplicationController
       @businesses = @businesses[0..4]
       render :index
     else
-      @businesses = Businesse.none
+      @businesses = []
       render :index
     end
   
@@ -52,7 +52,3 @@ class Api::BusinessesController < ApplicationController
 
 end
 
-# {
-#     northEast: { lat: 37.80971, lng: -122.39208 },
-#     southWest: { lat: 37.74187,  lng: -122.47791 }
-#   }

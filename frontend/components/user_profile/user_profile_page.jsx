@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from '../nav_bar/nav_bar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 export default class UserProfilePage extends React.Component {
 
@@ -48,7 +49,9 @@ export default class UserProfilePage extends React.Component {
                 {
                   this.props.currentUserId === this.props.user.id ? 
                   <div className="current-user-modification-links">
-                    <p>Add Profile Photos</p>
+                    <Link to={'/profilepic'}>
+                      <p>Add Profile Photo</p>
+                    </Link>
                     <p>Update Your Profile</p>
                     <p>Find Friends</p>
                   </div> : 

@@ -31,7 +31,7 @@ UwUelp, a Yelp clone, is a web application that allows users to look up business
 
   Upon searching, displays a list of businesses that fits the search result, and allows for filter by search results
 
-  ![business index](https://i.imgur.com/bs3GR41.png)
+ 
   
   ![filter show](/app/assets/images/filterprice.gif)
 

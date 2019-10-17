@@ -131,7 +131,7 @@ class Search extends React.Component {
   render() {
     
     let searchRes = this.props.searchRes.map((result) => {
-      return <SearchResultItem result={result}/>
+      return <SearchResultItem result={result} key={result.id} />
     })
 
     
