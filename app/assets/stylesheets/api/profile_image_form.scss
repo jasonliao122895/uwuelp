@@ -1,4 +1,99 @@
 .profile-image-form {
-  width: 400px;
-  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image-form img {
+  width: 182px;
+  height: 182px;
+  border-radius: 4px;
+}
+
+
+
+.box {
+  background-color: white;
+  outline: 2px dashed black;
+  outline-offset: -10px;
+  width: 95%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// .box-dragndrop,
+.box-uploading,
+.box-success,
+.box-error {
+  display: none;
+}
+
+.box-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.box-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.highlight {
+  background-color: grey;
+}
+
+.box-dragndrop {
+  color: black;
+  font-size: 15px;
+}
+
+.box-button {
+  background-color: #D2AA0D;
+  border: 1px solid #D2AA0D;
+  color: white;
+  font-size: 15px;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.box-file + .box-file-label {
+  font-size: 1.25em;
+  font-weight: 700px;
+  font-family: 'Ubuntu', 'san-serif';
+  border-radius: 4px;
+  
+}
+
+.box-file-label strong:hover {
+  color: #D2AA0D;
+}
+
+.profile-image-form {
+  background-color: white;
+  border-radius: 4px;
+  width: 600px;
+}
+
+.profile-image-form h1 {
+  padding-top: 20px;
+}
+
+.profile-image-form img
+{
+  padding: 15px;
+}
+
+.box-input p {
+  font-size: 20px;
+  height: 24px;
+  margin-bottom: 5px;
 }

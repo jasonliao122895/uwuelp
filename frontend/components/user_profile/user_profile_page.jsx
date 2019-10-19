@@ -2,9 +2,14 @@ import React from 'react';
 import NavBar from '../nav_bar/nav_bar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import Modal from '../session_forms/modal';
 
 export default class UserProfilePage extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.fetchUser = this.props.fetchUser.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.id)
@@ -14,13 +19,23 @@ export default class UserProfilePage extends React.Component {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.props.fetchUser(this.props.match.params.id)
     }
+
+    if (this.props.user.profPic !== prevProps.user.profPic) {
+      this.props.fetchUser(this.props.match.params.id)
+    }
   } 
+
+  handleModal(e) {
+    e.preventDefault();
+    this.props.openModal('profile image')
+  }
 
 
   render() {
   
     return (
       <div>
+        <Modal user={this.props.user} profile={this}/>
         <NavBar />
         <div className="user-information">
 
@@ -49,9 +64,8 @@ export default class UserProfilePage extends React.Component {
                 {
                   this.props.currentUserId === this.props.user.id ? 
                   <div className="current-user-modification-links">
-                    <Link to={'/profilepic'}>
-                      <p>Add Profile Photo</p>
-                    </Link>
+                    
+                  <p onClick={this.handleModal.bind(this)} >Add Profile Photo</p>
                     <p>Update Your Profile</p>
                     <p>Find Friends</p>
                   </div> : 
@@ -78,6 +92,7 @@ export default class UserProfilePage extends React.Component {
 
           <div className="main-content-user-profile">
             <h1>main stuff</h1>
+            {/* <ProfileImageForm user={this.props.user} profile={this} /> */}
           </div>
           
         </div>

@@ -10,7 +10,6 @@ import CreateReviewFormContainer from '../components/reviews/review_form/create_
 import EditReviewFormContainer from '../components/reviews/review_form/edit_review_form';
 import NotFound from '../components/homepage/not_found';
 import UserProfilePageContainer from '../components/user_profile/user_profile_page_container';
-import ProfileImageForm from '../components/user_profile/profile_image_form'
 
 const App = () => (
   <div>
@@ -22,7 +21,6 @@ const App = () => (
       <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
       <Route exact path="/businesses" component={BusinessIndexContainer} />
       <ProtectedRoute exact path="/users/:id" component={UserProfilePageContainer}/>
-      <ProtectedRoute exact path="/profilepic" component={ProfileImageForm} />
       <Route exact path="/" component={HomepageContainer} />
       <AuthRoute path="/signup" component={SignupContainer} />
       <AuthRoute path="/login" component={LoginContainer} />

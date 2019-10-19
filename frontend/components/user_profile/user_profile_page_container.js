@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import UserProfilePage from './user_profile_page';
 import { fetchUser } from '../../actions/users_actions'
+import { openModal } from '../../actions/modal_action';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -11,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUser: (id) => dispatch(fetchUser(id))
+    fetchUser: (id) => dispatch(fetchUser(id)),
+    openModal: (modal) => dispatch(openModal(modal))
   }
 }
 

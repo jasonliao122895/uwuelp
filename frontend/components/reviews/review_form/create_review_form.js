@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     action: (review) => dispatch(createReview(review)),
     fetchBusiness: (id) => dispatch(fetchBusiness(id)),
-    openModal: () => dispatch(openModal())
+    openModal: (modal) => dispatch(openModal(modal))
     
   }
 }
