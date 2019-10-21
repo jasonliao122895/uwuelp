@@ -216,6 +216,9 @@ export default class BusinessShow extends React.Component {
                         {this.props.currentUser ? 
                           <h4>{`${this.props.currentUser.firstName}  ${this.props.currentUser.lastName}.`}</h4>
                           : <h4>Guest</h4> }
+                        {this.props.currentUser ? 
+                          <p>{`${this.props.currentUser.city}, ${this.props.currentUser.state}`}</p> : ""
+                        }
                         <p>
                           <span><FontAwesomeIcon id="current-user-star" icon={faStar}/></span>
                           {(this.props.currentUser && this.props.currentUser.numReviews) ? `${this.props.currentUser.numReviews} Reviews` : "0 Reviews" }

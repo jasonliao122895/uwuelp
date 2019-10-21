@@ -3,12 +3,18 @@ import NavBar from '../nav_bar/nav_bar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
 import Modal from '../session_forms/modal';
+import {ProfileOverview} from '../user_profile/profile_main/profile_overview';
+import {ProfileFriends} from '../user_profile/profile_main/profile_friends';
+import {ProfileReviews} from '../user_profile/profile_main/profile_reviews';
 
 export default class UserProfilePage extends React.Component {
 
   constructor(props) {
     super(props)
     this.fetchUser = this.props.fetchUser.bind(this);
+    this.state = {
+      active: "Profile Overview"
+    }
   }
 
   componentDidMount() {
@@ -27,7 +33,26 @@ export default class UserProfilePage extends React.Component {
 
   handleModal(e) {
     e.preventDefault();
-    this.props.openModal('profile image')
+    const body = document.querySelector('body');
+    body.classList.add('modal-open')
+    this.props.openModal(e.target.innerHTML)
+  }
+
+  handleToggleMain(e) {
+    e.preventDefault();
+    this.setState({
+      active: e.target.innerHTML
+    })
+  }
+
+  renderMain() {
+    if (this.state.active === "Profile Overview") {
+      return <ProfileOverview />
+    } else if (this.state.active === "Friends") {
+      return <ProfileFriends />
+    } else if (this.state.active === "Reviews") {
+      return <ProfileReviews />
+    }
   }
 
 
@@ -66,7 +91,7 @@ export default class UserProfilePage extends React.Component {
                   <div className="current-user-modification-links">
                     
                   <p onClick={this.handleModal.bind(this)} >Add Profile Photo</p>
-                    <p>Update Your Profile</p>
+                  <p onClick={this.handleModal.bind(this)}>Update Your Profile</p>
                     <p>Find Friends</p>
                   </div> : 
                   <div className="not-current-user-modification-links">
@@ -84,15 +109,14 @@ export default class UserProfilePage extends React.Component {
           <div className="users-profiles-links">
             <ul>
               <h3>{`${this.props.user.firstName}'s Profile`}</h3>
-              <li>Profile Overview</li>
-              <li>Friends</li>
-              <li>Reviews</li>
+              <li onClick={this.handleToggleMain.bind(this)}>Profile Overview</li>
+              <li onClick={this.handleToggleMain.bind(this)}>Friends</li>
+              <li onClick={this.handleToggleMain.bind(this)}>Reviews</li>
             </ul>
           </div>
 
           <div className="main-content-user-profile">
-            <h1>main stuff</h1>
-            {/* <ProfileImageForm user={this.props.user} profile={this} /> */}
+            {this.renderMain()}
           </div>
           
         </div>

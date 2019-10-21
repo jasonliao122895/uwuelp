@@ -15,7 +15,9 @@ export default class SessionForm extends React.Component {
       zipcode: "",
       birth_month: 0,
       birth_day: 0,
-      birth_year: 0
+      birth_year: 0,
+      city: "",
+      state: ""
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,6 +25,7 @@ export default class SessionForm extends React.Component {
   }
 
   componentDidMount() {
+    this.handleZipToLocation();
     let errors = document.getElementsByClassName('errors');
     errors = Array.from(errors)
     
@@ -94,8 +97,40 @@ export default class SessionForm extends React.Component {
     },2500)
   }
 
+
+  handleZipToLocation() {
+    const zipcode = document.getElementById('zip');
+    let that = this;
+    if (zipcode) {
+      zipcode.addEventListener('blur', () => {
+        const zip = zipcode.value;
+        let city = '';
+        let state = '';
+  
+        $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + zip + "&key=AIzaSyBTJsPAfSXLLdny4VZi-j5qbasNYRLn3WY").success(function (response) {
+          
+          let address_components;
+  
+          if (response.results[0]) {
+            address_components = response.results[0].address_components;
+            city = address_components[1].long_name;
+            state = address_components[3].short_name;
+          }
+          
+          $('#city').val(city);
+          that.setState({city})
+          $('#state').val(state);
+          that.setState({state})
+        });
+  
+      })
+
+    }
+
+  }
+
   render() {
-    let {formType, errors} = this.props;
+    let {formType} = this.props;
     let monthArr = [];
     let daysArr = [];
     let yearsArr = [];
@@ -124,11 +159,16 @@ export default class SessionForm extends React.Component {
       if (error.includes('First')) firstNameError += error;
       if (error.includes('Last')) lastNameError += error;
       if (error.includes('Email')) emailError += error;
-      if (error.includes('Zipcode')) zipcodeError += error;
+      if (error.includes('Zipcode')) zipcodeError += "  Zipcode must be valid";
       if (error.includes('Password')) passwordError += error;
       if (error.includes('Invalid')) invalidError += error;
     })
     
+
+    let zipcodeErrorArr = zipcodeError.split('  ');
+    if (zipcodeErrorArr) {
+      zipcodeError = zipcodeErrorArr[1];
+    }
 
     return (
       
@@ -212,9 +252,9 @@ export default class SessionForm extends React.Component {
                   onChange={this.handleInput('zipcode')} value={this.state.zipcode}
                 />
                 <p className="errors">{zipcodeError}</p>
-                
               </div> : ""}
               <br/>
+
               {formType === "signup" ? 
               <div className="birth-date">
                 <label htmlFor="birth-date">Birthday</label>

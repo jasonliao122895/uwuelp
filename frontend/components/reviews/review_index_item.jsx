@@ -50,7 +50,7 @@ export default class ReviewIndexItem extends React.Component {
 
   render() {
     
-    let { review, currentUser, numCool, numFunny, numUseful } = this.props
+    let { review, currentUser} = this.props
     let date = new Date(review.createAt);
     let month = date.getMonth();
     let day = date.getDate();
@@ -71,7 +71,7 @@ export default class ReviewIndexItem extends React.Component {
     if (review.rating === 5) reviewUrl = window.five
     
     if (review === undefined ) return (<div></div>)
-    // debugger;
+
     return (
       <div className="review-container" id="review-container" data-review-id={review.id}
         onMouseOver={this.showEdit} onMouseOut={this.hideEdit}  >
@@ -79,6 +79,7 @@ export default class ReviewIndexItem extends React.Component {
           <img src={review.authorPic} alt="" />
           <div>
             <h4>{`${review.authorFirst}  ${review.authorLast}.`}</h4>
+            <p>{review.authorLocation}</p>
             <p>
               <span><FontAwesomeIcon id="current-user-star" icon={faStar} /></span>
               {`${review.authorNumReviews} Reviews`}

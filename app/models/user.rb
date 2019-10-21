@@ -20,6 +20,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :zipcode, :password_digest, presence: true
   validates :session_token, :email, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates_format_of :zipcode,
+                  with: /\A\d{5}-\d{4}|\A\d{5}\z/,
+                  message: "must be valid"
 
   attr_reader :password
   after_initialize :ensure_session_token
@@ -59,5 +62,6 @@ class User < ApplicationRecord
     return nil if user.nil?
     user.is_password?(password) ? user : nil
   end
+
 
 end

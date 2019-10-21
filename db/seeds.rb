@@ -13,7 +13,7 @@ User.connection.execute('ALTER SEQUENCE users_id_seq RESTART WITH 1')
 
 user1 = User.create(
   first_name: 'Jason', last_name: 'Liao', email: 'jasonliao@live.com',
-  zipcode: 94134, birth_month: 12, birth_day: 28, birth_year: 1995, password: "123456"
+  zipcode: 94134, birth_month: 12, birth_day: 28, birth_year: 1995, password: "123456", city: 'San Francicso', state: 'CA'
 )
 
 ufile1 = open('https://uwuelp-seeds.s3-us-west-1.amazonaws.com/userprofpics/1.jpg')
@@ -21,28 +21,28 @@ user1.prof_pic.attach(io: ufile1, filename: 'jason.jpg')
 
 user2 = User.create(
   first_name: 'Patty', last_name: 'Kim', email: 'Patty@uwuelp.io', password: '123456',
-  zipcode: 94134
+  zipcode: 94134, city: "Fresno", state: "CA"
 )
 
 ufile2 = open('https://uwuelp-seeds.s3-us-west-1.amazonaws.com/userprofpics/2.jpg')
 user2.prof_pic.attach(io: ufile2, filename: 'patty.jpg')
 
 user3 = User.create(
-  first_name: 'B', last_name: 'Cho', email: 'BChoLovesTacos@cvs.io', password: '123456', zipcode: 94134
+  first_name: 'B', last_name: 'Cho', email: 'BChoLovesTacos@cvs.io', password: '123456', zipcode: 94134, city: "Gilroy", state: "CA"
 )
 
 ufile3 = open('https://uwuelp-seeds.s3-us-west-1.amazonaws.com/userprofpics/3.png')
 user3.prof_pic.attach(io: ufile3, filename: 'bcho.png')
 
 user4 = User.create(
-  first_name: 'Andrew', last_name: 'Huang', email: 'anHuang@sjsu.edu', password: '123456', zipcode: 94134
+  first_name: 'Andrew', last_name: 'Huang', email: 'anHuang@sjsu.edu', password: '123456', zipcode: 94134, city: "San Francisco", state: "CA"
 )
 
 ufile4 = open('https://uwuelp-seeds.s3-us-west-1.amazonaws.com/userprofpics/4.jpg')
 user4.prof_pic.attach(io: ufile4, filename: 'drew.jpg')
 
 user5 = User.create(
-  first_name: 'Ernie HKFB', last_name: 'Man', email: 'hkfb@mills.com', password: '123456', zipcode: 94134
+  first_name: 'Ernie HKFB', last_name: 'Man', email: 'hkfb@mills.com', password: '123456', zipcode: 94134, city: "Milbrae", state: "CA"
 )
 
 ufile5 = open('https://uwuelp-seeds.s3-us-west-1.amazonaws.com/userprofpics/5.jpeg')

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class Loader extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     const footer = document.querySelector('footer');
     footer.style.display = "none";
   }

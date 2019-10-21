@@ -16,17 +16,9 @@ export default  class ReviewIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchReviews(this.props.business.id)
-
-    // if (this.props.reviews.length > 0) {
-    //   this.props.reviews.forEach((review) => {
-    //     this.props.fetchReactions(review)
-    //   })
-    // }
-    
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
     if (this.props.reviews.length !== prevProps.reviews.length) {
       this.props.fetchReviews(this.props.business.id)
 
@@ -54,7 +46,6 @@ export default  class ReviewIndex extends React.Component {
         review={review} deleteReview={this.props.deleteReview} fetchReviews={this.props.fetchReviews} businessId={this.props.business.id}
       fetchReactions={this.props.fetchReactions} numCool={numCool} numFunny={numFunny} numUseful={numUseful} />
     })
-    // debugger
     return (
       <div>
         {reviews}

@@ -3,6 +3,8 @@ import { closeModal } from '../../actions/modal_action';
 import { connect } from 'react-redux';
 import ModalSessionContainer from './modal_session_container';
 import ProfileImageForm from '../user_profile/profile_image_form';
+import UserProfileFormContainer from '../user_profile/user_profile_form_container';
+
 
 class Modal extends React.Component  {
 
@@ -17,15 +19,22 @@ class Modal extends React.Component  {
       const modalSess = document.getElementById('fade-in')
       if (modalSess) {
         modalSess.classList.add('fade-in')
-
       }
       
     }
   }
 
+  handleClose(e) {
+    e.preventDefault();
+    this.props.closeModal();
+    const body = document.querySelector('body');
+    body.classList.remove('modal-open')
+  }
+
+
   render() {
     
-    let { modal, closeModal} = this.props
+    let { modal } = this.props
  
     if (!modal) {
       return null
@@ -36,15 +45,18 @@ class Modal extends React.Component  {
       case 'not logged in':
         component = <ModalSessionContainer />
         break;
-      case 'profile image':
+      case 'Add Profile Photo':
         component = <ProfileImageForm user={this.props.user} profile={this.props.profile} closeModal={this.props.closeModal} />
+        break;
+      case 'Update Your Profile':
+        component = <UserProfileFormContainer user={this.props.user} closeModal={this.props.closeModal} profile={this.props.profile}/>
         break;
       default:
         return null;
     }
   
     return (
-      <div className="modal-background" onClick={closeModal}>
+      <div className="modal-background" onClick={this.handleClose.bind(this)}>
         <div id="fade-in" className="modal-child" onClick={e => e.stopPropagation()}>
           { component }
         </div>

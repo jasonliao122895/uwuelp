@@ -147,9 +147,7 @@ export default class ReviewForm extends React.Component {
     e.preventDefault();
     const body = document.querySelector('body');
     body.classList.add('modal-open')
-    this.props.openModal()
-    
-
+    this.props.openModal('not logged in')
   }
 
 
@@ -274,7 +272,7 @@ export default class ReviewForm extends React.Component {
               this.props.loggedIn ?
               <button onClick={this.handleSubmit}>{this.props.formType === "create" ? "Post Review" : "Edit Review"}</button> :
               
-                <button id="modal-open-but" onClick={this.handleModal('not logged in')}>
+                <button id="modal-open-but" onClick={this.handleModal}>
                   {this.props.formType === "create" ? "Post Review" : "Edit Review"}
               </button>
               

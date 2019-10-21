@@ -1,0 +1,46 @@
+.profile-update-form input[type=text], .profile-update-form textarea {
+  width: 100%;  
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.profile-update-form input[type=text] {
+  border-radius: 3px;
+  border: 1px solid #999;
+  font-size: 14px;
+  height: 25px;
+  line-height: 1.29em;
+}
+
+.profile-update-form textarea {
+  border-radius: 3px;
+  border: 1px solid #999;
+  font-size: 14px;
+  line-height: 1.29em;
+}
+
+.profile-update-form {
+  font-family: 'Ubuntu', 'san-serif';
+  border-radius: 4px;
+  padding: 30px;
+}
+
+.profile-update-form-container {
+  background-color: #FFF;
+  border-radius: 4px;
+}
+
+.update-profile-button {
+  padding: 5px;
+  color: #FFF;
+  font-size: 13px;
+  border-radius: 4px;
+  border: 1px solid #D2AA0D;
+  background-color: #D2AA0D;
+  margin-right: 7px;
+}
+
+.cancel-profile-update {
+  border: none;
+  background-color: #FFF;
+}

@@ -12,6 +12,7 @@
     json.authorId review.author_id
     json.authorFirst review.author.first_name.capitalize
     json.authorLast review.author.last_name[0].capitalize
+    json.authorLocation review.author.city + ", " + review.author.state
     json.authorPic url_for(review.author.prof_pic)
     json.authorNumReviews review.author.reviews.length
     json.businessId review.business_id
