@@ -19,15 +19,18 @@ export default class UserProfilePage extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.id)
+    this.handleHighlight();
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.props.fetchUser(this.props.match.params.id)
     }
-
     if (this.props.user.profPic !== prevProps.user.profPic) {
       this.props.fetchUser(this.props.match.params.id)
+    }
+    if (prevState.active !== this.state.active) {
+      this.handleHighlight();
     }
   } 
 
@@ -47,11 +50,39 @@ export default class UserProfilePage extends React.Component {
 
   renderMain() {
     if (this.state.active === "Profile Overview") {
-      return <ProfileOverview />
+      return <ProfileOverview user={this.props.user} />
     } else if (this.state.active === "Friends") {
       return <ProfileFriends />
     } else if (this.state.active === "Reviews") {
       return <ProfileReviews />
+    }
+  }
+
+  handleHighlight() {
+    const profileOverview = document.querySelector('.profile-overview');
+    const profileFriends = document.querySelector('.profile-friends')
+    const profileReviews = document.querySelector('.profile-reviews')
+    if (this.state.active === "Profile Overview") {
+      profileOverview.style.borderLeft = '4px solid #D2AA0D'
+      profileOverview.style.backgroundColor = '#e6e6e6'
+      profileFriends.style.borderLeft = "";
+      profileFriends.style.backgroundColor = "";
+      profileReviews.style.borderLeft = "";
+      profileReviews.style.backgroundColor = "";
+    } else if (this.state.active === 'Friends') {
+      profileFriends.style.borderLeft = '4px solid #D2AA0D'
+      profileFriends.style.backgroundColor = '#e6e6e6'
+      profileReviews.style.borderLeft = "";
+      profileReviews.style.backgroundColor = "";
+      profileOverview.style.borderLeft = "";
+      profileOverview.style.backgroundColor = "";
+    } else if (this.state.active === 'Reviews') {
+      profileReviews.style.borderLeft = '4px solid #D2AA0D'
+      profileReviews.style.backgroundColor = '#e6e6e6'
+      profileOverview.style.borderLeft = "";
+      profileOverview.style.backgroundColor = "";
+      profileFriends.style.borderLeft = "";
+      profileFriends.style.backgroundColor = "";
     }
   }
 
@@ -63,7 +94,9 @@ export default class UserProfilePage extends React.Component {
         <Modal user={this.props.user} profile={this}/>
         <NavBar />
         <div className="user-information">
+            <div className="user-information-spacing">
 
+            </div>
           
           
             <div className="user-basic-info-container">
@@ -71,6 +104,7 @@ export default class UserProfilePage extends React.Component {
               
                 <div className="user-basic-info">
                   <h1>{`${this.props.user.firstName} ${this.props.user.lastName}.`}</h1>
+                  <p>{`${this.props.user.city}, ${this.props.user.state}`}</p>
                   <div className="user-reviews-and-friends">
 
                     <p>
@@ -109,9 +143,9 @@ export default class UserProfilePage extends React.Component {
           <div className="users-profiles-links">
             <ul>
               <h3>{`${this.props.user.firstName}'s Profile`}</h3>
-              <li onClick={this.handleToggleMain.bind(this)}>Profile Overview</li>
-              <li onClick={this.handleToggleMain.bind(this)}>Friends</li>
-              <li onClick={this.handleToggleMain.bind(this)}>Reviews</li>
+              <li className="profile-overview" onClick={this.handleToggleMain.bind(this)}>Profile Overview</li>
+              <li className="profile-friends" onClick={this.handleToggleMain.bind(this)}>Friends</li>
+              <li className="profile-reviews" onClick={this.handleToggleMain.bind(this)}>Reviews</li>
             </ul>
           </div>
 

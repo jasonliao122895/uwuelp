@@ -1,0 +1,37 @@
+.profile-overview-container h2, .profile-overview-container h3 {
+  margin-bottom: 6px;
+  color: #D2AA0D;
+}
+
+.profile-overview-notifications p {
+  margin-bottom: 12px;
+}
+
+.profile-overview-activity p {
+  padding: 35px;
+}
+
+.profile-overview-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-overview-main {
+  width: 60%;
+}
+
+.profile-overview-side {
+  padding-left: 15px;
+  border-left: 1px solid #e6e6e6;
+  width: 40%;
+}
+
+.profile-overview-side h5 {
+  font-weight: 500;
+  
+}
+.profile-side-headers {
+  font-size: 15px;
+  font-weight: bolder;
+  margin-bottom: 3px;
+}

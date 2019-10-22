@@ -1,44 +1,58 @@
 .user-information {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   background-color: #f5f5f5;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
   padding-top: 9px;
   padding-bottom: 24px;
+  padding-left: 78px;
 }
 
 .user-information img {
   border-radius: 4px;
   position: absolute;
-  left: 10%;
+  left: 90px;
   top: 160px;
   width: 182px;
   height: 182px;
 }
 
+.user-information-spacing {
+  width: 220px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .user-basic-info-container {
   display: flex;
   flex-direction: row;
-  width: 70%;
+  width: 75%;
+  justify-content: flex-start;
 }
 
 .user-basic-info {
-  margin-right: 30px;
-  margin-left: 30px;
+  
+  // margin-left: 30px;
+  // padding-left: 50px;
   padding-top: 50px;
-  width: 50%;
+  width: 60%;
+}
+
+.user-basic-info > p {
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 
 
 .current-user-modification-links {
-  width: 232px;
   height: 147px;
   margin-top: 50px;
   border-left: 1px solid #e6e6e6;
-  padding-left: 20px;
+  padding-left: 15px;
   color: #0073BB;
+  width: 40%;
 }
 
 .current-user-modification-links p {
@@ -64,19 +78,21 @@
   margin-top: 9px;
   display: flex;
   flex-direction: row;
-  margin-left: 6%;
+  margin-left: 78px;
 }
 
 .users-profiles-links {
-  width: 300px;
+  width: 250px;
 }
 .users-profiles-links ul {
   padding-top: 10px;
-  padding-right: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
   height: 800px;
   list-style: none;
 }
 .users-profiles-links li {
+  padding-left: 5px;
   padding-top: 12px;
   padding-bottom: 12px;
   border-top: 1px solid #e6e6e6;
@@ -88,9 +104,7 @@
 }
 
 .main-content-user-profile {
-  width: 33%;
+  padding-top: 15px;
+  width: 75%;
 }
 
-.user-stats {
-  width: 33%;
-}

@@ -44,6 +44,11 @@
   height: 37px; 
  }
 
+ .profile-option-container {
+   display: flex;
+   flex-direction: column;
+ }
+
 
  .profile-option {
    display: flex;
@@ -53,7 +58,7 @@
  .profile-option img {
   width: 36px;
   height: 36px;
-  margin-left: 20px;
+  margin-left: 10px;
  }
 
  .profile-option span {
@@ -66,11 +71,17 @@
    color: rgb(37, 36,48);
  }
 
+ html {
+   min-width: 1200px;
+ }
+
  #profile-menu {
    position: absolute;
    top: 70px;
+  //  right: 0;
    width: 158px;
-   height: 100px;
+  //  width: 10%;
+   height: 150px;
    border-radius: 15px;
    background-color: #FFF;
    z-index: 3;
@@ -104,7 +115,7 @@
   content: "";
   position: absolute;
   bottom: 100%;
-  left: 25%;
+  left: 15%;
   margin-left: -5px;
   border-width: 7px;
   border-style: solid;
@@ -115,16 +126,18 @@
    list-style: none;
    margin: 0 20px 15px 10px;
    padding: 0px;
-   border-top: 1px solid #e6e6e6;
-   border-bottom: 1px solid #e6e6e6;
+   
  }
 
 
 
- .profile-list li {
+ .profile-list a {
    padding-bottom: 10px;
    padding-top: 10px;
-   padding-left: 10px; 
+   text-align: center; 
+   margin-left: 10px;
+   cursor: pointer;
+   color: black;
  }
 
 

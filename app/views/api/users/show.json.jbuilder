@@ -13,3 +13,4 @@
   json.hobbies @user.hobbies
   json.website @user.website
   json.gender @user.gender
+  json.createdAt @user.created_at

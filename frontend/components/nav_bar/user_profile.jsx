@@ -33,10 +33,12 @@ export default class UserProfile extends React.Component {
             </div>
             : 
             <div className="profile-option-container">
+
               <div className="profile-option" onClick={this.handleToggle}>
                 <img src={this.props.currentUser.profPic} alt=""/>
                 <span><FontAwesomeIcon id="caret-down" icon={faCaretDown} /></span>
               </div>
+              
               <div id="profile-menu" onClick={this.handleToggle} className="hide">
                 <div id="profile-infos">
                   <img src={this.props.currentUser.profPic} alt="" />
@@ -54,9 +56,10 @@ export default class UserProfile extends React.Component {
                     </p>
                   </div>
                 </div>
-                {/* <ul className="profile-list">
+                <ul className="profile-list">
+                  <Link to={`/users/${this.props.currentUser.id}`}>About Me</Link>
                 
-                </ul> */}
+                </ul>
                 <a id="logout-link" onClick={this.props.signout}>Log Out</a>
               </div>
             </div>

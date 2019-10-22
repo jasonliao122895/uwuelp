@@ -23,21 +23,13 @@ class Search extends React.Component {
   componentDidMount() {
     let searches = document.getElementsByClassName('search-result-container');
     searches = searches[0]
-    // let searchRes = document.getElementsByClassName('search-result-item');
-    // searchRes = Array.from(searchRes)
-    if (this.props.location.search || this.props.location.pathname === "/" || this.props.location.pathname.split('/')[1] === "businesses" ) {
+    if (this.props.location.search || this.props.location.pathname === "/" || this.props.location.pathname.split('/')[1] === "businesses" || this.props.location.pathname.split('/')[1] === "users" ) {
       if (searches !== null) {
         searches.classList.add('hide')
-        // searchRes.forEach((search) => {
-        //   search.classList.add('hide')
-        // })
       }
     }
   }
 
-  componentDidUpdate(prevProps) {
-    
-  }
 
   handleInput(type) {
     
@@ -47,6 +39,7 @@ class Search extends React.Component {
       })
     }
   }
+
 
   handleSearch() {
     let searches = document.getElementsByClassName('search-result-container');
@@ -110,9 +103,6 @@ class Search extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
-
-    // debugger
     
     let near = this.state.near.split(' ').join('-');
     let find = this.state.find.split(' ').join('-');
