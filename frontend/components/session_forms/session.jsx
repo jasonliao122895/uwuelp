@@ -155,14 +155,16 @@ export default class SessionForm extends React.Component {
     let lastNameError = "";
     let invalidError = ""
 
-    this.props.errors.forEach(error => {
-      if (error.includes('First')) firstNameError += error;
-      if (error.includes('Last')) lastNameError += error;
-      if (error.includes('Email')) emailError += error;
-      if (error.includes('Zipcode')) zipcodeError += "  Zipcode must be valid";
-      if (error.includes('Password')) passwordError += error;
-      if (error.includes('Invalid')) invalidError += error;
-    })
+    if (this.props.error.length > 1) {
+      this.props.errors.forEach(error => {
+        if (error.includes('First')) firstNameError += error;
+        if (error.includes('Last')) lastNameError += error;
+        if (error.includes('Email')) emailError += error;
+        if (error.includes('Zipcode')) zipcodeError += "  Zipcode must be valid";
+        if (error.includes('Password')) passwordError += error;
+        if (error.includes('Invalid')) invalidError += error;
+      })
+    }
     
 
     let zipcodeErrorArr = zipcodeError.split('  ');
