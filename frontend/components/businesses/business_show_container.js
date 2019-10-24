@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchBusiness } from '../../actions/businesses.action';
+import { fetchBusiness } from '../../actions/businesses_action';
 import BusinessShow from './business_show';
 import { fetchUser } from '../../actions/users_actions';
 

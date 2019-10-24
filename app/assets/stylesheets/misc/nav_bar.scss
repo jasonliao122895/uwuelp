@@ -25,7 +25,7 @@
 
  .logo h1 {
    font-size: 45px;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'IBM Plex Sans', sans-serif;
    color: black;
    text-shadow: 3px 3px 0 #FFF,
    -3px 3px 0 #FFF,
@@ -78,18 +78,16 @@
  #profile-menu {
    position: absolute;
    top: 70px;
-  //  right: 0;
-   width: 158px;
-  //  width: 10%;
+   width: 185px;
    height: 150px;
-   border-radius: 15px;
+  //  border-radius: 15px;
    background-color: #FFF;
    z-index: 3;
    border: 1px solid rgb(37, 36,48);
  }
 
 #profile-infos {
-  width: 155px;
+  width: 180px;
   display: flex;
   flex-direction: row;
   padding: 5px;
@@ -124,9 +122,9 @@
 
  .profile-list {
    list-style: none;
-   margin: 0 20px 15px 10px;
    padding: 0px;
-   
+   margin-bottom: 5px;
+   margin-top: 0;
  }
 
 
@@ -135,14 +133,22 @@
    padding-bottom: 10px;
    padding-top: 10px;
    text-align: center; 
-   margin-left: 10px;
+   margin-left: 20px;
    cursor: pointer;
    color: black;
+ }
+
+ .profile-list a:hover {
+   color: #D2AA0D;
  }
 
 
  #logout-link {
    margin: 20px;
+ }
+
+ #logout-link:hover {
+   color: #D2AA0D;
  }
 
  .nav-search-bar {
@@ -165,7 +171,7 @@
    background-color: #FFF;
    padding-left: 10px;
    height: 40px;
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'IBM Plex Sans', sans-serif;
  }
 
  .nav-search-bar input {

@@ -40,7 +40,7 @@ class Api::BusinessesController < ApplicationController
   def search 
     query = params[:query]
     if query.length >= 2 
-      @businesses = Businesse.where('lower(name) LIKE ?', "%#{query.downcase}%" )
+      @businesses = Businesse.where('lower(name) LIKE ?', "%#{query.downcase}%")
       @businesses = @businesses[0..4]
       render :index
     else

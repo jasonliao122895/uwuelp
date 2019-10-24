@@ -30,7 +30,7 @@ a, button {
 }
 
  a, button, h1, h2, h3, h4, h5, h6, p, tr, td, span, li {
-   font-family: 'Ubuntu', sans-serif;
+   font-family: 'IBM Plex Sans', sans-serif;
    outline: none;
    margin: 0;
  }

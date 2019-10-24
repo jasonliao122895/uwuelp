@@ -26,5 +26,7 @@ if @businesse
     json.subCategory @businesse.sub_category
     json.photosUrls @businesse.food_pics.map { |file| url_for(file) }
     json.reviews @businesse.reviews
+    json.profPic url_for(@businesse.prof_pic)
+
   end
 end

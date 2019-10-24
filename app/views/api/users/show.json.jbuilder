@@ -14,3 +14,4 @@
   json.website @user.website
   json.gender @user.gender
   json.createdAt @user.created_at
+  json.reviews @user.reviews

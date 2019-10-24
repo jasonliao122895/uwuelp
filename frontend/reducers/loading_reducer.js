@@ -1,4 +1,4 @@
-import { RECEIVE_BUSINESS, RECEIVE_BUSINESSES, LOADING_BUSINESS, LOADING_BUSINESSES } from '../actions/businesses.action';
+import { RECEIVE_BUSINESS, RECEIVE_BUSINESSES, LOADING_BUSINESS, LOADING_BUSINESSES } from '../actions/businesses_action';
 
 const loadingState = {
   indexLoading: false,

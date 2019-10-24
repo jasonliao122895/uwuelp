@@ -54,7 +54,7 @@ export default class UserProfilePage extends React.Component {
     } else if (this.state.active === "Friends") {
       return <ProfileFriends />
     } else if (this.state.active === "Reviews") {
-      return <ProfileReviews />
+      return <ProfileReviews reviews={this.props.user.reviews} />
     }
   }
 

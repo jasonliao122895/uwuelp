@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { updateReview } from '../../../actions/review_actions';
-import { fetchBusiness } from '../../../actions/businesses.action';
+import { fetchBusiness } from '../../../actions/businesses_action';
 import ReviewForm from './review_form';
 import { openModal, closeModal } from '../../../actions/modal_action';
 

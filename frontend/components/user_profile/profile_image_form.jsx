@@ -68,12 +68,18 @@ class ProfileImageForm extends React.Component {
     }).then(
       () => {
         that.props.profile.props.fetchUser(this.props.match.params.id)
-      }
-    ).then(
-      () => {
+        const body = document.querySelector('body');
+        body.classList.remove('modal-open')
         that.props.closeModal();
       }
     )
+    // ).then(
+    //   () => {
+    //     const body = document.querySelector('body');
+    //     body.classList.remove('modal-open')
+    //     that.props.closeModal();
+    //   }
+    // )
   }
 
   removeDefaults() {

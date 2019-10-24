@@ -14,15 +14,21 @@ export default class UserProfile extends React.Component {
         }
       })
     }
+
+    if (!this.props.currentUser.city) {
+      this.props.fetchUser(this.props.currentUser.id);
+    }
   }
+
 
   handleToggle() {
     let profileMenu = document.getElementById('profile-menu');
     profileMenu.classList.remove('hide');
   }
-
+  
 
   render() {
+    
     return (
       <div>
         {
@@ -44,7 +50,7 @@ export default class UserProfile extends React.Component {
                   <img src={this.props.currentUser.profPic} alt="" />
                   <div>
                     <h4>{`${this.props.currentUser.firstName}  ${this.props.currentUser.lastName}.`}</h4>
-                      
+                    <p>{`${this.props.currentUser.city}, ${this.props.currentUser.state}`}</p>
                     <p>
                       <span><FontAwesomeIcon id="current-user-star" icon={faStar} /></span>
                       {`${this.props.currentUser.numReviews} Reviews`}

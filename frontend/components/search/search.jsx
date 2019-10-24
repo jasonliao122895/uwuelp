@@ -130,7 +130,7 @@ class Search extends React.Component {
         <div>
         <label id="nav-find">
           Find
-          <input type="text" value={this.state.find} onInput={this.handleSearch} onChange={this.handleInput('find')} placeholder="Categories, Name... " />
+          <input type="text" value={this.state.find} onKeyUp={this.handleSearch} onChange={this.handleInput('find')} placeholder="Categories, Name... " />
           <div className="search-result-container">
             {searchRes}
           </div>
