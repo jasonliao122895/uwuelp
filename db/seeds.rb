@@ -8,6 +8,9 @@
 
 require 'open-uri'
 
+Reaction.destroy_all
+Reaction.connection.execute('ALTER SEQUENCE reactions_id_seq RESTART WITH 1');
+
 User.destroy_all
 User.connection.execute('ALTER SEQUENCE users_id_seq RESTART WITH 1')
 

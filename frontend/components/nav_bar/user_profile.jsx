@@ -15,7 +15,7 @@ export default class UserProfile extends React.Component {
       })
     }
 
-    if (!this.props.currentUser.city) {
+    if (this.props.currentUser && !this.props.currentUser.city) {
       this.props.fetchUser(this.props.currentUser.id);
     }
   }
@@ -28,6 +28,7 @@ export default class UserProfile extends React.Component {
   
 
   render() {
+    
     
     return (
       <div>
