@@ -155,7 +155,7 @@ export default class SessionForm extends React.Component {
     let lastNameError = "";
     let invalidError = ""
 
-    if (this.props.error) {
+    if (this.props.errors.length > 1) {
       this.props.errors.forEach(error => {
         if (error.includes('First')) firstNameError += error;
         if (error.includes('Last')) lastNameError += error;
