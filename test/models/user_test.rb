@@ -14,6 +14,11 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  city            :string
+#  state           :string
+#  hobbies         :text
+#  gender          :string
+#  website         :string
 #
 
 require 'test_helper'

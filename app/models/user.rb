@@ -14,6 +14,11 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  city            :string
+#  state           :string
+#  hobbies         :text
+#  gender          :string
+#  website         :string
 #
 
 class User < ApplicationRecord
@@ -36,8 +41,24 @@ class User < ApplicationRecord
   has_many :reactions,
   foreign_key: :author_id,
   class_name: :Reaction
-  
 
+  has_many :friend_requests,
+  foreign_key: :requester_id,
+  class_name: :FriendRequest
+
+  has_many :pending_friends,
+  through: :friend_requests,
+  source: :receiver
+
+  has_many :friendships,
+  foreign_key: :friend_id,
+  class_name: :Friendship
+
+  has_many :friends,
+  through: :friendships,
+  source: :inverse_friend
+
+  
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
   end
