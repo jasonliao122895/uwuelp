@@ -15,3 +15,5 @@
   json.gender @user.gender
   json.createdAt @user.created_at
   json.reviews @user.reviews
+  json.friendRequests @user.received_friend_requests
+  json.friends @user.friends

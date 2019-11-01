@@ -10,7 +10,8 @@ Rails.application.routes.draw do
         resources :reactions, only: [:index]
       end
     end
-    
+    resources :friend_requests, only: [:create, :destroy]
+    resources :friendships, only: [:create, :destroy]
     resources :reactions, only: [:show, :create, :destroy, :update]
     get '/businesses/search/:query', to: 'businesses#search'
   end

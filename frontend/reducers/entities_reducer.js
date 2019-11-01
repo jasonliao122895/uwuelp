@@ -8,7 +8,7 @@ export const entitiesReducer = combineReducers({
   users: usersReducer,
   businesses: businessesReducer,
   reviews: reviewsReducer,
-  reactions: reactionReducer
+  reactions: reactionReducer,
 });
 
 

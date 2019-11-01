@@ -1,0 +1,45 @@
+.friend-request-item-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.friend-request-item {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+
+.friend-request-item img {
+  height: 80px;
+  width: 80px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.friend-requester-info p {
+  margin-bottom: 0px !important;
+}
+
+.friend-requester-info {
+  margin-right: 20px;
+}
+
+.friend-request-item-buttons {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 100px;
+}
+
+.friend-request-item-buttons button {
+  margin-right: 10px;
+  padding: 5px;
+  color: #FFF;
+  background-color: #D2AA0F;
+  border: 1px solid #D2AA0F;
+  border-radius: 4px;
+  width: 50px;
+  cursor: pointer;
+}

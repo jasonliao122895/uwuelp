@@ -2,7 +2,6 @@ class Api::FriendRequestsController < ApplicationController
   
   def create
     @friend_request = FriendRequest.new(friend_request_params)
-
     if @friend_request.save
       render :show
     else
@@ -21,7 +20,7 @@ class Api::FriendRequestsController < ApplicationController
 
   private
   def friend_request_params
-    params.require(:friend_request).permit(:requester_id, :receiver_id)
+    params.require(:friend_requests).permit(:requester_id, :receiver_id)
   end
 
 end

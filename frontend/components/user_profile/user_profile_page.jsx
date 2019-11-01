@@ -3,9 +3,10 @@ import NavBar from '../nav_bar/nav_bar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
 import Modal from '../session_forms/modal';
-import {ProfileOverview} from '../user_profile/profile_main/profile_overview';
+import ProfileOverviewContainer from '../user_profile/profile_main/profile_overview_container';
 import {ProfileFriends} from '../user_profile/profile_main/profile_friends';
 import {ProfileReviews} from '../user_profile/profile_main/profile_reviews';
+import FriendRequestContainer from '../friend_request/send_request_container';
 
 export default class UserProfilePage extends React.Component {
 
@@ -26,9 +27,11 @@ export default class UserProfilePage extends React.Component {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.props.fetchUser(this.props.match.params.id)
     }
-    if (this.props.user.profPic !== prevProps.user.profPic) {
+
+    if (this.props.user && prevProps.user && this.props.user.profPic !== prevProps.user.profPic) {
       this.props.fetchUser(this.props.match.params.id)
     }
+    
     if (prevState.active !== this.state.active) {
       this.handleHighlight();
     }
@@ -50,9 +53,9 @@ export default class UserProfilePage extends React.Component {
 
   renderMain() {
     if (this.state.active === "Profile Overview") {
-      return <ProfileOverview user={this.props.user} />
+      return <ProfileOverviewContainer user={this.props.user}/>
     } else if (this.state.active === "Friends") {
-      return <ProfileFriends />
+      return <ProfileFriends friends={this.props.user.friends} fetchUser={this.props.fetchUser} />
     } else if (this.state.active === "Reviews") {
       return <ProfileReviews reviews={this.props.user.reviews} />
     }
@@ -62,21 +65,21 @@ export default class UserProfilePage extends React.Component {
     const profileOverview = document.querySelector('.profile-overview');
     const profileFriends = document.querySelector('.profile-friends')
     const profileReviews = document.querySelector('.profile-reviews')
-    if (this.state.active === "Profile Overview") {
+    if (this.state.active === "Profile Overview" && profileOverview) {
       profileOverview.style.borderLeft = '4px solid #D2AA0D'
       profileOverview.style.backgroundColor = '#e6e6e6'
       profileFriends.style.borderLeft = "";
       profileFriends.style.backgroundColor = "";
       profileReviews.style.borderLeft = "";
       profileReviews.style.backgroundColor = "";
-    } else if (this.state.active === 'Friends') {
+    } else if (this.state.active === 'Friends' && profileFriends) {
       profileFriends.style.borderLeft = '4px solid #D2AA0D'
       profileFriends.style.backgroundColor = '#e6e6e6'
       profileReviews.style.borderLeft = "";
       profileReviews.style.backgroundColor = "";
       profileOverview.style.borderLeft = "";
       profileOverview.style.backgroundColor = "";
-    } else if (this.state.active === 'Reviews') {
+    } else if (this.state.active === 'Reviews' && profileReviews) {
       profileReviews.style.borderLeft = '4px solid #D2AA0D'
       profileReviews.style.backgroundColor = '#e6e6e6'
       profileOverview.style.borderLeft = "";
@@ -88,7 +91,9 @@ export default class UserProfilePage extends React.Component {
 
 
   render() {
-  
+    
+    if (!this.props.user) return null;
+    // debugger
     return (
       <div>
         <Modal user={this.props.user} profile={this}/>
@@ -116,7 +121,7 @@ export default class UserProfilePage extends React.Component {
                       <span><FontAwesomeIcon id="current-user-friend2" icon={faMale} /></span>
                       {this.props.user ? "4 Friends" : "N/A"}
                     </p>
-
+                    {this.props.currentUserId !== parseInt(this.props.match.params.id) ? <FriendRequestContainer /> : ""}
                   </div>
                 </div>
 

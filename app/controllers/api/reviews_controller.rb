@@ -15,7 +15,6 @@ class Api::ReviewsController < ApplicationController
     if @review.save
       render :show
     else
-      # debugger
       render json: @review.errors.full_messages, status: 422
     end
 
@@ -38,9 +37,9 @@ class Api::ReviewsController < ApplicationController
     
     @review = Review.find_by(id: params[:id])
     return if current_user.id != @review.author_id
-    
     @review.destroy
     render :show
+    
   end
 
 

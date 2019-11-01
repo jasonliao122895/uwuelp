@@ -1,0 +1,11 @@
+.friend-item {
+  display: flex;
+  flex-direction: row;
+}
+
+.friend-item img {
+  height: 80px;
+  width: 80px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
