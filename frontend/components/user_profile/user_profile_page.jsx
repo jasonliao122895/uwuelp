@@ -93,7 +93,11 @@ export default class UserProfilePage extends React.Component {
   render() {
     
     if (!this.props.user) return null;
-    // debugger
+    let friendIds;
+    if (this.props.user.friends) {
+      friendIds = this.props.user.friends.map(friend => friend.id)
+    }
+    
     return (
       <div>
         <Modal user={this.props.user} profile={this}/>
@@ -119,10 +123,10 @@ export default class UserProfilePage extends React.Component {
                     <p>
                       <span><FontAwesomeIcon id="current-user-friend" icon={faFemale} /></span>
                       <span><FontAwesomeIcon id="current-user-friend2" icon={faMale} /></span>
-                      {this.props.user ? "4 Friends" : "N/A"}
+                      {this.props.user ? `${friendIds.length} Friends` : "N/A"}
                     </p>
-                    {this.props.currentUserId !== parseInt(this.props.match.params.id) ? <FriendRequestContainer /> : ""}
                   </div>
+                    {this.props.currentUserId !== parseInt(this.props.match.params.id) ? <FriendRequestContainer /> : ""}
                 </div>
 
                 {

@@ -21,7 +21,7 @@ class FriendRequest extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="send-friend-request-form">
         <button onClick={this.handleSubmit}>Add Friend</button>
       </form>
     )

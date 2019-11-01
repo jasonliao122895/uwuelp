@@ -71,7 +71,7 @@ export default class ReviewIndexItem extends React.Component {
     if (review.rating === 5) reviewUrl = window.five
     
     if (review === undefined ) return (<div></div>)
-
+    
     return (
       <div className="review-container" id="review-container" data-review-id={review.id}
         onMouseOver={this.showEdit} onMouseOut={this.hideEdit}  >
@@ -87,7 +87,7 @@ export default class ReviewIndexItem extends React.Component {
             <p>
               <span><FontAwesomeIcon id="current-user-friend" icon={faFemale} /></span>
               <span><FontAwesomeIcon id="current-user-friend2" icon={faMale} /></span>
-              4 Friends
+              {`${review.authorFriends} `}{review.authorFriends < 2 ? `Friend` : `Friends`}
           </p>
           </div>
           

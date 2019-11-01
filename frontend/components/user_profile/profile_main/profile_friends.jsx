@@ -8,7 +8,10 @@ export const ProfileFriends = (props) => {
   return (
     <div>
       <h2>Friends</h2>
-      {friends}
+      <div className="friend-items-container">
+
+        {friends}
+      </div>
     </div>
   )
 }

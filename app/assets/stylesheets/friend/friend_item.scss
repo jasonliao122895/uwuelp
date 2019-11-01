@@ -1,6 +1,13 @@
 .friend-item {
+  width: 30%;
   display: flex;
   flex-direction: row;
+  padding: 10px;
+}
+
+.friend-items-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .friend-item img {

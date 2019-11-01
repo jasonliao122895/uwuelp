@@ -75,6 +75,7 @@ export default class BusinessShow extends React.Component {
       let reviewLength;
       
       if (business.reviews) reviewLength = business.reviews.length;
+      
       return (
         <div >
   
@@ -226,7 +227,7 @@ export default class BusinessShow extends React.Component {
                         <p>
                           <span><FontAwesomeIcon id="current-user-friend" icon={faFemale} /></span>
                           <span><FontAwesomeIcon id="current-user-friend2" icon={faMale} /></span>
-                          {this.props.currentUser ? "4 Friends" : "N/A" }
+                          {this.props.currentUser ? `${this.props.currentUser.friends.length} ` : "N/A" } {this.props.currentUser.friends.length < 2 ? 'Friend' : 'Friends'}
                         </p>
                       </div>
                     </div> 

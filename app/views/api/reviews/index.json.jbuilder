@@ -10,6 +10,7 @@
     json.rating review.rating
     json.body review.body
     json.authorId review.author_id
+    json.authorFriends review.author.friends.length
     json.authorFirst review.author.first_name.capitalize
     json.authorLast review.author.last_name[0].capitalize
     json.authorLocation review.author.city + ", " + review.author.state
