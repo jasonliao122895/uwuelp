@@ -37,7 +37,7 @@ export default class FriendRequestIndexItem extends React.Component {
 
 
   render() {
-    
+    if (!this.props.requester) return null;
     return (
       <div className="friend-request-item-container">
         <div className="friend-request-item">

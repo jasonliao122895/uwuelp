@@ -7,6 +7,7 @@ import ProfileOverviewContainer from '../user_profile/profile_main/profile_overv
 import {ProfileFriends} from '../user_profile/profile_main/profile_friends';
 import {ProfileReviews} from '../user_profile/profile_main/profile_reviews';
 import FriendRequestContainer from '../friend_request/send_request_container';
+import RemoveFriendContainer from '../friend_request/remove_friend_container';
 
 export default class UserProfilePage extends React.Component {
 
@@ -26,6 +27,7 @@ export default class UserProfilePage extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     if (this.props.location.pathname !== prevProps.location.pathname) {
       this.props.fetchUser(this.props.match.params.id)
+      this.setState({active: "Profile Overview"})
     }
 
     if (this.props.user && prevProps.user && this.props.user.profPic !== prevProps.user.profPic) {
@@ -97,6 +99,13 @@ export default class UserProfilePage extends React.Component {
     if (this.props.user.friends) {
       friendIds = this.props.user.friends.map(friend => friend.id)
     }
+    let friendRequesters;
+    if (this.props.user.friendRequests) {
+      friendRequesters = this.props.user.friendRequests.map(request => {
+        return request.requester_id
+      })
+    }
+    
     
     return (
       <div>
@@ -123,10 +132,11 @@ export default class UserProfilePage extends React.Component {
                     <p>
                       <span><FontAwesomeIcon id="current-user-friend" icon={faFemale} /></span>
                       <span><FontAwesomeIcon id="current-user-friend2" icon={faMale} /></span>
-                      {this.props.user ? `${friendIds.length} Friends` : "N/A"}
+                      {this.props.user && friendIds ? `${friendIds.length} Friends` : "N/A"}
                     </p>
                   </div>
-                    {this.props.currentUserId !== parseInt(this.props.match.params.id) ? <FriendRequestContainer /> : ""}
+                    {this.props.currentUserId !== parseInt(this.props.match.params.id) && !friendIds.includes(this.props.currentUserId) && !friendRequesters.includes(this.props.currentUserId) ? <FriendRequestContainer fetchUser={this.props.fetchUser} /> : ""}
+                    {this.props.currentUserId !== parseInt(this.props.match.params.id) && friendIds.includes(this.props.currentUserId) ? <RemoveFriendContainer userId={this.props.user.id} fetchUser={this.props.fetchUser} /> : ""}
                 </div>
 
                 {

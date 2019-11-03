@@ -2,6 +2,8 @@ class Api::FriendshipsController < ApplicationController
 
   def create
     @friendship = Friendship.new(friendships_params)
+    
+    return if current_user.id != params[:friendship][:inverse_friend_id].to_i
 
     if @friendship.save
       render :show
@@ -11,8 +13,8 @@ class Api::FriendshipsController < ApplicationController
 
   end
 
-  def destroy
-    @friendship = Friendship.find_by(friend_id: current_user.id, inverse_friend_id: params[:inverse_friend_id])
+  def remove
+    @friendship = Friendship.find_by(friend_id: current_user.id, inverse_friend_id: params[:inverse_friend_id].to_i)
     @friendship.destroy
   end
 

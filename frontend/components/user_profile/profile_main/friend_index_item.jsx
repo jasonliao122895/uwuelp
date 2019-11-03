@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 
 class FriendIndexItem extends React.Component {
@@ -17,9 +17,13 @@ class FriendIndexItem extends React.Component {
     if (!friendItem) return null;
     return (
       <div className="friend-item" >
-        <img src={friendItem.profPic} alt=""/>
+        <Link to={`/users/${friendItem.id}`}>
+          <img src={friendItem.profPic} alt=""/>
+        </Link>
         <div>
-          <p>{`${friendItem.firstName} ${friendItem.fullLastName}`}</p>
+          <Link to={`/users/${friendItem.id}`}>
+            <p>{`${friendItem.firstName} ${friendItem.fullLastName}`}</p>
+          </Link>
           <p>{`${friendItem.city}, ${friendItem.state}`}</p>
           {friendItem.gender ? 
             <p>{`${friendItem.gender}`}</p> : ""

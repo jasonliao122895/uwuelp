@@ -55,3 +55,36 @@
   border-radius: 4px;
   border: 1px solid #D2AA0F;
 }
+
+.remove-friend-container {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.remove-friend-container button {
+  color: #FFF;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #D2AA0F;
+  border-radius: 4px;
+  border: 1px solid #D2AA0F;
+}
+
+.remove-friend-container span {
+  color: #FFF;
+  border-left: 1px solid #FFF;
+  padding-left: 5px;
+  margin-left: 10px;
+}
+
+.remove-friend-container button:first-of-type {
+  margin-top: 5px;
+}
+
+#remove-friend-button {
+  border-top: 1px solid #FFF;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}

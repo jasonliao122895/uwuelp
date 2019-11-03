@@ -29,7 +29,7 @@ export default class UserProfile extends React.Component {
 
   render() {
     
-    
+    // if (!this.props.currentUser.friends) return null;
     return (
       <div>
         {
@@ -59,7 +59,9 @@ export default class UserProfile extends React.Component {
                     <p>
                       <span><FontAwesomeIcon id="current-user-friend" icon={faFemale} /></span>
                       <span><FontAwesomeIcon id="current-user-friend2" icon={faMale} /></span>
-                      4 Friends
+                      {this.props.currentUser.friends ? 
+                        `${this.props.currentUser.friends.length} ` : ""}
+                      {this.props.currentUser.friends && this.props.currentUser.friends.length < 2 ? 'Friend' : "Friends"}
                     </p>
                   </div>
                 </div>

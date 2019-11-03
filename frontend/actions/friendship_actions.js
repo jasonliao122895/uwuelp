@@ -4,6 +4,6 @@ export const addFriend = (friendship) => dispatch => (
   FriendshipApiUtil.addFriend(friendship)
 )
 
-export const removeFriend = (id) => dispatch => (
-  FriendshipApiUtil.removeFriend(id)
+export const removeFriend = (inverseFriendId) => dispatch => (
+  FriendshipApiUtil.removeFriend(inverseFriendId)
 )

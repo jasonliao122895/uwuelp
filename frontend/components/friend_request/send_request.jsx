@@ -15,7 +15,11 @@ class FriendRequest extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    let that = this;
     this.props.sendFriendRequest(this.state)
+      .then(() => {
+        that.props.fetchUser(that.props.match.params.id);
+      })
   }
 
 

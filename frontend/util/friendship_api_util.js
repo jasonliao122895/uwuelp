@@ -6,9 +6,9 @@ export const addFriend = (friendship) => (
   })
 )
 
-export const removeFriend = (id) => (
+export const removeFriend = (inverseFriendId) => (
   $.ajax({
-    url: `/api/friendships/${id}`,
-    method: 'DELETE'
+    url: `/api/friendships/${inverseFriendId}`,
+    method: 'GET'
   })
 )

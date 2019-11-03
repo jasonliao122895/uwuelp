@@ -15,10 +15,11 @@ export default class ProfileOverview extends React.Component {
       <div className="profile-overview-container">
         <div className="profile-overview-main">
           <div className="profile-overview-notifications">
-            <h2>Notifications</h2>
-            {this.props.user.friendRequests && this.props.user.friendRequests.length < 1 ? 
-            <p>No new friend requests or complements at this time.</p> : 
-            <FriendRequestIndex requests={this.props.user.friendRequests} />
+            {this.props.currentUser.id === this.props.user.id ? <h2>Notifications</h2> : "" }
+            {this.props.currentUser.id === this.props.user.id && this.props.user.friendRequests && this.props.user.friendRequests.length < 1 ? 
+            <p>No new friend requests or complements at this time.</p> : "" }
+            {this.props.currentUser.id === this.props.user.id ?
+            <FriendRequestIndex requests={this.props.user.friendRequests} /> : ""
             }
           </div>
           <div className="profile-overview-activity">
