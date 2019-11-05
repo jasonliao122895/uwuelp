@@ -92,37 +92,42 @@ class NavLink extends React.Component {
   }
 
   render() {
-    // debugger;
     return (
 
       <div className="nav-links-container-flex">
 
-        <div className="nav-links-main" >    
+        <div className="nav-links-main-container">
 
-          <div className="restaurants-nav" onMouseOver={this.handleShow} onMouseOut={this.handleHide}>
-            <button>Restaurants <span>	&#9660; </span></button>
-            <div className="hide" id="restaurant-nav-menu">
-              <ul>
-                <li><a onClick={this.handleJapanese}>Japanese</a></li>
-                <li><a onClick={this.handleMexian}>Mexican</a></li>
-                <li><a onClick={this.handleOther}>Other</a></li>
-              </ul>
+          <div className="nav-links-main" >    
+
+            <div className="restaurants-nav" onMouseOver={this.handleShow} onMouseOut={this.handleHide}>
+              <button>Restaurants <span>	&#9660; </span></button>
+              <div className="hide" id="restaurant-nav-menu">
+                <ul>
+                  <li><a onClick={this.handleJapanese}>Japanese</a></li>
+                  <li><a onClick={this.handleMexian}>Mexican</a></li>
+                  <li><a onClick={this.handleOther}>Other</a></li>
+                </ul>
+              </div>
             </div>
+
+            <div>
+              <button onClick={this.handleBoba}>Boba</button>
+            </div>
+
+            <div>
+              <button onClick={this.handleBarber}>Barber</button>
+            </div>
+
+            <div className="last-button">
+              <button onClick={this.handleClothing}>Clothing</button>
+            </div>
+
           </div>
 
-          <div>
-            <button onClick={this.handleBoba}>Boba</button>
-          </div>
-
-          <div>
-            <button onClick={this.handleBarber}>Barber</button>
-          </div>
-
-          <div>
-            <button onClick={this.handleClothing}>Clothing</button>
-          </div>
 
         </div>
+
 
       </div>
     )

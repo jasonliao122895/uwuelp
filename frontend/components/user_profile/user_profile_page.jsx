@@ -30,6 +30,10 @@ export default class UserProfilePage extends React.Component {
       this.setState({active: "Profile Overview"})
     }
 
+    if (this.state.active === 'Profile Overview') {
+      this.handleHighlight();
+    }
+
     if (this.props.user && prevProps.user && this.props.user.profPic !== prevProps.user.profPic) {
       this.props.fetchUser(this.props.match.params.id)
     }
@@ -67,6 +71,7 @@ export default class UserProfilePage extends React.Component {
     const profileOverview = document.querySelector('.profile-overview');
     const profileFriends = document.querySelector('.profile-friends')
     const profileReviews = document.querySelector('.profile-reviews')
+  
     if (this.state.active === "Profile Overview" && profileOverview) {
       profileOverview.style.borderLeft = '4px solid #D2AA0D'
       profileOverview.style.backgroundColor = '#e6e6e6'
@@ -132,10 +137,11 @@ export default class UserProfilePage extends React.Component {
                     <p>
                       <span><FontAwesomeIcon id="current-user-friend" icon={faFemale} /></span>
                       <span><FontAwesomeIcon id="current-user-friend2" icon={faMale} /></span>
-                      {this.props.user && friendIds ? `${friendIds.length} Friends` : "N/A"}
+                      {this.props.user && friendIds ? `${friendIds.length} ` : ""}
+                      {friendIds && friendIds.length < 2 ? "Friend" : "Friends"}
                     </p>
                   </div>
-                    {this.props.currentUserId !== parseInt(this.props.match.params.id) && !friendIds.includes(this.props.currentUserId) && !friendRequesters.includes(this.props.currentUserId) ? <FriendRequestContainer fetchUser={this.props.fetchUser} /> : ""}
+                    {this.props.currentUserId && this.props.currentUserId !== parseInt(this.props.match.params.id) && !friendIds.includes(this.props.currentUserId) && !friendRequesters.includes(this.props.currentUserId) ? <FriendRequestContainer fetchUser={this.props.fetchUser} /> : ""}
                     {this.props.currentUserId !== parseInt(this.props.match.params.id) && friendIds.includes(this.props.currentUserId) ? <RemoveFriendContainer userId={this.props.user.id} fetchUser={this.props.fetchUser} /> : ""}
                 </div>
 

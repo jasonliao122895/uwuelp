@@ -36,7 +36,6 @@ export default class BusinessIndex extends React.Component {
 
   componentDidMount() {
     
-    // debugger
     if (this.props.location.search !== "") {
       let queryArr = this.parseQuery(this.props.history.location.search)
       let find = queryArr[0];
@@ -61,7 +60,8 @@ export default class BusinessIndex extends React.Component {
 
   handlePrice1(e) {
     e.preventDefault();
-    const button1 = document.getElementById('price1')
+    const button1 = document.getElementById('price1');
+    const button2 = document.getElementById('price2');
     let arr = this.props.businesses.filter((business) => {
       return business.priceRange === "Inexpensive"
     })
@@ -72,12 +72,17 @@ export default class BusinessIndex extends React.Component {
 
     if (this.state.price1 === "inactive") {
       button1.style.color = 'lightgreen';
+      button1.style.border = '1px solid lightgreen';
+      button1.style.borderRight = '0px';
+      button2.style.borderLeftColor = 'lightgreen';
       this.setState({
         filtered: this.state.filtered.concat(arr),
         price1: "active"
       })
     } else {
       button1.style.color = ''
+      button1.style.border = '';
+      button2.style.borderLeftColor = '';
       this.setState({
         price1: "inactive",
         filtered: newArr
@@ -88,6 +93,8 @@ export default class BusinessIndex extends React.Component {
   handlePrice2(e) {
     e.preventDefault();
     const button2 = document.getElementById('price2')
+    const button3 = document.getElementById('price3');
+
     let arr = this.props.businesses.filter((business) => {
       return business.priceRange === "Moderate"
     })
@@ -98,12 +105,18 @@ export default class BusinessIndex extends React.Component {
 
     if (this.state.price2 === "inactive") {
       button2.style.color = 'lightgreen';
+      button2.style.border = '1px solid lightgreen';
+      button2.style.borderRight = '0px';
+      button3.style.borderLeftColor = 'lightgreen';
       this.setState({
         filtered: this.state.filtered.concat(arr),
         price2: "active"
       })
     } else {
       button2.style.color = ''
+      button2.style.border = '';
+      button3.style.borderLeftColor = '';
+
       this.setState({
         price2: "inactive",
         filtered: newArr
@@ -113,7 +126,8 @@ export default class BusinessIndex extends React.Component {
 
   handlePrice3(e) {
     e.preventDefault();
-    const button3 = document.getElementById('price3')
+    const button3 = document.getElementById('price3');
+    const button4 = document.getElementById('price4');
     let arr = this.props.businesses.filter((business) => {
       return business.priceRange === "Pricey"
     })
@@ -124,12 +138,18 @@ export default class BusinessIndex extends React.Component {
 
     if (this.state.price3 === "inactive") {
       button3.style.color = 'lightgreen';
+      button3.style.border = '1px solid lightgreen';
+      button3.style.borderRight = '0px';
+      button4.style.borderLeftColor = 'lightgreen'
       this.setState({
         filtered: this.state.filtered.concat(arr),
         price3: "active"
       })
     } else {
       button3.style.color = ''
+      button3.style.border = '';
+      button4.style.borderLeftColor = ''
+
       this.setState({
         price3: "inactive",
         filtered: newArr
@@ -150,12 +170,15 @@ export default class BusinessIndex extends React.Component {
 
     if (this.state.price4 === "inactive") {
       button4.style.color = 'lightgreen';
+      button4.style.border = '1px solid lightgreen';
       this.setState({
         filtered: this.state.filtered.concat(arr),
         price4: "active"
       })
     } else {
-      button4.style.color = ''
+      button4.style.color = '';
+      button4.style.border = '';
+
       this.setState({
         price4: "inactive",
         filtered: newArr
@@ -164,9 +187,7 @@ export default class BusinessIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
     if (this.props.location !== prevProps.location) {
-      // debugger
       const button1 = document.getElementById('price1')
       const button2 = document.getElementById('price2')
       const button3 = document.getElementById('price3')
@@ -193,7 +214,12 @@ export default class BusinessIndex extends React.Component {
   render() {
 
     if (this.props.loading) return (<div><Loader /></div>)
-    
+    let queryArr = this.parseQuery(this.props.history.location.search)
+    let find = queryArr[0];
+    let near = queryArr[1];
+    let noLocation = false;
+    if (find === "") find = 'Businesses'
+    if (near === "") noLocation = true;
     
     let numbers = []
     let price1 = this.state.price1;
@@ -223,13 +249,15 @@ export default class BusinessIndex extends React.Component {
           
           <div className="filter-options-index">
             <div className="filter-options-container">
-
-              <h5>Filters</h5>
-              <div className="price-container">
-                <button>$</button>
-                <button>$$</button>
-                <button>$$$</button>
-                <button>$$$$</button>
+              
+              <div>
+                <h5>Filters</h5>
+                <div className="price-container">
+                  <button>$</button>
+                  <button>$$</button>
+                  <button>$$$</button>
+                  <button>$$$$</button>
+                </div>
               </div>
 
 
@@ -263,13 +291,19 @@ export default class BusinessIndex extends React.Component {
 
         <div className="filter-options-index">
           <div className="filter-options-container">
+            <div>
+              <h5>{`The Best ${find} `}{noLocation ? "" : `in ${near}`}</h5>
+            </div>
+            <div className="filter-option-prices-container">
 
-            <h5>Filters</h5>
-            <div className="price-container">
-              <button id="price1" onClick={this.handlePrice1}>$</button>
-              <button id="price2" onClick={this.handlePrice2}>$$</button>
-              <button id="price3" onClick={this.handlePrice3}>$$$</button>
-              <button id="price4" onClick={this.handlePrice4}>$$$$</button>
+              <h5>Filters</h5>
+              <div className="price-container">
+                <button id="price1" onClick={this.handlePrice1}>$</button>
+                <button id="price2" onClick={this.handlePrice2}>$$</button>
+                <button id="price3" onClick={this.handlePrice3}>$$$</button>
+                <button id="price4" onClick={this.handlePrice4}>$$$$</button>
+              </div>
+
             </div>
 
 

@@ -6,7 +6,7 @@ class FriendRequest extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      requester_id: this.props.currentUser.id,
+      requester_id: this.props.currentUserId,
       receiver_id: parseInt(this.props.match.params.id)
     }
 

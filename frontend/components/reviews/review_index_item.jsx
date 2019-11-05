@@ -76,9 +76,13 @@ export default class ReviewIndexItem extends React.Component {
       <div className="review-container" id="review-container" data-review-id={review.id}
         onMouseOver={this.showEdit} onMouseOut={this.hideEdit}  >
         <div id="business-show-author">
-          <img src={review.authorPic} alt="" />
+          <Link to={`/users/${review.authorId}`}>
+            <img src={review.authorPic} alt="" />
+          </Link>
           <div>
-            <h4>{`${review.authorFirst}  ${review.authorLast}.`}</h4>
+            <Link to={`/users/${review.authorId}`}>
+              <h4>{`${review.authorFirst}  ${review.authorLast}.`}</h4>           
+            </Link>
             <p>{review.authorLocation}</p>
             <p>
               <span><FontAwesomeIcon id="current-user-star" icon={faStar} /></span>

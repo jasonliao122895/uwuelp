@@ -1,25 +1,26 @@
 .nav-links-container-flex {
   display: flex;
-  justify-content: center;
   width: 100%;
   height: 40px;
-  background-color: #FFFFFF;
-  
+  background-color: #fafafa;
+  border-top: 1px solid #e6e6e6;
 }
 
 .nav-links-main {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  width: 900px;
+  margin-left: 15%;
+  margin-right: 15%;
+  width: 70%;
 }
 
-.restaurants-nav {
-  padding-left: 40px;  
+.nav-links-main-container {
+  width: 100%;
 }
 
 .restaurants-nav span {
-  color: #FFFFFF;
+  color: black;
   font-size: 10px;
 }
 
@@ -27,18 +28,31 @@
   padding: 5px;
   width: 152px;
   height: 40px;
-  border: 1px solid #FFFFFF;
-  background-color: #24242F;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  border-right: 0px;
+  background-color: #fafafa;
   font-size: 13px;
-  border-radius: 3px;
-  color: #FFFFFF;
+  color: black;
+}
+
+.nav-links-main button:hover {
+  color: #0073bb;
+}
+
+#restaurant-nav-menu a:hover {
+  color: #0073bb;
+}
+
+.last-button button {
+  border-right: 1px solid #e6e6e6;
 }
 
 #restaurant-nav-menu {
   position: absolute;
   z-index: 2;
-  border: 1px solid #24242F;
-  background-color: #24242F;
+  border: 1px solid #FFFFFF;
+  background-color: #FFFFFF;
 }
 
 #restaurant-nav-menu ul {
@@ -47,12 +61,12 @@
 }
 
 #restaurant-nav-menu a {
-  color: #FFFFFF;
+  color: black;
   font-size: 13px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
-#restaurant-nav-menu a:hover {
-  border-bottom: none;
+.restaurants-nav {
+  margin-left: 10px;
 }

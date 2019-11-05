@@ -23,7 +23,9 @@ const BusinessIndexItem = ({ business }) => {
    return (
     <div>
       <div className="business-list-item">
-         <img src={business.profPic} alt=""/>
+         <Link to={`/businesses/${business.id}`}>
+          <img src={business.profPic} alt=""/>
+        </Link>
         <div className="all-business-info">
           <div className="business-info">
 

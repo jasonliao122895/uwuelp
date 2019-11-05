@@ -247,7 +247,7 @@ export default class BusinessShow extends React.Component {
                 <div className="business-show-website">
                   <div className="business-show-website-div">
                     <span><FontAwesomeIcon className="info-icon" icon={faLaptop} /></span>
-                    <a href={business.website}>Website</a>
+                    <a href={business.website} target="_blank">Website</a>
                   </div>
 
                   <div className="business-show-website-div">

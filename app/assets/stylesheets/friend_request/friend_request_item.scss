@@ -51,32 +51,31 @@
 .send-friend-request-form button {
   padding: 5px;
   background-color: #D2AA0F;
-  color: #FFF;
-  border-radius: 4px;
-  border: 1px solid #D2AA0F;
+  width: 80px;
+  color: black;
+  border-radius: 2px;
+  border: 1px solid black;
 }
 
 .remove-friend-container {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 100px;
 }
 
 .remove-friend-container button {
-  color: #FFF;
+  color: black;
   padding: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
   background-color: #D2AA0F;
-  border-radius: 4px;
-  border: 1px solid #D2AA0F;
+  border-radius: 2px;
+  border: 1px solid black;
 }
 
 .remove-friend-container span {
-  color: #FFF;
-  border-left: 1px solid #FFF;
+  color: black;
+  border-left: 1px solid black;
   padding-left: 5px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .remove-friend-container button:first-of-type {

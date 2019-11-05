@@ -73,7 +73,13 @@
   border-bottom: 4px solid #fff; 
   margin-bottom: -4px;
   cursor: pointer;
-  
+
+ }
+
+ .social-links:hover {
+   border-bottom: 4px solid #FFF !important;
+   margin-bottom: -4px !important;
+   cursor: pointer;
  }
  
  .splash-logo {
