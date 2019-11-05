@@ -217,6 +217,8 @@ export default class BusinessIndex extends React.Component {
     let queryArr = this.parseQuery(this.props.history.location.search)
     let find = queryArr[0];
     let near = queryArr[1];
+    find = find.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    near = near.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
     let noLocation = false;
     if (find === "") find = 'Businesses'
     if (near === "") noLocation = true;
@@ -292,7 +294,7 @@ export default class BusinessIndex extends React.Component {
         <div className="filter-options-index">
           <div className="filter-options-container">
             <div>
-              <h5>{`The Best ${find} `}{noLocation ? "" : `in ${near}`}</h5>
+              <h5>{`The Best ${find} `}{find === 'Japanese' || find === 'Mexican' || find === 'Other' ? "Restaurants " : ""}{noLocation ? "" : `in ${near}`}</h5>
             </div>
             <div className="filter-option-prices-container">
 
