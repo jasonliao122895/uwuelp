@@ -187,6 +187,23 @@ export default class BusinessIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+
+    if (this.props.pathname !== prevProps.pathname) {
+      if (this.props.location.search !== "") {
+        let queryArr = this.parseQuery(this.props.history.location.search)
+        let find = queryArr[0];
+        let near = queryArr[1];
+        this.props.filter('near', near)
+          .then(() => {
+            this.props.filter('find', find)
+          })
+      } else if (this.props.location.search === "") {
+        this.setState({
+          redirect: true
+        })
+      }
+    }
+
     if (this.props.location !== prevProps.location) {
       const button1 = document.getElementById('price1')
       const button2 = document.getElementById('price2')

@@ -227,7 +227,8 @@ export default class BusinessShow extends React.Component {
                         <p>
                           <span><FontAwesomeIcon id="current-user-friend" icon={faFemale} /></span>
                           <span><FontAwesomeIcon id="current-user-friend2" icon={faMale} /></span>
-                          {this.props.currentUser && this.props.currentUser.friends ? `${this.props.currentUser.friends.length} ` : "N/A" } {this.props.currentUser && this.props.currentUser.friends.length < 2 ? 'Friend' : 'Friends'}
+                          {this.props.currentUser && this.props.currentUser.friends ? `${this.props.currentUser.friends.length} ` : "N/A" } {this.props.currentUser && this.props.currentUser.friends.length < 2 ? 'Friend' : ''}
+                          {this.props.currentUser && this.props.currentUser.friends.length > 1 ? 'Friends' : ''}
                         </p>
                       </div>
                     </div> 
