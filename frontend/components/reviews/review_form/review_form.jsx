@@ -10,13 +10,16 @@ export default class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
     let body;
+    let rating;
     if (this.props.review === undefined) {
       body = ""
+      rating = "0"
     } else {
+      rating = this.props.review.rating.toString();
       body = this.props.review.body
     }
     this.state = {
-      rating: "0",
+      rating: rating,
       body: body,
       business_id: this.props.match.params.businessId,
       id: this.props.match.params.id
@@ -27,6 +30,9 @@ export default class ReviewForm extends React.Component {
   }
 
   componentDidMount() {
+
+    window.scrollTo(0, 0)
+
     let reviewErrors = document.getElementsByClassName('review-errors');
     reviewErrors = Array.from(reviewErrors);
 
@@ -194,7 +200,6 @@ export default class ReviewForm extends React.Component {
     let { business } = this.props
     let placeholder = "Your review helps others learn about great local businesses. \n \nPlease don't review this business if you received a freebie for writing this review, or if you're connected in any way to the owner or employees."
   
-
     return (
       <div>
         <ModalContainer />
@@ -235,27 +240,45 @@ export default class ReviewForm extends React.Component {
 
                 <div className="rating">
                   <p id="rating-msg">{ratingMsg}</p>
-                  <input type="radio" name="rating" className="star5" value="5" id="star5" onChange={this.handleInput('rating')} />
+                  <input 
+                  type="radio" name="rating" className="star5" 
+                  value="5" id="star5" onChange={this.handleInput('rating')}
+                  checked={this.state.rating === '5' ? true : false }
+                   />
                   <label htmlFor="star5" id="lstar5" >
                     <FontAwesomeIcon icon={faStar} />
                   </label>
 
-                  <input type="radio" name="rating" className="star4" value="4" id="star4" onChange={this.handleInput('rating')} />
+                  <input 
+                  type="radio" name="rating" className="star4" 
+                  value="4" id="star4" onChange={this.handleInput('rating')}
+                  checked={this.state.rating === '4' ? true : false }
+                   />
                   <label htmlFor="star4" id="lstar4">
                     <FontAwesomeIcon icon={faStar} />
                   </label>
 
-                  <input type="radio" name="rating" className="star3" value="3" id="star3" onChange={this.handleInput('rating')} />
+                  <input 
+                  type="radio" name="rating" className="star3" 
+                  value="3" id="star3" onChange={this.handleInput('rating')}
+                  checked={this.state.rating === '3' ? true : false} 
+                  />
                   <label htmlFor="star3" id="lstar3">
                     <FontAwesomeIcon icon={faStar} />
                   </label>
 
-                  <input type="radio" name="rating" className="star2" value="2" id="star2" onChange={this.handleInput('rating')} />
+                  <input type="radio" name="rating" className="star2" 
+                  value="2" id="star2" onChange={this.handleInput('rating')}
+                  checked={this.state.rating === '2' ? true : false}
+                   />
                   <label htmlFor="star2" id="lstar2">
                     <FontAwesomeIcon icon={faStar} />
                   </label>
 
-                  <input type="radio" name="rating" className="star1" value="1" id="star1" onChange={this.handleInput('rating')} />
+                  <input type="radio" name="rating" className="star1" 
+                  value="1" id="star1" onChange={this.handleInput('rating')} 
+                  checked={this.state.rating === '1' ? true : false}
+                  />
                   <label htmlFor="star1" id="lstar1">
                     <FontAwesomeIcon icon={faStar} />
                   </label>
