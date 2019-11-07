@@ -63,7 +63,7 @@ class Search extends React.Component {
       .then(() => {
         this.props.filter('find', 'Restaurants')
           .then(() => {
-            this.props.history.replace('/businesses?find=restaurants&near=san-francisco');
+            this.props.history.push('/businesses?find=restaurants&near=san-francisco');
           })
       })
   }
@@ -74,7 +74,7 @@ class Search extends React.Component {
       .then(() => {
         this.props.filter('find', 'Boba Shops')
           .then(() => {
-            this.props.history.replace('/businesses?find=boba-shops&near=san-francisco');
+            this.props.history.push('/businesses?find=boba-shops&near=san-francisco');
           })
       });
   }
@@ -85,7 +85,7 @@ class Search extends React.Component {
       .then(() => {
         this.props.filter('find', 'Barber Shops')
           .then(() => {
-            this.props.history.replace('/businesses?find=barber-shops&near=san-diego');
+            this.props.history.push('/businesses?find=barber-shops&near=san-diego');
           })
       })
   }
@@ -96,7 +96,7 @@ class Search extends React.Component {
       .then(() => {
         this.props.filter('find', 'Clothing Stores')
           .then(() => {
-            this.props.history.replace('/businesses?find=clothing-stores&near=san-diego');
+            this.props.history.push('/businesses?find=clothing-stores&near=san-diego');
           })
       })
   }
@@ -110,7 +110,7 @@ class Search extends React.Component {
       .then(() => {
         this.props.filter('find', this.state.find)
           .then(() => {
-            this.props.history.replace(`/businesses?find=${find}&near=${near}`)
+            this.props.history.push(`/businesses?find=${find}&near=${near}`)
           })
       })
 

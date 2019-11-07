@@ -303,7 +303,9 @@ export default class BusinessIndex extends React.Component {
         </div>
       )
     }
-    
+
+    // debugger
+
     return (
       <div>
         {this.handleRedirect()}
