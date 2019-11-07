@@ -188,7 +188,7 @@ export default class BusinessIndex extends React.Component {
 
   componentDidUpdate(prevProps) {
 
-    if (this.props.pathname !== prevProps.pathname) {
+    if (this.props.location.search !== prevProps.location.search) {
       if (this.props.location.search !== "") {
         let queryArr = this.parseQuery(this.props.history.location.search)
         let find = queryArr[0];
@@ -259,6 +259,8 @@ export default class BusinessIndex extends React.Component {
         <BusinessIndexItem key={business.id} business={business}/>
       )
     })
+
+    
     if (this.props.businesses === undefined || this.props.businesses.length === 0) {
       return (
         <div>
@@ -301,10 +303,11 @@ export default class BusinessIndex extends React.Component {
         </div>
       )
     }
-      
+    
     return (
       <div>
         {this.handleRedirect()}
+      
         <NavBar />
         <NavLinkContainer />
 

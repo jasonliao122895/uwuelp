@@ -8,9 +8,6 @@ export default class Homepage extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = ({
-      slideIndex: 0
-    })
   }
 
 
@@ -25,6 +22,9 @@ export default class Homepage extends React.Component {
   render() {
     let bkPics = [window.bk1, window.bk2, window.bk3]
     let rand = Math.floor(Math.random() * Math.floor(3))
+
+    debugger
+
     return (
       <div>
         <div className="background-image">
