@@ -1,0 +1,25 @@
+.info-window {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.info-window-info {
+  width: 120px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.info-window img {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px; 
+  margin-left: 10px;
+}
+
+.gm-style-iw, .gm-style-iw-c, .gm-style-iw-d {
+  width: 200px;
+  max-width: 300px !important;
+}

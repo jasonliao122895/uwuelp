@@ -1,3 +1,5 @@
+import { BrowserRouter } from 'react-router-dom';
+
 export default class MarkerManager {
   constructor(map) {
     this.map = map;
@@ -41,8 +43,36 @@ export default class MarkerManager {
         position: latLng,
         map: this.map,
         animation: google.maps.Animation.DROP,
-       
+        businessId: business.id
       })
+      
+      let contentStr = '<div class="info-window">' + 
+      '<div class="info-window-info">' + 
+      `<p>${business.name}</p>` + 
+      `<p>${business.category}</p>` + 
+      `<p>${business.city}</p>` + 
+      '</div>' +
+      `<img src="${business.profPic}"/>` +
+      '</div>'
+
+
+      const infowindow = new google.maps.InfoWindow({
+        content: contentStr,
+        disableAutoPan: true
+      });
+
+      marker.addListener('mouseover', () => {
+        infowindow.open(this.map, marker);
+      })
+
+      marker.addListener('mouseout', () => {
+        infowindow.close(this.map, marker);
+      })
+
+      marker.addListener('click', () => {
+        window.location.href = `https://uwuelp.herokuapp.com/#/businesses/${marker.businessId}`
+      })
+
       this.markers[business.id] = marker; 
     }
   }

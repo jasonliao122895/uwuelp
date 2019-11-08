@@ -186,7 +186,7 @@ export default class BusinessIndex extends React.Component {
   }
 
   fetchFromQuery() {
-    if (this.props.location.search) {
+    if (this.props.location.search !== "") {
 
       let queryArr = this.parseQuery(this.props.history.location.search)
       let find = queryArr[0];
@@ -195,8 +195,7 @@ export default class BusinessIndex extends React.Component {
         .then(() => {
           this.props.filter('find', find)
         })
-    } else if (!this.props.location.search) {
-
+    } else {
       this.setState({
         redirect: true
       })
@@ -227,7 +226,7 @@ export default class BusinessIndex extends React.Component {
 
   render() {
 
-    this.handleRedirect();
+    
 
 
     if (this.props.loading) return (<div><Loader /></div>)
@@ -239,6 +238,7 @@ export default class BusinessIndex extends React.Component {
     let noLocation = false;
     if (find === "") find = 'Businesses'
     if (near === "") noLocation = true;
+    
     
     let numbers = []
     let price1 = this.state.price1;
@@ -264,6 +264,7 @@ export default class BusinessIndex extends React.Component {
     if (this.props.businesses === undefined || this.props.businesses.length === 0) {
       return (
         <div>
+          {this.handleRedirect()}
           <NavBar/>
           <NavLinkContainer />
           

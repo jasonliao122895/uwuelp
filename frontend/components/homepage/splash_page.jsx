@@ -36,8 +36,8 @@ export default class Homepage extends React.Component {
         <div className="home-content">
           <header>
             <div id="home-links">
-              <a className="social-links" href="https://github.com/jasonliao122895">Github</a>
-              <a className="social-links" href="https://www.linkedin.com/in/jliao1228/">LinkedIn</a>
+              <a className="social-links" href="https://github.com/jasonliao122895" target="_blank">Github</a>
+              <a className="social-links" href="https://www.linkedin.com/in/jliao1228/" target="_blank">LinkedIn</a>
             </div>
             <div>
               { !this.props.loggedIn ? 

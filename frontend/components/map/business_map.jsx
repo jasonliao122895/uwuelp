@@ -1,5 +1,6 @@
 import React from 'react';
 import MarkerManager from '../../util/marker_manager';
+import { Redirect } from 'react-router-dom';
 
 export default class BusinessMap extends React.Component {
 
@@ -14,7 +15,6 @@ export default class BusinessMap extends React.Component {
   }
   
   componentDidMount() {
-      // debugger
       if (this.props.businesses && this.props.business === undefined ) {
         if (this.props.businesses.length >= 1) {
           let allLats = this.props.businesses.map((business) => (business.latitude))
@@ -25,6 +25,7 @@ export default class BusinessMap extends React.Component {
           allLngs = allLngs.reduce((acc, el) => acc + el)
           const avgLng = allLngs / this.props.businesses.length;
           const centerLocation = { lat: avgLat, lng: avgLng }
+
           this.initMap(centerLocation, 11);
           this.MarkerManager = new MarkerManager(this.map);
           this.MarkerManager.updateMarkers(this.props.businesses);
@@ -115,7 +116,6 @@ export default class BusinessMap extends React.Component {
           this.map.setOptions( { center: centerLocation, zoom: 11 } )
         }
       } else {
-        // debugger;
         let location;
         if (this.props.location.toLowerCase() === 'san francisco') {
           location = { lat: 37.76149, lng: -122.4139 }
@@ -129,12 +129,18 @@ export default class BusinessMap extends React.Component {
       if (!this.props.business) {
         this.MarkerManager.updateMarkers(this.props.businesses);
       }
-      // debugger
     }
-
-   
-
       
+  }
+
+  handleRedirect() {
+    if (this.MarkerManager) {
+      Object.values(this.MarkerManager.markers).forEach(marker => {
+        marker.addListener('click', () => {
+          return <Redirect to={`/businesses/${marker.businessId}`} />
+        })
+      })
+    }
   }
   
 
@@ -145,9 +151,11 @@ export default class BusinessMap extends React.Component {
   }
 
   render() {
-    // debugger
+    
+
     return (
       <div>
+        {this.handleRedirect()}
         {/* {!this.props.business ? 
         <div>
           <button onClick={this.handleFilter} id="filt-but" className="show">Filter</button>
