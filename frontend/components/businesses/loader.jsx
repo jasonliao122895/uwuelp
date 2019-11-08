@@ -15,7 +15,7 @@ export default class Loader extends React.Component {
   render() {
     return (
       <div className="loader">
-        <img src="https://i.imgur.com/HAsqhU3.gif" alt=""/>
+        <img src={window.loader} alt=""/>
       </div>
     
     )

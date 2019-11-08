@@ -53,13 +53,13 @@ class Search extends React.Component {
         search.classList.remove('hide')
       })
     }
-    this.props.clearBusinesses();
+    // this.props.clearBusinesses();
     this.props.getBusinessesRes(this.state.find)
   }
 
   handleRestaurants(e) {
     e.preventDefault();
-    this.props.clearBusinesses();
+    // this.props.clearBusinesses();
     this.props.filter('near', 'San Francisco')
       .then(() => {
         this.props.filter('find', 'Restaurants')
@@ -71,7 +71,7 @@ class Search extends React.Component {
 
   handleBoba(e) {
     e.preventDefault()
-    this.props.clearBusinesses();
+    // this.props.clearBusinesses();
     this.props.filter('near', 'San Francisco')
       .then(() => {
         this.props.filter('find', 'Boba Shops')
@@ -83,7 +83,7 @@ class Search extends React.Component {
 
   handleBarber(e) {
     e.preventDefault()
-    this.props.clearBusinesses();
+    // this.props.clearBusinesses();
     this.props.filter('near', 'San Diego')
       .then(() => {
         this.props.filter('find', 'Barber Shops')
@@ -95,7 +95,7 @@ class Search extends React.Component {
 
   handleClothing(e) {
     e.preventDefault()
-    this.props.clearBusinesses();
+    // this.props.clearBusinesses();
     this.props.filter('near', 'San Diego')
       .then(() => {
         this.props.filter('find', 'Clothing Stores')
@@ -110,7 +110,7 @@ class Search extends React.Component {
     
     let near = this.state.near.split(' ').join('-');
     let find = this.state.find.split(' ').join('-');
-    this.props.clearBusinesses();
+    // this.props.clearBusinesses();
     this.props.filter('near', this.state.near)
       .then(() => {
         this.props.filter('find', this.state.find)
