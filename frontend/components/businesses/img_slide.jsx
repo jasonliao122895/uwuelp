@@ -16,7 +16,7 @@ export default class ImageSlide extends React.Component {
     prevBut.classList.toggle('hide')
     const carouselSlide = document.querySelector('.carousel-slide');
     carouselSlide.style.transition = 'transform 0.5s ease-in-out'
-    carouselSlide.style.transform = 'translateX(-102%)'
+    carouselSlide.style.transform = 'translateX(-100%)'
   }
 
   handlePrev(e) {

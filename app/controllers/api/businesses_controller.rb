@@ -25,7 +25,9 @@ class Api::BusinessesController < ApplicationController
       @businesses = Businesse.in_location(near) 
       @businesses = @businesses.select { |business| bound_filter.include?(business) } if !bound_filter.nil?
     elsif find && near == ""
-      @businesses = Businesse.find_business(find) 
+      @businesses = Businesse.in_location("san francisco")
+      @finds = Businesse.find_business(find) 
+      @businesses = @businesses.select { |business| @finds.include?(business) }
       @businesses = @businesses.select { |business| bound_filter.include?(business) } if !bound_filter.nil?
     end
      
@@ -47,6 +49,14 @@ class Api::BusinessesController < ApplicationController
       @businesses = []
       render :index
     end
+  end
+
+  def gather
+    city = params[:city]
+    @businesses = Businesse.where('lower(city) LIKE ?', "#{city.downcase}")
+    @businesses = @businesses.sample(3);
+    
+    render :index
   end
 
 end

@@ -1,0 +1,93 @@
+.homepage-cities {
+  padding-top: 36px;
+}
+
+.homepage-cities h2 {
+  text-align: center;
+  font-size: 21px;
+  margin-bottom: 6px;
+  color: #D2AA0F;
+}
+
+.homepage-cities-tabs {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 4px;
+}
+
+.homepage-cities-tabs span {
+  margin-right: 10px;
+  color: #666666;
+  font-size: 14px;
+}
+
+
+.homepage-cities-tabs a {
+  padding: 12px;
+  padding-bottom: 0px;
+  text-decoration: none;
+}
+
+.homepage-cities-tabs a:hover {
+  border-bottom: 3px solid #D2AA0F;
+}
+
+.homepage-city-businesses {
+  padding-top: 43px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.homepage-city-businesses h3 {
+  text-align: center;
+  font-size: 16px;
+  color: #D2AA0F;
+  margin-bottom: 12px;
+}
+
+.homepage-businesses-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.homepage-businesses-item {
+  width: 33.33333%;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  height: 325px;
+}
+
+.homepage-businesses-item img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.homepage-businesses-item a {
+  height: 60%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.homepage-business-info {
+  padding: 12px;
+  border-right: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.homepage-business-info p {
+  font-size: 14px;
+  margin-top: 6px;
+}
+

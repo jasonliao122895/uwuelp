@@ -317,7 +317,7 @@ export default class SessionForm extends React.Component {
           </div>
           <div className="session-image">
             <div className="session-image-div">
-              <img src="https://www.merchcapital.com/wp-content/uploads/2017/03/one-punch-man-saitama-head-muismat-300x300.png" alt=""/>
+              <img src={window.saitama} alt=""/>
             </div>
           </div>
         </div>

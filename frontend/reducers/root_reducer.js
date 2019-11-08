@@ -5,6 +5,7 @@ import { sessionReducer } from './session_reducer';
 import { filterReducer } from './filters_reducer';
 import { uiReducer } from './ui_reducer';
 import { searchBusinessesReducer } from './search_results_reducer';
+import {homepageBusinessesReducer} from './homepage_businesses_reducer';
 
 export const rootReducer = combineReducers({
   entities: entitiesReducer,
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
   session: sessionReducer,
   filters: filterReducer,
   ui: uiReducer,
-  searchRes: searchBusinessesReducer
+  searchRes: searchBusinessesReducer,
+  homepageBus: homepageBusinessesReducer
 })

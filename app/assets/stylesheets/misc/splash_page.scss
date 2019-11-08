@@ -9,14 +9,13 @@
   top: 0;
   z-index: 9999;
   width: 100%;
-  height: 60%;
   background-size: cover;
  }
 
  .home-content header {
    display: flex;
    justify-content: space-around;
-   height: 80px;
+   padding: 20px;
    align-items: center;
  }
 
@@ -87,7 +86,6 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   height: 200px;
    width: 100%;
    margin-top: 100px;
  }
@@ -105,21 +103,11 @@
   font-size: 20px;
  }
 
- 
-
-//  .background-image {
-//   background-image: url(https://images5.alphacoders.com/900/thumb-1920-900563.png);
-//   width: 100%;
-//   height: 80%;
-//   background-size: cover;
-//   position: absolute;
-//   top: 0;
-//   opacity: 0.85;
-//  }
 
  .splash-search {
    margin-top: 20px;
    height: 100px;
+   min-width: 625px;
    display: flex;
    justify-content: center;
  }
@@ -162,7 +150,87 @@
   -1px 1px 0 black;
 }
 
-main {
-  margin: 0px;
+.phone-welcome-msg {
+  display: none;
 }
+
+
+@media only screen 
+  and (min-device-width: 375px)
+  and (max-device-width: 667px) {
+ 
+  header a {
+    border-color: #FFF !important;
+    margin-top: 20px !important;
+    font-size: 50px !important;
+    text-shadow: none !important;
+    color: white !important;
+    border: none !important;
+  }
+
+  .splash-logo {
+    margin-top: 30px;
+  }
+
+  .splash-logo h3 {
+    font-size: 40px;
+  }
+
+  .splash-logo h1 {
+    font-size: 90px;
+  }
+
+
+  .splash-logo a {
+    font-size: 40px ;
+    width: 50% ;
+    text-align: center;
+  }
+
+  .search-bar-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  #nav-find, #nav-near {
+    width: 80%;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  #nav-find input, #nav-near input {
+    height: 100%;
+    width: 80%;
+    font-size: 30px;
+  }
+
+  .nav-search-but {
+    width: 81%;
+    height: 60px;
+    font-size: 30px;
+  }
+
+  .category-links {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .search-result-container {
+    display: none;
+  }
+
+  .welcome-msg {
+    display: none;
+  }
+  
+  .phone-welcome-msg {
+    display: inline;
+  }
+}
+
+
+
  

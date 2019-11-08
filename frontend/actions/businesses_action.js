@@ -1,5 +1,6 @@
 export const RECEIVE_BUSINESSES = 'RECEIVE_BUSINESSES';
 export const RECEIVE_BUSINESS = 'RECEIVE_BUSINESS';
+export const CLEAR_BUSINESSES = 'CLEAR_BUSINESSES'
 export const LOADING_BUSINESSES = 'LOADING_BUSINESSES';
 export const LOADING_BUSINESS = 'LOADING_BUSINESS';
 import * as BusinessApiUtil from '../util/businesses_api_util';
@@ -12,6 +13,10 @@ const receiveBusinesses = (businesses) => ({
 const receiveBusiness = (business) => ({
   type: RECEIVE_BUSINESS,
   business
+})
+
+export const clearBusinesses = () => ({
+  type: CLEAR_BUSINESSES
 })
 
 export const loadBusinesses = () => ({

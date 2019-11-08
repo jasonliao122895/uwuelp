@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :friendships, only: [:create]
     resources :reactions, only: [:show, :create, :destroy, :update]
     get '/businesses/search/:query', to: 'businesses#search'
+    get '/businesses/get/:city', to: 'businesses#gather'
     get '/friendships/:inverse_friend_id', to: 'friendships#remove'
   end
 end

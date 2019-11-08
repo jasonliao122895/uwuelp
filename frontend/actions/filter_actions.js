@@ -7,11 +7,6 @@ export const updateFilter = (filter, value) => ({
   value
 })
 
-// export const filter = (filter, value) => (dispatch, getState) => {
-//   dispatch(updatefilter(filter,value))
-//   return fetchBusinesses(getState().filters)(dispatch)
-// }
-
 
 export const filter = (filter, value) => {
   return (dispatch, getState) => {

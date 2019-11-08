@@ -26,6 +26,8 @@ export default class BusinessIndex extends React.Component {
   }
   
   parseQuery(queryString) {
+    if (queryString === "") return null;
+
     let primaryRes = queryString.split('=').slice(1);
     let find = primaryRes[0];
     let near = primaryRes[1];
@@ -36,15 +38,18 @@ export default class BusinessIndex extends React.Component {
 
   componentDidMount() {
     
-    if (this.props.location.search !== "") {
+    if (this.props.location.search) {
+      
       let queryArr = this.parseQuery(this.props.history.location.search)
+
       let find = queryArr[0];
       let near = queryArr[1];
       this.props.filter('near', near)
         .then(() => {
           this.props.filter('find', find)
         })
-    } else if (this.props.location.search === ""){
+    } else if (!this.props.location.search){
+      
       this.setState({
         redirect: true
       })
@@ -187,9 +192,10 @@ export default class BusinessIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-
+    
     if (this.props.location.search !== prevProps.location.search) {
-      if (this.props.location.search !== "") {
+      if (this.props.location.search) {
+        debugger
         let queryArr = this.parseQuery(this.props.history.location.search)
         let find = queryArr[0];
         let near = queryArr[1];
@@ -197,7 +203,8 @@ export default class BusinessIndex extends React.Component {
           .then(() => {
             this.props.filter('find', find)
           })
-      } else if (this.props.location.search === "") {
+      } else if (!this.props.location.search) {
+        debugger
         this.setState({
           redirect: true
         })
@@ -205,30 +212,36 @@ export default class BusinessIndex extends React.Component {
     }
 
     if (this.props.location !== prevProps.location) {
-      const button1 = document.getElementById('price1')
-      const button2 = document.getElementById('price2')
-      const button3 = document.getElementById('price3')
-      const button4 = document.getElementById('price4')
-      if (button1 && button2 && button3 && button4) {
-        button1.style.color = "";
-        button2.style.color = "";
-        button3.style.color = "";
-        button4.style.color = "";
-
-      }
-      this.setState({
-        filtered: [],
-        price1: "inactive",
-        price2: "inactive",
-        price3: "inactive",
-        price4: "inactive",
-      })
-      
+      this.resetFilters();
     }
+  }
+
+  resetFilters() {
+    const button1 = document.getElementById('price1')
+    const button2 = document.getElementById('price2')
+    const button3 = document.getElementById('price3')
+    const button4 = document.getElementById('price4')
+    if (button1 && button2 && button3 && button4) {
+      button1.style.color = "";
+      button2.style.color = "";
+      button3.style.color = "";
+      button4.style.color = "";
+
+    }
+    this.setState({
+      filtered: [],
+      price1: "inactive",
+      price2: "inactive",
+      price3: "inactive",
+      price4: "inactive",
+    })
   }
 
 
   render() {
+
+    this.handleRedirect();
+
 
     if (this.props.loading) return (<div><Loader /></div>)
     let queryArr = this.parseQuery(this.props.history.location.search)
@@ -264,7 +277,6 @@ export default class BusinessIndex extends React.Component {
     if (this.props.businesses === undefined || this.props.businesses.length === 0) {
       return (
         <div>
-          {this.handleRedirect()}
           <NavBar/>
           <NavLinkContainer />
           

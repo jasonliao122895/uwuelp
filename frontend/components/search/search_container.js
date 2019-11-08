@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Search from './search';
 import { filter } from '../../actions/filter_actions';
+import { clearBusinesses } from '../../actions/businesses_action';
 import { getBusinessesRes } from '../../actions/search_business_action';
 
 const mapStateToProps = (state) => {
@@ -15,7 +16,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     filter: (filt, value) => dispatch(filter(filt, value)),
-    getBusinessesRes: (query) => dispatch(getBusinessesRes(query))
+    getBusinessesRes: (query) => dispatch(getBusinessesRes(query)),
+    clearBusinesses: () => dispatch(clearBusinesses())
   }
 }
 

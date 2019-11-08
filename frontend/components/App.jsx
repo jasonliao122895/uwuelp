@@ -10,23 +10,24 @@ import CreateReviewFormContainer from '../components/reviews/review_form/create_
 import EditReviewFormContainer from '../components/reviews/review_form/edit_review_form';
 import NotFound from '../components/homepage/not_found';
 import UserProfilePageContainer from '../components/user_profile/user_profile_page_container';
+import Footer from './footer/footer';
 
 const App = () => (
   <div>
     
     <Switch>
 
-      <Route exact path="/" component={HomepageContainer} />
       <Route exact path="/businesses/:businessId/reviews" component={CreateReviewFormContainer} />
       <Route exact path="/businesses/:businessId/reviews/:id/edit" component={EditReviewFormContainer} />
       <Route exact path="/businesses/:businessId" component={BusinessShowContainer} />
       <Route exact path="/businesses" component={BusinessIndexContainer} />
       <Route exact path="/users/:id" component={UserProfilePageContainer}/>
+      <Route exact path="/" component={HomepageContainer} />
       <AuthRoute path="/signup" component={SignupContainer} />
       <AuthRoute path="/login" component={LoginContainer} />
       <Route path="/" component={NotFound} />
-
     </Switch>
+    <Footer />
   </div>
 );
 

@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import UserProfile from '../nav_bar/user_profile_container';
 import SearchContainer from '../search/search_container';
-
+import HomepageCities from './homepage_cities';
+import HomepageCityBusinessesContainer from './homepage_city_businesses_container';
 
 export default class Homepage extends React.Component {
 
@@ -29,8 +30,6 @@ export default class Homepage extends React.Component {
           <div className="bk-container">
             <div className="bk-slider">
               <img className="bk-slides" src={bkPics[rand]} alt=""/>
-              {/* <img className="bk-slides" src={window.bk2} alt=""/>
-              <img className="bk-slides" src={window.bk3} alt=""/> */}
             </div>
           </div>
         </div>
@@ -52,6 +51,12 @@ export default class Homepage extends React.Component {
                   <UserProfile />
                 </div>
               }
+              {this.props.loggedIn ? 
+              <div className="phone-welcome-msg">
+                <Link to={`/users/${this.props.user.id}`}>Profile</Link>
+                <a onClick={this.handleLogOut.bind(this)}>Log Out</a>
+              </div> : ""
+              }
             </div>
           </header>
 
@@ -69,9 +74,10 @@ export default class Homepage extends React.Component {
             </div>
           </div>
           
-          
-
         </div>
+
+        <HomepageCities />  
+        <HomepageCityBusinessesContainer />
         
       </div>
     )

@@ -2,7 +2,6 @@
   width: 25%;
   height: 300px;
   object-fit: cover;
-  margin-right: 5px;
 }
 
 
@@ -36,13 +35,22 @@
   background-color: transparent;
   font-size: 30px;
   color: rgb(37, 36, 48);
+}
 
+#prev:hover, #next:hover {
+  color: rgb(92, 84, 84);
 }
 
 
 #next {
   right: 0px;
   top: 200px;
+}
+
+@media only screen and (max-width: 900px) {
+  #next {
+    display: none;
+  }
 }
 
 #prev {
