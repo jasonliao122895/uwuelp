@@ -37,24 +37,7 @@ export default class BusinessIndex extends React.Component {
   }
 
   componentDidMount() {
-    
-    if (this.props.location.search) {
-      
-      let queryArr = this.parseQuery(this.props.history.location.search)
-
-      let find = queryArr[0];
-      let near = queryArr[1];
-      this.props.filter('near', near)
-        .then(() => {
-          this.props.filter('find', find)
-        })
-    } else if (!this.props.location.search){
-      
-      this.setState({
-        redirect: true
-      })
-    }
-    
+    this.fetchFromQuery()
   }
 
   handleRedirect() {
@@ -194,25 +177,29 @@ export default class BusinessIndex extends React.Component {
   componentDidUpdate(prevProps) {
     
     if (this.props.location.search !== prevProps.location.search) {
-      if (this.props.location.search) {
-        debugger
-        let queryArr = this.parseQuery(this.props.history.location.search)
-        let find = queryArr[0];
-        let near = queryArr[1];
-        this.props.filter('near', near)
-          .then(() => {
-            this.props.filter('find', find)
-          })
-      } else if (!this.props.location.search) {
-        debugger
-        this.setState({
-          redirect: true
-        })
-      }
+      this.fetchFromQuery();
     }
 
     if (this.props.location !== prevProps.location) {
       this.resetFilters();
+    }
+  }
+
+  fetchFromQuery() {
+    if (this.props.location.search) {
+
+      let queryArr = this.parseQuery(this.props.history.location.search)
+      let find = queryArr[0];
+      let near = queryArr[1];
+      this.props.filter('near', near)
+        .then(() => {
+          this.props.filter('find', find)
+        })
+    } else if (!this.props.location.search) {
+
+      this.setState({
+        redirect: true
+      })
     }
   }
 
@@ -316,7 +303,6 @@ export default class BusinessIndex extends React.Component {
       )
     }
 
-    // debugger
 
     return (
       <div>

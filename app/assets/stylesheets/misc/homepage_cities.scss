@@ -84,10 +84,41 @@
   border-bottom: 1px solid #e6e6e6;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+  margin-bottom: 43px;
+}
+
+.homepage-business-info a {
+  text-decoration: none;
+}
+
+.homepage-business-info a:hover {
+  text-decoration: underline;
 }
 
 .homepage-business-info p {
   font-size: 14px;
   margin-top: 6px;
+}
+
+.homepage-business-info p:first-of-type {
+  margin-top: 0px;
+}
+ 
+.homepage-rating img {
+  padding-top: 2px;
+  height: 30px;
+  width: 100px;
+  margin-left: -4px;
+}
+
+.homepage-rating {
+  display: flex;
+  align-items: center;
+}
+
+.homepage-rating span {
+  font-size: 14px;
+  color: #666666;
+  margin-left: 5px;
 }
 
