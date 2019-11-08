@@ -19,8 +19,8 @@ export default () => {
         <div className="footer-content-item">
           <h3>Other Projects</h3>
           <ul>
-            <li><a href="">Highpaw</a></li>
-            <li><a href="">Mario Rush</a></li>
+            <li><a href="https://highpaw.herokuapp.com/#/" target="_blank">Highpaw</a></li>
+            <li><a href="https://jasonliao122895.github.io/Mario-Rush/" target="_blank">Mario Rush</a></li>
           </ul>
         </div>
 
