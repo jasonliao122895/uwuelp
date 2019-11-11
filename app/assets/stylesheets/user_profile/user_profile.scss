@@ -56,6 +56,10 @@
   width: 40%;
 }
 
+.current-user-modification-links p:hover {
+  text-decoration: underline;
+}
+
 .current-user-modification-links p {
   font-size: 14px;
   margin-bottom: 8px;

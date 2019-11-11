@@ -1,0 +1,57 @@
+.recent-activity-item p {
+  padding: 0;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.recent-activity-item a {
+  text-decoration: none;
+}
+
+.recent-activity-item a:hover {
+  text-decoration: underline;
+}
+
+.recent-activity-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+}
+
+.recent-activity-info-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.recent-activity-info {
+  margin-left: 7px;
+  height: 74px;
+}
+
+.recent-activity-item {
+  padding-top: 18px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #e6e6e6;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.recent-activity-item > p:last-of-type {
+  margin-bottom: 12px;
+}
+
+.recent-activity-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.recent-activity-rating img {
+  width: 102px;
+  height: 26px;
+}
+
+.recent-activity-rating span {
+  font-size: 14px;
+  color: #666666;
+}

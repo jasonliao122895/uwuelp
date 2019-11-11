@@ -13,3 +13,10 @@ export const rejectFriendRequest = (id) => (
   })
 )
 
+export const cancelFriendRequest = (receiverId) => (
+  $.ajax({
+    url: `/api/friend_requests/${receiverId}`,
+    method: 'GET'
+  })
+)
+

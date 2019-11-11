@@ -8,3 +8,7 @@ export const sendFriendRequest = (friendRequest) => dispatch => (
 export const rejectFriendRequest = (id) => dispatch => (
   FriendRequestApiUtil.rejectFriendRequest(id)
 )
+
+export const cancelFriendRequest = (receiverId) => dispatch => (
+  FriendRequestApiUtil.cancelFriendRequest(receiverId)
+)

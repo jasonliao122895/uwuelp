@@ -17,6 +17,13 @@ class Api::FriendRequestsController < ApplicationController
     render :show
   end
 
+  def cancel
+    
+    @friend_request = FriendRequest.find_by(requester_id: current_user.id,
+    receiver_id: params[:receiver_id].to_i)
+    @friend_request.destroy
+  end
+
 
   private
   def friend_request_params

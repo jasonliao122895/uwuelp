@@ -1,6 +1,6 @@
 import React from 'react';
 import FriendRequestIndex from '../../friend_request/friend_requests_index';
-
+import RecentActivityContainer from './recent_activity_container';
 
 export default class ProfileOverview extends React.Component {
 
@@ -11,6 +11,17 @@ export default class ProfileOverview extends React.Component {
     createdDate = createdDate.toDateString().split(' ')
     let month = createdDate[1];
     let year = createdDate[3];
+
+    let reviews = this.props.user.reviews;
+    if (!reviews) return null;
+    reviews = reviews.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    reviews = reviews.slice(0, 4);
+
+    let activities = reviews.map(review => {
+      return <RecentActivityContainer key={review.id} review={review}/>
+    })
+
+
     return (
       <div className="profile-overview-container">
         <div className="profile-overview-main">
@@ -23,8 +34,8 @@ export default class ProfileOverview extends React.Component {
             }
           </div>
           <div className="profile-overview-activity">
-            <h2>Recent Activity</h2>
-            <p>We don't have any recent activity for you right now.</p>
+            <h2>Most Recent Activity</h2>
+            {reviews.length === 0 ? <p>We don't have any recent activity for you right now.</p> : activities}
           </div>
         </div>
         <div className="profile-overview-side">

@@ -8,6 +8,7 @@ import {ProfileFriends} from '../user_profile/profile_main/profile_friends';
 import {ProfileReviews} from '../user_profile/profile_main/profile_reviews';
 import FriendRequestContainer from '../friend_request/send_request_container';
 import RemoveFriendContainer from '../friend_request/remove_friend_container';
+import CancelFriendRequestContainer from '../friend_request/cancel_friend_request_container'
 
 export default class UserProfilePage extends React.Component {
 
@@ -143,6 +144,7 @@ export default class UserProfilePage extends React.Component {
                   </div>
                     {this.props.currentUserId && this.props.currentUserId !== parseInt(this.props.match.params.id) && !friendIds.includes(this.props.currentUserId) && !friendRequesters.includes(this.props.currentUserId) ? <FriendRequestContainer fetchUser={this.props.fetchUser} /> : ""}
                     {this.props.currentUserId !== parseInt(this.props.match.params.id) && friendIds.includes(this.props.currentUserId) ? <RemoveFriendContainer userId={this.props.user.id} fetchUser={this.props.fetchUser} /> : ""}
+                    {friendRequesters.includes(this.props.currentUserId) ? <CancelFriendRequestContainer fetchUser={this.props.fetchUser}/> : ""}
                 </div>
 
                 {

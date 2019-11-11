@@ -5,7 +5,13 @@ class HomepageCities extends React.Component {
   render() {
 
     let city = 'San Francisco'
-
+    let search = this.props.location.search.split('=')[1]
+    if (search === "sd") {
+      city = 'San Diego';
+    } else if (search === "sf") {
+      city = 'San Francisco'
+    }
+    
     return (
       <div className="homepage-cities" >
         <h2>{`Find the best businesses in ${city}`} </h2>

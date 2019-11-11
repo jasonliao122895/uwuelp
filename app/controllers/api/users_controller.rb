@@ -14,7 +14,6 @@ class Api::UsersController < ApplicationController
     
     if @user.save      
       login(@user)
-      # render json: @user
       render '/api/users/show'
     else
       render json: @user.errors.full_messages, status: 422
@@ -30,6 +29,15 @@ class Api::UsersController < ApplicationController
     else
       render json: @user.errors.full_messages, status: 422
     end
+  end
+
+  def find_friends
+    user_friend_ids = current_user.friends.select { |friend| friend.id }
+    user_friend_ids << current_user.id
+    @users = User.all
+    @users = @users.select { |user| !user_friend_ids.include?(user.id) }
+
+    render 'api/users/index'
   end
 
   private

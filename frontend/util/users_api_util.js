@@ -7,5 +7,12 @@ export const fetchUser = (id) => (
   })
 )
 
+export const findFriends = () => (
+  $.ajax({
+    url: '/api/users/find',
+    method: 'GET'
+  })
+)
+
 
 

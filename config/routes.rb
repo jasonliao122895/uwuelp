@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     get '/businesses/search/:query', to: 'businesses#search'
     get '/businesses/get/:city', to: 'businesses#gather'
     get '/friendships/:inverse_friend_id', to: 'friendships#remove'
+    get '/friend_requests/:receiver_id', to: 'friend_requests#cancel'
+    get '/users/find' to: 'users#find_friends'
   end
 end
