@@ -13,5 +13,7 @@
     json.state user.state
     json.zipcode user.zipcode
     json.numReviews user.reviews.length
+    json.friendRequests user.received_friend_requests
+    json.friends user.friends
   end
 end
