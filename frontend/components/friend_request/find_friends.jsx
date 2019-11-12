@@ -21,12 +21,19 @@ export default class FindFriends extends React.Component {
     })
   }
 
+  handleClose(e) {
+    e.preventDefault();
+    const body = document.querySelector('body');
+    body.classList.remove('modal-open')
+    this.props.closeModal();
+  }
+
   render() {
     
     return (
       <div className="find-friends-container" >
         <h2>Find Friends</h2>
-        <button className="modal-sess-close-but" onClick={this.props.closeModal.bind(this)}><img src={window.closeBut} alt="" /></button>
+        <button className="modal-sess-close-but" onClick={this.handleClose.bind(this)}><img src={window.closeBut} alt="" /></button>
         {this.renderFriendItems()}
       </div>
     )

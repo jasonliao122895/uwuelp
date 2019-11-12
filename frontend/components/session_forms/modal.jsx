@@ -27,9 +27,9 @@ class Modal extends React.Component  {
 
   handleClose(e) {
     e.preventDefault();
-    this.props.closeModal();
     const body = document.querySelector('body');
     body.classList.remove('modal-open')
+    this.props.closeModal();
   }
 
 

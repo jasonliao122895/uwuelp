@@ -40,13 +40,20 @@ export default class UserProfileForm extends React.Component {
     })
   }
 
+  handleClose(e) {
+    e.preventDefault();
+    const body = document.querySelector('body');
+    body.classList.remove('modal-open')
+    this.props.closeModal();
+  }
+
   render() {
      return (
        <div className="profile-update-form-container">
 
         <form className="profile-update-form">
           <h1>Update Profile</h1>
-          <button className="modal-sess-close-but" onClick={this.props.closeModal.bind(this)}><img src={window.closeBut} alt="" /></button>
+          <button className="modal-sess-close-but" onClick={this.handleClose.bind(this)}><img src={window.closeBut} alt="" /></button>
 
           <br/><br/>
           <label htmlFor="edit-first-name"><strong>First Name</strong></label>

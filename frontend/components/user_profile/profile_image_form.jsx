@@ -114,6 +114,13 @@ class ProfileImageForm extends React.Component {
     })
   }
 
+  handleClose(e) {
+    e.preventDefault();
+    const body = document.querySelector('body');
+    body.classList.remove('modal-open')
+    this.props.closeModal();
+  }
+
 
   render() {
     const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null 
@@ -121,7 +128,7 @@ class ProfileImageForm extends React.Component {
     return (
       <div className="profile-image-form">
         <h1>Upload a Profile Photo</h1>
-        <button className="modal-sess-close-but" onClick={this.props.closeModal.bind(this)}><img src={window.closeBut} alt="" /></button>
+        <button className="modal-sess-close-but" onClick={this.handleClose.bind(this)}><img src={window.closeBut} alt="" /></button>
 
         {preview}
         <form className="box">

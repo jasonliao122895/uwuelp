@@ -2,13 +2,10 @@ import { connect } from 'react-redux';
 import { fetchBusiness } from '../../../actions/businesses_action';
 import RecentActivity from './recent_activity';
 
-const mapStateToProps = state => {
-  let business;
-  if (Object.values(state.entities.businesses)) {
-    business = Object.values(state.entities.businesses)
-  }
+const mapStateToProps = (state, ownProps) => {
+  
   return {
-    business
+    business: state.entities.businesses[ownProps.review.business_id]
   }
 }
 

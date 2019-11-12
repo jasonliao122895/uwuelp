@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-export default class RecentActivity extends React.Component {
+class RecentActivity extends React.Component {
 
   constructor(props) {
     super(props)
@@ -15,8 +15,7 @@ export default class RecentActivity extends React.Component {
 
   render() {
     
-    if (this.props.business && this.props.business.length < 1) return null;
-    let business = this.props.business[0];
+    if (!this.props.business) return null;
     let {review} = this.props
     let date = new Date(this.props.review.created_at).toLocaleDateString()
     let reviewUrl;
@@ -26,21 +25,22 @@ export default class RecentActivity extends React.Component {
     if (review.rating === 4) reviewUrl = window.four
     if (review.rating === 5) reviewUrl = window.five
     
+    
     return (
       <div className="recent-activity-item">
 
         <div className="recent-activity-info-container">
-          <Link to={`/businesses/${business.id}`}>
-            <img src={business.profPic} alt=""/>
+          <Link to={`/businesses/${this.props.business.id}`}>
+            <img src={this.props.business.profPic} alt=""/>
           </Link>
 
           <div className="recent-activity-info">
-              <Link to={`/businesses/${business.id}`}>
-              {business.name}
+              <Link to={`/businesses/${this.props.business.id}`}>
+              {this.props.business.name}
             </Link>
-            <p>{business.category}{business.subCategory ? `, ${business.subCategory}` : "" }</p>
-            <p>{business.address}</p>
-            <p>{`${business.city}, ${business.state} ${business.zipcode}`}</p>
+            <p>{this.props.business.category}{this.props.business.subCategory ? `, ${this.props.business.subCategory}` : "" }</p>
+            <p>{this.props.business.address}</p>
+            <p>{`${this.props.business.city}, ${this.props.business.state} ${this.props.business.zipcode}`}</p>
           </div>
         </div>
 
@@ -54,3 +54,6 @@ export default class RecentActivity extends React.Component {
     )
   }
 }
+
+export default withRouter(RecentActivity);
+
