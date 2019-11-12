@@ -142,9 +142,9 @@ export default class UserProfilePage extends React.Component {
                       {friendIds && friendIds.length < 2 ? "Friend" : "Friends"}
                     </p>
                   </div>
-                    {this.props.currentUserId && this.props.currentUserId !== parseInt(this.props.match.params.id) && !friendIds.includes(this.props.currentUserId) && !friendRequesters.includes(this.props.currentUserId) ? <FriendRequestContainer fetchUser={this.props.fetchUser} /> : ""}
+                    {this.props.currentUserId && this.props.currentUserId !== parseInt(this.props.match.params.id) && !friendIds.includes(this.props.currentUserId) && friendRequesters && !friendRequesters.includes(this.props.currentUserId) ? <FriendRequestContainer fetchUser={this.props.fetchUser} /> : ""}
                     {this.props.currentUserId !== parseInt(this.props.match.params.id) && friendIds.includes(this.props.currentUserId) ? <RemoveFriendContainer userId={this.props.user.id} fetchUser={this.props.fetchUser} /> : ""}
-                    {friendRequesters.includes(this.props.currentUserId) ? <CancelFriendRequestContainer fetchUser={this.props.fetchUser}/> : ""}
+                    {friendRequesters && friendRequesters.includes(this.props.currentUserId) ? <CancelFriendRequestContainer fetchUser={this.props.fetchUser}/> : ""}
                 </div>
 
                 {
@@ -153,7 +153,7 @@ export default class UserProfilePage extends React.Component {
                     
                   <p onClick={this.handleModal.bind(this)} >Add Profile Photo</p>
                   <p onClick={this.handleModal.bind(this)}>Update Your Profile</p>
-                    <p>Find Friends</p>
+                  <p onClick={this.handleModal.bind(this)}>Find Friends</p>
                   </div> : 
                   <div className="not-current-user-modification-links">
 

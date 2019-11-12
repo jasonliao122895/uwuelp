@@ -21,7 +21,6 @@ export default class ReactionUpdate extends React.Component {
     let usefulBol = this.props.reaction.useful;
     let funnyBol = this.props.reaction.funny;
     let coolBol = this.props.reaction.cool;
-    // debugger
     let useful = document.getElementById(`useful${this.props.reaction.id}`)
     let funny = document.getElementById(`funny${this.props.reaction.id}`)
     let cool = document.getElementById(`cool${this.props.reaction.id}`)
@@ -32,12 +31,7 @@ export default class ReactionUpdate extends React.Component {
 
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    // debugger
-    // if (this.state !== prevState || this.props === prevProps) {
-    //   this.props.fetchReviews(this.props.review.businessId)
-    // }
-  }
+
 
   handleUseful(e) {
     e.preventDefault();

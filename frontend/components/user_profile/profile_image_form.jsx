@@ -121,6 +121,8 @@ class ProfileImageForm extends React.Component {
     return (
       <div className="profile-image-form">
         <h1>Upload a Profile Photo</h1>
+        <button className="modal-sess-close-but" onClick={this.props.closeModal.bind(this)}><img src={window.closeBut} alt="" /></button>
+
         {preview}
         <form className="box">
           <div className="box-input">

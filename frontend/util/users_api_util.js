@@ -7,9 +7,9 @@ export const fetchUser = (id) => (
   })
 )
 
-export const findFriends = () => (
+export const findFriends = (blank) => (
   $.ajax({
-    url: '/api/users/find',
+    url: `/api/users/find/${blank}`,
     method: 'GET'
   })
 )

@@ -1,0 +1,50 @@
+.find-friends-container {
+  background-color: #FFF;
+  border: 1px solid #FFF;
+  border-radius: 4px;
+  padding: 10px;
+  max-height: 50%;
+  overflow: scroll;
+}
+
+.find-friends-container h2 {
+  color: #D2AA0F;
+}
+
+.find-friend-item img {
+  height: 60px;
+  width: 60px;
+  border-radius: 4px;
+}
+
+.find-friend-item {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.find-friend-item-info {
+  margin-left: 10px;
+}
+
+.find-friend-item-info p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.find-friend-item-info button {
+  text-decoration: none;
+  background-color: #D2AA0F;
+  border: 1px solid #D2AA0F;
+  font-size: 12px;
+  border-radius: 2px;
+  padding: 5px;
+  color: #FFF;
+}
+
+.find-friend-item-info a:hover {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}

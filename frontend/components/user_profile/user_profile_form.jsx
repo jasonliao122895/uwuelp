@@ -46,6 +46,8 @@ export default class UserProfileForm extends React.Component {
 
         <form className="profile-update-form">
           <h1>Update Profile</h1>
+          <button className="modal-sess-close-but" onClick={this.props.closeModal.bind(this)}><img src={window.closeBut} alt="" /></button>
+
           <br/><br/>
           <label htmlFor="edit-first-name"><strong>First Name</strong></label>
           <br/>

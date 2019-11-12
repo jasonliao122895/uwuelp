@@ -10,7 +10,6 @@ export const reactionReducer = (state = {}, action) => {
       newState[action.reaction.id] = action.reaction;
       return newState;
     case RECEIVE_REACTIONS:
-      // debugger
       return Object.assign(newState, action.reactions)
     default:
       return state;

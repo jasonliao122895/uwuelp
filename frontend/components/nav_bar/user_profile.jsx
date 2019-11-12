@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown, faStar, faMale, faFemale } from '@fortawesome/free-solid-svg-icons'
 
-export default class UserProfile extends React.Component {
+class UserProfile extends React.Component {
 
   componentDidMount() {
     let profileMenu = document.getElementById('profile-menu');
@@ -17,6 +17,14 @@ export default class UserProfile extends React.Component {
 
     if (this.props.currentUser && !this.props.currentUser.city) {
       this.props.fetchUser(this.props.currentUser.id);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      let profileMenu = document.getElementById('profile-menu');
+      profileMenu.classList.add('hide');
     }
   }
 
@@ -77,3 +85,5 @@ export default class UserProfile extends React.Component {
     )
   }
 }
+
+export default withRouter(UserProfile);

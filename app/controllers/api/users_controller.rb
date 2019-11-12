@@ -31,13 +31,12 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def find_friends
-    user_friend_ids = current_user.friends.select { |friend| friend.id }
-    user_friend_ids << current_user.id
+  def find
+    user_friend_ids = current_user.friends.map { |friend| friend.id }
     @users = User.all
     @users = @users.select { |user| !user_friend_ids.include?(user.id) }
-
-    render 'api/users/index'
+    
+    render '/api/users/index'
   end
 
   private

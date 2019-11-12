@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ModalSessionContainer from './modal_session_container';
 import ProfileImageForm from '../user_profile/profile_image_form';
 import UserProfileFormContainer from '../user_profile/user_profile_form_container';
+import FindFriendsContainer from '../friend_request/find_friends_container';
 
 
 class Modal extends React.Component  {
@@ -50,6 +51,9 @@ class Modal extends React.Component  {
         break;
       case 'Update Your Profile':
         component = <UserProfileFormContainer user={this.props.user} closeModal={this.props.closeModal} profile={this.props.profile}/>
+        break;
+      case 'Find Friends':
+        component = <FindFriendsContainer closeModal={this.props.closeModal} />
         break;
       default:
         return null;

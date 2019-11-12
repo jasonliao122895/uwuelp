@@ -4,7 +4,6 @@ import BusinessShow from './business_show';
 import { fetchUser } from '../../actions/users_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger;
   let numReviews = Object.keys(state.entities.reviews).length
   return {
     business: state.entities.businesses[ownProps.match.params.businessId],

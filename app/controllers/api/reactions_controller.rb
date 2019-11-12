@@ -1,7 +1,6 @@
 class Api::ReactionsController < ApplicationController
 
   def index
-    # debugger
     @reactions = Review.find_by(id: params[:review_id]).reactions
     render :index
   end
