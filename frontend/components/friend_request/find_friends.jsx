@@ -29,6 +29,8 @@ export default class FindFriends extends React.Component {
   }
 
   render() {
+
+    if (this.props.friends.length < 1) return null;
     
     return (
       <div className="find-friends-container" >
