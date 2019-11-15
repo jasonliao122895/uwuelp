@@ -40,6 +40,7 @@ export default class ModalSession extends React.Component {
 
   handleDemo(e) {
     e.preventDefault();
+    this.handleRemoveModalProps();
     this.setState({
       email: "",
       password: ""
@@ -58,6 +59,11 @@ export default class ModalSession extends React.Component {
     }, 1400)
   }
 
+  handleRemoveModalProps() {
+    const body = document.querySelector('body');
+    body.classList.remove('modal-open')
+  }
+
   handleInput(type) {
     return (e) => {
       this.setState({
@@ -68,6 +74,7 @@ export default class ModalSession extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.handleRemoveModalProps();
     this.props.signin(this.state)
       .then(() => {
         this.props.closeModal()
