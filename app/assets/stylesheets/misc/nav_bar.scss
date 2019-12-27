@@ -186,6 +186,7 @@
  .nav-search-but {
    background-color: rgb(210, 170, 15);
    height: 42px;
+   width: 62px;
    color: #FFF;
    font-size: 14px;
    border: none;
@@ -215,6 +216,8 @@
   background-color: rgb(37, 36,48);
   padding: 10px;
   border-radius: 3px;
+  border: 0.5px solid #FFF;
+  
 }
 
 #nav-sess:hover {
@@ -228,6 +231,7 @@
   font-weight: 700px;
   padding: 10px;
   border-radius: 3px;
+  border: 0.5px solid #FFF;
 }
 
 #logout-link {

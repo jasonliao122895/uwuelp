@@ -1,5 +1,7 @@
 # UwUelp
 
+![homepage](/app/assets/images/homepage.gif)
+
 UwUelp, a Yelp clone, is a web application that allows users to look up businesses, and see different information about those businesses, and as well as review written by the user or other users.
 
 [Live Demo](https://uwuelp.herokuapp.com "UwUelp Homepage")
@@ -22,8 +24,6 @@ UwUelp, a Yelp clone, is a web application that allows users to look up business
 ## Homepage
 
   Once a user logs in, they are redirected to the homepage where they can search up businesses by name, category, and location.
-
-![homepage](/app/assets/images/homepage.gif)
 
   I made a custom action that takes in a query from param, and then I used ActiveRecord SQL
   to return Businesses where the query matches the businesses name in lower case, so Users can't type however they like. I also sliced the results from index 0 to 4, so there can only be maximum five results. Then I passed the results as a props down to my SearchResult Item component where I listed the result with an img tag and a li tag.
@@ -118,11 +118,6 @@ const SearchResultItem = ({ result }) => (
 
   ![review demo](/app/assets/images/reviewdemo.gif)
 
-
-  ## Future Implementations
-  * User Profile
-  * Friends
-  * Live Chat
 
   
 
