@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-export default class FindFriends extends React.Component {
+
+class FindFriends extends React.Component {
 
   componentDidMount() {
     this.props.findFriends("")
@@ -14,12 +15,21 @@ export default class FindFriends extends React.Component {
           <img src={friend.profPic} alt=""/>
           <div className="find-friend-item-info">
             <p>{`${friend.firstName} ${friend.lastName}.`}</p>
-            <Link onClick={this.props.closeModal.bind(this)} to={`/users/${friend.id}`}><button>Visit Profile</button></Link>
+            <button onClick={this.handleVisit.bind(this, friend.id)}>Visit Profile</button>
           </div>
         </div>
       )
     })
   }
+
+  handleVisit(id) {
+    const body = document.querySelector('body');
+    body.classList.remove('modal-open')
+    this.props.closeModal();
+    this.props.history.push(`/users/${id}`)
+  }
+
+  
 
   handleClose(e) {
     e.preventDefault();
@@ -41,3 +51,5 @@ export default class FindFriends extends React.Component {
     )
   }
 }
+
+export default withRouter(FindFriends);

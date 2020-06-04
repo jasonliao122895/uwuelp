@@ -56,7 +56,3 @@ export const deleteReview = (review) => (dispatch) => (
     )
 )
 
-window.fetchReviews = fetchReviews;
-window.createReview = createReview;
-window.updateReview = updateReview;
-window.deleteReview = deleteReview;

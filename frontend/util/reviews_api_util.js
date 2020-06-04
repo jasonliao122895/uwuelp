@@ -33,4 +33,5 @@ export const deleteReview = (review) => (
   })
 )
 
+window.fetchReviews = fetchReviews;
 
